@@ -16,10 +16,14 @@ const OFFERS_URL = "mongodb+srv://mlislbest:e2maM0icBFO32HBu@clusterdemo.gzrv8dg
 
 
 mongoose.connect(OFFERS_URL)
-.then(() => console.log('Connected to MongoDB'))
-.then(() =>{
-    app.listen(5000);
-}).catch((err) => console.log(err));
+.then(() => console.log('Connected to Offers DB'))
+.catch((err) => console.log("Not connected to offers DB",err));
+
+
+// Start the server on port 5000
+app.listen(5000, () => {
+    console.log('Server is running on port 5000');
+  });
 
 
 
