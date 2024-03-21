@@ -12,12 +12,16 @@ app.use(express.json());
 app.use("/offer", offerRouter);
 
 
+
+// db urls
 const OFFERS_URL = "mongodb+srv://mlislbest:e2maM0icBFO32HBu@clusterdemo.gzrv8dg.mongodb.net/"
 
 
+//db connection
 mongoose.connect(OFFERS_URL)
 .then(() => console.log('Connected to Offers DB'))
 .catch((err) => console.log("Not connected to offers DB",err));
+
 
 
 // Start the server on port 5000
