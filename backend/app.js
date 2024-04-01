@@ -3,16 +3,19 @@ const mongoose = require('mongoose');
 
 
 const offerRouter = require("./routes/offerRoutes");
-
+const router = require("./routes/TimetableRoutes");
 
 const app  = express();
 
 //middleware
 app.use(express.json());
 app.use("/offer", offerRouter);
+app.use("/timetables",router);
 
 
 const OFFERS_URL = "mongodb+srv://mlislbest:e2maM0icBFO32HBu@clusterdemo.gzrv8dg.mongodb.net/"
+//timetable url//  
+mongoose.connect("mongodb+srv://admin:TSHy7hfMjLmxfiFq@cluster0.e1giy59.mongodb.net/")
 
 
 mongoose.connect(OFFERS_URL)
