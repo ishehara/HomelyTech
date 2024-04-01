@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 //Insert Model
-const Timetable = require("../model/TimetableModel");
+const Timetable = require("../models/TimetableModel");
 //Insert Timetable Controller
 const TimetableController = require("../controllers/TimetableControllers");
 
