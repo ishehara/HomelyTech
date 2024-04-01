@@ -1,4 +1,4 @@
-const Timetable = require("../model/TimetableModel");
+const Timetable = require("../models/TimetableModel");
 //data display
 const getAllTimetables = async(req, res, next) => {
     let Timetables;
