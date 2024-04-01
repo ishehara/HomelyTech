@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 //Insert Model
-const Timetable = require("../Model/TimetableModel");
+const Timetable = require("../model/TimetableModel");
 //Insert Timetable Controller
-const TimetableController = require("../Controllers/TimetableControllers");
+const TimetableController = require("../controllers/TimetableControllers");
 
 router.get("/",TimetableController.getAllTimetables);
 router.post("/",TimetableController.addTimetables);
