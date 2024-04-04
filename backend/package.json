@@ -8,7 +8,7 @@
     "start": "node app.js",
     "back": "nodemon app.js"
   },
-  "author": "Ishan Shehara, Nethrani Rajapaksha, Sadhali Kodithuwakku, Thedini Silva, Shevin Rathnasinghe, Asanga De Silva, Hasindu Weerarathne, Tharushi Samarawickrama",
+  "author": "Ishan Shehara, Nethrani Rajapaksha, Sandali Kodithuwakku, Thedini Silva, Shevin Rathnasinghe, Asanga De Silva, Hasindu Weerarathne, Tharushi Samarawickrama",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
