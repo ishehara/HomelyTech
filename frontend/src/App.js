@@ -1,22 +1,22 @@
 import React from "react";
 import "./App.css";
 import Manager from "./components/dashboards/manager";
+import OfferForm from "./components/offers/offerForm";
+import Navbar from "./components/navbar/navbar";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
-  return(
-    
-    
-    <div>
+  return (
+    <Router>
+      <Navbar />
 
-      <Manager/>
+      <Routes>
+        <Route path="/offerForm" element={<OfferForm />} />
 
-
-
-    </div>
-    
-    
-    
-    );
+        <Route path="/" element={<Manager />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

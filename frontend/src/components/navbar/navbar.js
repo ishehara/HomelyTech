@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function navbar() {
   return (
@@ -41,14 +42,13 @@ function navbar() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-start flex-grow-1 ps-3">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  DashBoard
-                </a>
+              <Link to="/" className="nav-link">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Offers Management
-                </a>
+                
+                  <Link to="/offerManagement" className="nav-link">Offers Management</Link>
+                  
+                
               </li>
               
             </ul>
