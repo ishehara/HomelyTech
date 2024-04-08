@@ -15,15 +15,16 @@ app.use("/timetables",router);
 
 
 // db urls
-const OFFERS_URL = "mongodb+srv://mlislbest:e2maM0icBFO32HBu@clusterdemo.gzrv8dg.mongodb.net/"
-//timetable url//  
-mongoose.connect("mongodb+srv://admin:TSHy7hfMjLmxfiFq@cluster0.e1giy59.mongodb.net/")
+const DB_URL = "mongodb+srv://mlislbest:e2maM0icBFO32HBu@clusterdemo.gzrv8dg.mongodb.net/"
 
 
-//db connection
-mongoose.connect(OFFERS_URL)
-.then(() => console.log('Connected to Offers DB'))
-.catch((err) => console.log("Not connected to offers DB",err));
+// DB connection
+mongoose.connect(DB_URL)
+.then(() => console.log('Connected to DB'))
+.catch((err) => console.log("Not connected to DB",err));
+
+
+
 
 
 
