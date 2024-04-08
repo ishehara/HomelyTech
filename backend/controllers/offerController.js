@@ -23,7 +23,7 @@ const getAllOffers = async (req, res, next) => {
 
 //data insert
 const createOffer = async (req, res, next) => {
-    const {title, description, persentage, promoCode, startDate, dueDate} = req.body;
+    const {title, description, persentage, promoCode, startDate, dueDate, image} = req.body;
 
     const offers = new offer({
         title,
@@ -31,7 +31,8 @@ const createOffer = async (req, res, next) => {
         persentage,
         promoCode,
         startDate,
-        dueDate
+        dueDate,
+        image
     });
 
     try {
@@ -72,13 +73,13 @@ const getOfferById = async (req, res, next) => {
 const updateOffer = async (req, res, next) => {
     const offerId = req.params.id;
 
-    const {title, description, persentage, promoCode, startDate, dueDate} = req.body;
+    const {title, description, persentage, promoCode, startDate, dueDate, image} = req.body;
 
     let offers;
 
     try {
         offers = await offer.findByIdAndUpdate(offerId,
-            {title: title, description: description, persentage: persentage, promoCode: promoCode, startDate: startDate, dueDate: dueDate});
+            {title: title, description: description, persentage: persentage, promoCode: promoCode, startDate: startDate, dueDate: dueDate, image: image},);
             offers = await offers.save();
     }catch(err){
         console.log(err);
