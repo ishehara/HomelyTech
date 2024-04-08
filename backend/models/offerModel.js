@@ -20,12 +20,12 @@ const  offerSchema = new Schema({
     },
     startDate:{ 
         type: Date,
-        // required: true
+        required: true
     },
     dueDate:{
         type: Date,
-        // required: true
-    },
+        required: true
+    }
     // image:{
     //     type: Buffer,
     //     required: true
