@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:5000/offer/";
 
@@ -11,6 +12,8 @@ export default function OfferForm() {
   const [promoCode, setPromoCode] = useState("");
   const [startDate, setStartDate] = useState("");
   const [dueDate, setDueDate] = useState("");
+
+  const navigate = useNavigate();
 
   const addOffer = () => {
     const payload = {
@@ -35,6 +38,9 @@ export default function OfferForm() {
         setDueDate("");
         // Show alert
         alert("Offer Inserted");
+        // Redirect to offer management page
+        navigate("/offermanagement");
+
       })
       .catch((error) => {
         console.error("Error adding offer:", error);
