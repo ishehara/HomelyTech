@@ -1,7 +1,7 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
 
-function offerTable({rows}) {
+function offerTable({rows, onDelete}) {
   return (
     <TableContainer component={Paper}>
 
@@ -34,7 +34,7 @@ function offerTable({rows}) {
                                 Edit
                             </Button>
                             <Button
-                                onClick={() => {}}>
+                                onClick={() => onDelete(row._id)}>
                                 Delete
                             </Button>
                         </TableCell>

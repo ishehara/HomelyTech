@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
+import axios from "axios";
+
+const URL = "http://localhost:5000/offer/";
 
 export default function OfferForm() {
   const [title, setTitle] = useState("");
@@ -8,6 +11,35 @@ export default function OfferForm() {
   const [promoCode, setPromoCode] = useState("");
   const [startDate, setStartDate] = useState("");
   const [dueDate, setDueDate] = useState("");
+
+  const addOffer = () => {
+    const payload = {
+      title: title,
+      description: description,
+      persentage: persentage,
+      promoCode: promoCode,
+      startDate: startDate,
+      dueDate: dueDate,
+    };
+
+    axios
+      .post(URL, payload)
+      .then((response) => {
+        console.log("Offer added successfully:", response.data);
+        // Reset form fields
+        setTitle("");
+        setDescription("");
+        setPersentage(0);
+        setPromoCode("");
+        setStartDate("");
+        setDueDate("");
+        // Show alert
+        alert("Offer Inserted");
+      })
+      .catch((error) => {
+        console.error("Error adding offer:", error);
+      });
+  };
 
   return (
     <Grid
@@ -207,6 +239,7 @@ export default function OfferForm() {
             color: "black",
           },
         }}
+        onClick={addOffer}
       >
         Add Offer
       </Button>
