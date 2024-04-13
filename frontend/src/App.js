@@ -5,6 +5,7 @@ import OfferForm from "./components/offers/offerForm";
 import Navbar from "./components/navbar/navbar";
 import OfferManagement from "./components/offers/offerManagement";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import OfferUpdateForm from "./components/offers/offerUpdateForm";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
 
       <Routes>
         <Route path="/offerForm" element={<OfferForm />} />
-        <Route path="/offermanagement" element={<OfferManagement />} />
+        <Route path="/offerManagement" element={<OfferManagement />} />
+
+        <Route path="/offerUpdateForm/:id" element={<OfferUpdateForm />} />
 
         <Route path="/" element={<Manager />} />
       </Routes>

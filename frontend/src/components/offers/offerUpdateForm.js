@@ -1,49 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 
-const URL = "http://localhost:5000/offer/";
-
-export default function OfferForm() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [persentage, setPersentage] = useState(0);
-  const [promoCode, setPromoCode] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [dueDate, setDueDate] = useState("");
-
+export default function OfferUpdateForm() {
+  const [inputs, setInputs] = useState({
+    title: "",
+    description: "",
+    persentage: 0,
+    promoCode: "",
+    startDate: "",
+    dueDate: "",
+  });
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const addOffer = () => {
-    const payload = {
-      title: title,
-      description: description,
-      persentage: persentage,
-      promoCode: promoCode,
-      startDate: startDate,
-      dueDate: dueDate,
+  useEffect(() => {
+    const fetchOffer = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/offer/${id}`);
+        
+        setInputs({
+          title: response.data.offers.title,
+          description: response.data.offers.description,
+          persentage: response.data.offers.persentage,
+          promoCode: response.data.offers.promoCode,
+          startDate: response.data.offers.startDate,
+          dueDate: response.data.offers.dueDate,
+        });
+      } catch (error) {
+        console.error("Error fetching offer:", error);
+      }
     };
 
-    axios
-      .post(URL, payload)
-      .then((response) => {
-        console.log("Offer added successfully:", response.data);
-        // Reset form fields
-        setTitle("");
-        setDescription("");
-        setPersentage(0);
-        setPromoCode("");
-        setStartDate("");
-        setDueDate("");
-        // Show alert
-        alert("Offer Inserted");
-        // Redirect to offer management page
-        navigate("/offermanagement");
-      })
-      .catch((error) => {
-        console.error("Error adding offer:", error);
-      });
+    fetchOffer();
+  }, [id]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`http://localhost:5000/offer/${id}`, inputs);
+      alert("Offer updated successfully");
+      navigate("/offerManagement");
+    } catch (error) {
+      console.error("Error updating offer:", error);
+    }
   };
 
   return (
@@ -58,7 +59,7 @@ export default function OfferForm() {
     >
       <Grid item xs={12}>
         <Typography component={"h1"} sx={{ color: "black" }}>
-          Create a new offer
+          Edit exsisting offer
         </Typography>
       </Grid>
 
@@ -84,9 +85,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={title}
+          value={inputs.title}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setInputs({ ...inputs, title: e.target.value });
           }}
         />
       </Grid>
@@ -112,9 +113,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={description}
+          value={inputs.description}
           onChange={(e) => {
-            setDescription(e.target.value);
+            setInputs({ ...inputs, description: e.target.value });
           }}
         />
       </Grid>
@@ -140,9 +141,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={persentage}
+          value={inputs.persentage}
           onChange={(e) => {
-            setPersentage(e.target.value);
+            setInputs({ ...inputs, persentage: e.target.value });
           }}
         />
       </Grid>
@@ -168,9 +169,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={promoCode}
+          value={inputs.promoCode}
           onChange={(e) => {
-            setPromoCode(e.target.value);
+            setInputs({ ...inputs, promoCode: e.target.value });
           }}
         />
       </Grid>
@@ -196,9 +197,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={startDate}
+          value={inputs.startDate}
           onChange={(e) => {
-            setStartDate(e.target.value);
+            setInputs({ ...inputs, startDate: e.target.value });
           }}
         />
       </Grid>
@@ -224,9 +225,9 @@ export default function OfferForm() {
           sx={{
             width: "400px",
           }}
-          value={dueDate}
+          value={inputs.dueDate}
           onChange={(e) => {
-            setDueDate(e.target.value);
+            setInputs({ ...inputs, dueDate: e.target.value });
           }}
         />
       </Grid>
@@ -244,9 +245,29 @@ export default function OfferForm() {
             color: "black",
           },
         }}
-        onClick={addOffer}
+        onClick={handleSubmit}
       >
-        Add Offer
+        Save Offer
+      </Button>
+      <Button
+        sx={{
+          margin: "Auto",
+          marginBottom: "20px",
+          backgroundColor: "#052659",
+          color: "white",
+          marginTop: "30px",
+          marginLeft: "100px",
+          "&:hover": {
+            backgroundColor: "#548383",
+            color: "black",
+          },
+        }}
+        onClick={
+          () => {
+            navigate("/offerManagement");
+        }}
+      >
+        Cancel
       </Button>
     </Grid>
   );

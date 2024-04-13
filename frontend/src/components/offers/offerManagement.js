@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { Box, Button, Grid } from "@mui/material";
 import OfferTable from "./offerTable";
@@ -9,11 +8,10 @@ const URL = "http://localhost:5000/offer/";
 
 export default function OfferManagement() {
   const [offers, setOffers] = useState([]);
-  
+
   useEffect(() => {
     getOffers();
   }, []);
-  
 
   const getOffers = () => {
     axios
@@ -24,8 +22,7 @@ export default function OfferManagement() {
       .catch((error) => {
         console.log(error);
       });
-  }
-  
+  };
 
   const deleteOffer = (id) => {
     axios
@@ -33,7 +30,6 @@ export default function OfferManagement() {
       .then(() => {
         setOffers(offers.filter((offer) => offer.id !== id));
         console.log("Offer deleted successfully");
-
         alert("Offer deleted successfully");
         getOffers();
       })
@@ -41,9 +37,6 @@ export default function OfferManagement() {
         console.error("Error deleting offer:", error);
       });
   };
-
-  
-  
 
   return (
     <Grid>
