@@ -55,7 +55,7 @@ export default function OfferTable({ rows, onDelete }) {
                   {row.dueDate}
                 </TableCell>
                 <TableCell>
-                  <Button sx={{ marginRight: "10px" }}
+                  <Button variant="outlined" sx={{ marginRight: "10px" }}
                     onClick={
                         () => {
                           navigate(`/offerUpdateForm/${row._id}`);
@@ -64,7 +64,7 @@ export default function OfferTable({ rows, onDelete }) {
                     
                     Edit
                   </Button>
-                  <Button onClick={() => onDelete(row._id)}>Delete</Button>
+                  <Button variant="outlined" onClick={() => onDelete(row._id)}>Delete</Button>
                 </TableCell>
               </TableRow>
             ))

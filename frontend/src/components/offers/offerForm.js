@@ -13,9 +13,75 @@ export default function OfferForm() {
   const [startDate, setStartDate] = useState("");
   const [dueDate, setDueDate] = useState("");
 
+  const [errors, setErrors] = useState({
+    title: "",
+    description: "",
+    percentage: "",
+    promoCode: "",
+    startDate: "",
+    dueDate: "",
+  });
+
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { ...errors };
+
+    if (!title) {
+      newErrors.title = "Please fill out this field";
+      isValid = false;
+    } else {
+      newErrors.title = "";
+    }
+
+    if (!description) {
+      newErrors.description = "Please fill out this field";
+      isValid = false;
+    } else {
+      newErrors.description = "";
+    }
+
+    if (!persentage) {
+      newErrors.percentage = "Please fill out this field";
+      isValid = false;
+    } else if (persentage < 0 || persentage > 100) {
+      newErrors.percentage = "Please fill valid percentage";
+      isValid = false;
+    }else {
+      newErrors.percentage = "";
+    }
+
+    if (!promoCode) {
+      newErrors.promoCode = "Please fill out this field";
+      isValid = false;
+    } else {
+      newErrors.promoCode = "";
+    }
+
+    if (!startDate) {
+      newErrors.startDate = "Please fill out this field";
+      isValid = false;
+    } else {
+      newErrors.startDate = "";
+    }
+
+    if (!dueDate) {
+      newErrors.dueDate = "Please fill out this field";
+      isValid = false;
+    } else {
+      newErrors.dueDate = "";
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const addOffer = () => {
+    if (!validateForm()) {
+      return;
+    }
+
     const payload = {
       title: title,
       description: description,
@@ -89,6 +155,12 @@ export default function OfferForm() {
             setTitle(e.target.value);
           }}
         />
+
+        {errors.title && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.title}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -117,6 +189,11 @@ export default function OfferForm() {
             setDescription(e.target.value);
           }}
         />
+        {errors.description && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.description}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -145,6 +222,11 @@ export default function OfferForm() {
             setPersentage(e.target.value);
           }}
         />
+        {errors.percentage && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.percentage}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -173,6 +255,11 @@ export default function OfferForm() {
             setPromoCode(e.target.value);
           }}
         />
+        {errors.promoCode && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.promoCode}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -201,6 +288,11 @@ export default function OfferForm() {
             setStartDate(e.target.value);
           }}
         />
+        {errors.startDate && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.startDate}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -229,6 +321,11 @@ export default function OfferForm() {
             setDueDate(e.target.value);
           }}
         />
+        {errors.dueDate && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.dueDate}
+          </Typography>
+        )}
       </Grid>
 
       <Button

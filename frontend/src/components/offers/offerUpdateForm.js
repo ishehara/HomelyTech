@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
+import validateForm from "./formValidation"; // Import form validation function
 
 export default function OfferUpdateForm() {
   const [inputs, setInputs] = useState({
@@ -14,19 +15,20 @@ export default function OfferUpdateForm() {
   });
   const navigate = useNavigate();
   const { id } = useParams();
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const fetchOffer = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/offer/${id}`);
-        
+
         setInputs({
-          title: response.data.offers.title,
-          description: response.data.offers.description,
-          persentage: response.data.offers.persentage,
-          promoCode: response.data.offers.promoCode,
-          startDate: response.data.offers.startDate,
-          dueDate: response.data.offers.dueDate,
+          title: response.data?.offers.title,
+          description: response.data?.offers.description,
+          persentage: response.data?.offers.persentage,
+          promoCode: response.data?.offers.promoCode,
+          startDate: response.data?.offers.startDate,
+          dueDate: response.data?.offers.dueDate,
         });
       } catch (error) {
         console.error("Error fetching offer:", error);
@@ -38,6 +40,18 @@ export default function OfferUpdateForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate the form
+    const formErrors = validateForm(inputs.title, inputs.description, inputs.persentage, inputs.promoCode, inputs.startDate, inputs.dueDate);
+    setErrors(formErrors);
+
+    // If there are errors, stop form submission
+    if (Object.keys(formErrors).length > 0) {
+      
+      console.log("Form validation errors:", errors);
+      return;
+    }
+
     try {
       await axios.put(`http://localhost:5000/offer/${id}`, inputs);
       alert("Offer updated successfully");
@@ -45,6 +59,8 @@ export default function OfferUpdateForm() {
     } catch (error) {
       console.error("Error updating offer:", error);
     }
+
+    
   };
 
   return (
@@ -90,6 +106,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, title: e.target.value });
           }}
         />
+        {errors.title && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.title}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -118,6 +139,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, description: e.target.value });
           }}
         />
+        {errors.description && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.description}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -146,6 +172,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, persentage: e.target.value });
           }}
         />
+        {errors.persentage && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.persentage}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -174,6 +205,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, promoCode: e.target.value });
           }}
         />
+        {errors.promoCode && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.promoCode}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -202,6 +238,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, startDate: e.target.value });
           }}
         />
+        {errors.startDate && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.startDate}
+          </Typography>
+        )}
       </Grid>
       <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
         <Typography
@@ -230,6 +271,11 @@ export default function OfferUpdateForm() {
             setInputs({ ...inputs, dueDate: e.target.value });
           }}
         />
+        {errors.dueDate && (
+          <Typography sx={{ color: "red", fontSize: "12px" }}>
+            {errors.dueDate}
+          </Typography>
+        )}
       </Grid>
 
       <Button
@@ -262,9 +308,8 @@ export default function OfferUpdateForm() {
             color: "black",
           },
         }}
-        onClick={
-          () => {
-            navigate("/offerManagement");
+        onClick={() => {
+          navigate("/offerManagement");
         }}
       >
         Cancel
