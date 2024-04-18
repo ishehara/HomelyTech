@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 
 const offerRouter = require("./routes/offerRoutes");
 const router = require("./routes/TimetableRoutes");
+
 const InventoryRouter = require("./routes/InventoryRoute");
+
+const advertisementRouter = require("./routes/AdRoute");
 
 const app  = express();
 const cors = require('cors');
@@ -15,7 +18,11 @@ app.use(express.json());
 app.use(cors());
 app.use("/offer", offerRouter);
 app.use("/timetables",router);
+
 app.use("/invetory",InventoryRouter);
+
+
+app.use("/ads",advertisementRouter);
 
 
 
