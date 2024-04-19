@@ -6,6 +6,9 @@ const PaymentSchema = new Schema({
         type: String,
         required: true
     },
+   
+    
+
     gmail: {
         type: String,
         required: true
