@@ -1,4 +1,4 @@
-.container {
+.container-Inventory {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -13,7 +13,7 @@
     flex-direction: column;
   }
   
-  label {
+  .label-i {
     margin-bottom: 5px;
   }
   
@@ -21,7 +21,7 @@
   input[type="number"],
   input[type="email"],
   input[type="date"],
-  button {
+  .btn-Inventory {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -29,13 +29,13 @@
     font-size: 16px;
   }
   
-  button {
-    background-color: #007bff;
+  .btn-Inventory {
+    background-color: #052659;
     color: #fff;
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #0056b3;
+  .btn-Inventory:hover {
+    background-color: #052659;
   }
   
