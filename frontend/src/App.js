@@ -11,9 +11,15 @@ import Refunds from "./components/Payment/Refunds/Refund"
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import OfferUpdateForm from "./components/offers/offerUpdateForm";
+
+import InsertDetails from "./components/inventory/InsertDetails/InsertDetails";
+import DisplayDetails from "./components/inventory/DisplayDetails/displayDetails";
+import UpdateDetails from "./components/inventory/UpdateInventory/UpdateDetails";
+
 import Timetables from "./components/timetables/TimetableDetails/Timetables";
 import AddTimetable from "./components/timetables/AddTimetable/AddTimetable"
 import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimetable"
+
 
 
 function App() {
@@ -39,9 +45,12 @@ function App() {
 
 
         <Route path="/" element={<Manager />} />
+
+        <Route path ="/addDetails" element = {<InsertDetails/>}/>
+          <Route path ="/displayDetails" element = {<DisplayDetails/>}/>
+          <Route path ="/displayDetails/:id" element = {<UpdateDetails/>}/>
       </Routes>
     </Router>
   );
 }
-
 export default App;

@@ -16,9 +16,9 @@ function navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div class="d-flex justify-content-center align-items-center">
-          <a class="navbar-brand" href="#">
+          <p class="navbar-brand" href="#">
             Welcome to homelyTech...
-          </a>
+          </p>
         </div>
 
         <div
@@ -57,6 +57,12 @@ function navbar() {
               <li className="nav-item">
                 
                   <Link to="/timetabledetails" className="nav-link">Timetable Management</Link>
+                  
+                
+              </li>
+              <li className="nav-item">
+                
+                  <Link to="/displayDetails" className="nav-link">Inventory Management</Link>
                   
                 
               </li>
