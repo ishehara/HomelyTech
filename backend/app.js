@@ -10,9 +10,12 @@ const Refundrouter = require("./routes/refundRoutes");
 const InventoryRouter = require("./routes/InventoryRoute");
 
 const advertisementRouter = require("./routes/AdRoute");
+const feedbackRouter = require("./routes/FeedbackRoutes");
 
-const app  = express();
+
+
 const cors = require('cors');
+const app  = express();
 
 
 //middleware
@@ -28,6 +31,7 @@ app.use("/invetory",InventoryRouter);
 
 
 app.use("/ads",advertisementRouter);
+app.use("/feedback",feedbackRouter);
 
 
 
