@@ -4,9 +4,10 @@ import Navbar from './navbar';
 
 function home() {
   return (
-    <Router>
-        <Navbar/>
-    </Router>
+    
+    <div>
+      <Navbar/>
+    </div>
     
   );
 }
