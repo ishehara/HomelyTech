@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 //Insert Modle
 
-const Feedback = require("../Model/FeedbackModel");
+const Feedback = require("../models/FeedbackModel");
 //Insert Feedback Controller 
-const FeedbackController = require("../Controllers/FeedbackControllers");
+const FeedbackController = require("../controllers/FeedbackControllers");
 
 router.get("/",FeedbackController.getAllFeedbacks);
 router.post("/",FeedbackController.addFeedbacks);

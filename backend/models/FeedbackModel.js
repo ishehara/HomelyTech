@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { all } = require("../Routes/FeedbackRoutes");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const feedbackSchema = new Schema({
     
