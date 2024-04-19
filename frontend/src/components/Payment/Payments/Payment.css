@@ -1,0 +1,116 @@
+/* Payment component styling */
+.Payment {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .Payment h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .Payment input[type="text"],
+  .Payment button {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .Payment input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .Payment button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .Payment button:hover {
+    background-color: #0056b3;
+  }
+  
+  .Payment p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* PaymentDetails component styling */
+  .PaymentDetails {
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  
+  .PaymentDetails h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .PaymentDetails p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .PaymentDetails a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .PaymentDetails a:hover {
+    text-decoration: underline;
+  }
+  
+  .PaymentDetails button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .PaymentDetails button:hover {
+    background-color: #c82333;
+  }
+  
+  .PaymentDetails .download-button {
+    background-color: #28a745;
+  }
+  
+  .PaymentDetails .download-button:hover {
+    background-color: #218838;
+  }
+  
+  /* display details */
+
+  .ComponentsRef {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.ComponentsRef p {
+    margin: 5px 0;
+}
+
+.ComponentsRef strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.p font {
+    font-size: 5px;
+    opacity:inherit
+}
