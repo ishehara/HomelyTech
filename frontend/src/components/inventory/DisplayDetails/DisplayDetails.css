@@ -60,12 +60,12 @@ a {
   margin: 0 5px;
   text-decoration: none;
   color: white;
-  border: 1px solid #007bff;
+  border: 1px solid #052659;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #052659;
 }
 
 a:hover {
-  background-color: #007bff;
+  background-color: #052659;
   color: #fff;
 }
