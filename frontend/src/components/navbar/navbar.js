@@ -43,22 +43,22 @@ function navbar() {
             <ul className="navbar-nav justify-content-start flex-grow-1 ps-3">
               <li className="nav-item">
               <Link to="/" className="nav-link">Dashboard</Link>
+              
               </li>
               <li className="nav-item">
-                
-                  <Link to="/offerManagement" className="nav-link">Offers Management</Link>
-                  <Link to="/paymentdetails" className="nav-link">Payment Management</Link>
-                  <Link to="/refunddetails" className="nav-link">Refund Payment Management</Link>
-                  
-                
+              <Link to="/offerManagement" className="nav-link">Offers Management</Link>
+              
               </li>
-
-               {/* timetables */}
               <li className="nav-item">
-                
+              <Link to="/paymentdetails" className="nav-link">Payment Management</Link>
+              
+              </li>
+              <li className="nav-item">
+              <Link to="/refunddetails" className="nav-link">Refund Payment Management</Link>
+              
+              </li>
+              <li className="nav-item">
                   <Link to="/timetabledetails" className="nav-link">Timetable Management</Link>
-                  
-                
               </li>
               
             </ul>
