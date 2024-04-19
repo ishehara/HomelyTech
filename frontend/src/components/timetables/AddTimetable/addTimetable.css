@@ -1,0 +1,41 @@
+/* addTimetable.css */
+.form-addtimetable{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .label-addTime {
+    font-weight: bold;
+  }
+  
+  .addTime-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn-addTime{
+    background-color: #0056b3;
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+  }
+  
+  .btn-addTime:hover {
+    background-color:  #7DA0CA;
+    color: black;
+    border: 1px solid black;
+  }
+
+  .btn-addTime-container{
+    text-align: center; /* Center align the content */
+  }
+
+  .b1{
+    background-color: #7DA0CA;
+  }

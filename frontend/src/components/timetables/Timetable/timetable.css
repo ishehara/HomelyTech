@@ -1,0 +1,60 @@
+/* Timetable.css */
+
+.table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.table-container{
+  display: flex;
+  justify-content: center;
+}
+
+.table th,
+.table td {
+  padding: 8px; /* Adjust padding as needed */
+  border: 1px solid black; /* Add borders for better visualization */
+  text-align: left; /* Align text to the left */
+  width: 12.5%; /* Equal width for each column (8 columns) */
+}
+
+.table th {
+  background-color: #7DA0CA; /* Add background color for header */
+}
+
+.table td {
+  background-color: #C1E8FF; /* Add background color for data */
+}
+
+
+.table th:first-child,
+.table td:first-child {
+  width: 2%; /* Adjust width for the first column if needed */
+}
+
+.table th:last-child,
+.table td:last-child {
+  width: auto; /* Allow the last column to adjust its width */
+}
+
+.update,
+.delete {
+  cursor: pointer; /* Add pointer cursor to indicate interactivity */
+  margin-right: 5px; /* Add margin between buttons if needed */
+}
+
+.update:hover {
+  background-color: #5483B3; 
+  color: white;
+}
+  
+.delete:hover {
+  background-color:#5483B3;
+  color: white;
+}
+
+.action-line {
+  border-left: 1px solid #ccc;
+  height: 100%;
+  margin: 0 15px; /* Adjust margin as needed */
+}

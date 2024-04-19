@@ -52,6 +52,14 @@ function navbar() {
                   
                 
               </li>
+
+               {/* timetables */}
+              <li className="nav-item">
+                
+                  <Link to="/timetabledetails" className="nav-link">Timetable Management</Link>
+                  
+                
+              </li>
               
             </ul>
             
