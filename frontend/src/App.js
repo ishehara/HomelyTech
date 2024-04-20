@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Manager from "./components/dashboards/manager";
 import OfferForm from "./components/offers/offerForm";
-import Navbar from "./components/navbar/navbar";
+//import Navbar from "./components/navbar/navbar";
 import OfferManagement from "./components/offers/offerManagement";
 import PaymentDisplay from "./components/Payment/Payments/Payment";
 import UpdatePayment from "./components/Payment/Update Payment/UpdatePayment"
@@ -25,7 +25,7 @@ import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimet
 function App() {
   return (
     <Router>
-      <Navbar />
+     
 
       <Routes>
         <Route path="/offerForm" element={<OfferForm />} />

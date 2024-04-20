@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './InsertDetails.css'; 
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function InsertDetails() {
     const [inputs, setInputs] = useState({
@@ -51,6 +53,7 @@ function InsertDetails() {
 
     return (
         <div>
+            <Navbar/>
             <div className="container">
                 <h1>Insert Details</h1>
                 <form onSubmit={handleSubmit}>

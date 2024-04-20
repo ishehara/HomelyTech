@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './DisplayDetails.css';
-// import Nav from '../Nav/nav';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
 import { useReactToPrint } from "react-to-print";
 
 function DisplayDetails() {
@@ -77,7 +77,8 @@ function DisplayDetails() {
 
     return (
         <div>
-            {/* <Nav /> */}
+         <Navbar/>
+
             <div className="display-details-container">
                 <h1>Display Details</h1>
                 <input
