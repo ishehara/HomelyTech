@@ -3,6 +3,8 @@ import { Button, Grid, Input, Typography } from "@mui/material";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import validateForm from "./formValidation"; // Import form validation function
+import Navbar from "../navbar/navbar"; // Adjusted import path
+
 
 export default function OfferUpdateForm() {
   const [inputs, setInputs] = useState({
@@ -64,6 +66,8 @@ export default function OfferUpdateForm() {
   };
 
   return (
+    <Grid>
+      <Navbar/>
     <Grid
       container
       spacing={2}
@@ -314,6 +318,7 @@ export default function OfferUpdateForm() {
       >
         Cancel
       </Button>
+    </Grid>
     </Grid>
   );
 }

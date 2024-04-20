@@ -10,16 +10,18 @@ function home() {
   return (
     
     <div>
+      <Navbar/>
+      <h1>This is homepage</h1>
       
 
-      <Router>
+      {/* <Router>
       <Navbar/>
         <Routes>
           <Route path='/advertisementdetails' element={<Ads/>}/>
           <Route path="/addad" element={<AddAd/>}/>
           <Route path="/advertisementdetails/:id" element={<UpdateAds/>}/>
         </Routes>
-      </Router>
+      </Router> */}
     </div>
     
   );

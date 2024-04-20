@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Advertisement Details/Ads.css';
 // import { useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
+import Navbar from '../../customerScreens/navbar';
 
 const Ads = () => {
   const [ads, setAds] = useState([]);
@@ -56,7 +57,7 @@ const Ads = () => {
 
   return (
     <div>
-      {/* <Nav /> */}
+      <Navbar/>
       <h1>Advertisements </h1>
       <Link to={"/AddAd"} className="insert-button">Add Advertisement</Link>
       <div className="search-bar">

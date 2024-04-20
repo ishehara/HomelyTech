@@ -5,6 +5,8 @@ import Timetable from "../Timetable/Timetable";
 import { useReactToPrint } from "react-to-print";
 import { Link } from "react-router-dom";
 import './timetables.css';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 const URL = "http://localhost:5000/timetables";
 
@@ -51,8 +53,10 @@ function Timetables() {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="timetables-container">
-      {/* <Nav /> */}
+    
       <h1>Timetables Details Display Page</h1>
       <div className="search-container">      
       <input className="search-input"
@@ -85,6 +89,7 @@ function Timetables() {
       <Link className="addtime" to={`/addtimetable/`}>
                 Add Timetable
               </Link>
+    </div>
     </div>
   );
 }

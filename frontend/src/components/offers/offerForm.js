@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 import axios from "axios";
+import Navbar from "../navbar/navbar"; // Adjusted import path
+
 import { useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:5000/offer/";
@@ -113,6 +115,9 @@ export default function OfferForm() {
   };
 
   return (
+   <Grid>
+     <Navbar/>
+
     <Grid
       container
       spacing={2}
@@ -345,6 +350,7 @@ export default function OfferForm() {
       >
         Add Offer
       </Button>
+    </Grid>
     </Grid>
   );
 }
