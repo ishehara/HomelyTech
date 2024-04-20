@@ -85,7 +85,7 @@ function UpdateAds() {
       </form>
     </div>
   </div>
-  </div>
+ 
   );
 }
 
