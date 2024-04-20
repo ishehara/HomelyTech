@@ -56,8 +56,8 @@ function AddAd() {
         <div>
             <Navbar/>
             <div>
-                <div className="form-container">
-                    <h1>Post Your Advertisement Here!</h1>
+                <div className="Adform-container">
+                    <h1>Post Advertisement!</h1>
                     <form onSubmit={handleSubmit}>  
                         <label htmlFor="adTitle">Ad Title:</label><br />
                         <input type="text" id="adTitle" name="adTitle" onChange={handleChange} value={inputs.adTitle} required /><br />

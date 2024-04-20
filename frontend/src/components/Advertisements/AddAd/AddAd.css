@@ -1,61 +1,56 @@
-body {
-    background-color: white; /* Light blue background color */
-    margin: 0;   
-    padding: 0; 
-}
-
-
-.form-container {
+.Adform-container {
     width: 600px;
-    margin-top: 0px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    margin: 50px auto; /* Centering the form */
     padding: 20px;
-    background-color: #021024;
+    background-color: #f9f9f9;
+    border: 2px solid #5483B3; /* Updated border */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 360px; /* Add top margin to position below the navbar */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow */
+    text-align: center; /* Center all content horizontally */
 }
 
-h1 {
+.Adform-container h1 {
     color: #5483B3;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-form {
-    margin-top: 20px;
+.Adform-container form {
     display: flex;
-    flex-direction: column; /* Ensure the form elements stack vertically */
-    align-items: center; /* Center the form elements horizontally */
+    flex-direction: column;
+    align-items: left; /* Center form elements horizontally */
 }
 
-.form-container label {
-    display: block;
+.Adform-container label {
     margin-bottom: 5px;
-    color: #7DA0CA;
+    color: #12498c;
+    text-align: left; /* Align labels to the left */
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="date"],
-textarea {
-    width: 300px; 
+.Adform-container input[type="text"],
+.Adform-container input[type="number"],
+.Adform-container input[type="email"],
+.Adform-container input[type="date"],
+.Adform-container textarea {
+    width: calc(100% - 22px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.form-container input[type="submit"] {
-    width: 150px;
-    margin-top: 20px;
+.Adform-container input[type="submit"] {
+    width: 100%;
     padding: 10px;
     background-color: #052659;
     color: #C1E8FF;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.form-container input[type="submit"]:hover {
+.Adform-container input[type="submit"]:hover {
     background-color: #021024;
 }
