@@ -1,0 +1,114 @@
+.update-button {
+  display: inline-block;
+  padding: 8px 5px;
+  background-color: #34587f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.update-button:hover {
+  background-color: #0e549f;
+}
+
+.delete-button {
+  display: inline-block;
+  padding: 8px 5px;
+  background-color: #642920;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e0430f;
+}
+
+.download-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Hover effect */
+.download-button:hover {
+  background-color: #45a049;
+}
+
+.ad-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #021024; /* Your chosen color palette */
+}
+
+.Ad-Description {
+  color: #052659; /* Your chosen color palette */
+  margin-bottom: 10px;
+}
+
+.ad-container {
+  width: 50%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+  background-color: #7e9dbd;  
+  padding: 20px;
+  margin-bottom: 20px; /* Add space between ad containers */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  margin-top: 10px; /* Add space between buttons and ad content */
+}
+
+.search-bar {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  width: 500px; /* Adjust width as needed */
+  padding: 10px; /* Add padding for better appearance */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  border: 1px solid #052659; /* Set border color from palette */
+  margin: 20px auto; /* Center the search bar horizontally and add margin */
+  background-color: #C1E8FF; /* Set background color from palette */
+}
+
+.search-bar input[type="text"] {
+  flex: 1; /* Ensure the input field takes up remaining space */
+  border: none; /* Remove border for input field */
+  outline: none; /* Remove outline when focused */
+  font-size: 16px; /* Adjust font size as needed */
+  padding: 5px; /* Add padding for better appearance */
+}
+
+.search-bar button {
+  background-color: #052659; /* Set background color from palette */
+  color: #C1E8FF; /* Set text color from palette */
+  border: none; /* Remove border */
+  border-radius: 0 5px 5px 0; /* Add rounded corners for the button */
+  cursor: pointer; /* Add cursor pointer on hover */
+  padding: 10px 20px; /* Add padding for better appearance */
+}
+
+/* Hover effect */
+.search-bar button:hover {
+  background-color: #021024; /* Change background color on hover */
+}
+

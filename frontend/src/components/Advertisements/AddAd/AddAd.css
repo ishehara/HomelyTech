@@ -1,0 +1,61 @@
+body {
+    background-color: white; /* Light blue background color */
+    margin: 0;   
+    padding: 0; 
+}
+
+
+.form-container {
+    width: 600px;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #021024;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 360px; /* Add top margin to position below the navbar */
+}
+
+h1 {
+    color: #5483B3;
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Ensure the form elements stack vertically */
+    align-items: center; /* Center the form elements horizontally */
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #7DA0CA;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+textarea {
+    width: 300px; 
+}
+
+.form-container input[type="submit"] {
+    width: 150px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #052659;
+    color: #C1E8FF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #021024;
+}
