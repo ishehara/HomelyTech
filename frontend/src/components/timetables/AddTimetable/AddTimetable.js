@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./addTimetable.css";
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function AddTimetable() {
   const history = useNavigate();
@@ -42,6 +44,8 @@ function AddTimetable() {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="b1">
       {/* <Nav /> */}
       <h1><center>Add Timetable</center></h1>
@@ -123,6 +127,7 @@ function AddTimetable() {
         </div>
         <br></br>
       </form>
+    </div>
     </div>
   );
 }

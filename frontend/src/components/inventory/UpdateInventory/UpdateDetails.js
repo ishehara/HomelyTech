@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import './UpdateDetails.css'; // Import the CSS file
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function UpdateDetails() {
 
@@ -50,7 +52,10 @@ function UpdateDetails() {
     };
 
   return (
+    <div>
+    <Navbar/>
     <div className="container-Inventory">
+       
       <h1>Update details</h1>
       <form onSubmit={handleSubmit}>
                 <label className="label-i">Name:</label>
@@ -96,6 +101,7 @@ function UpdateDetails() {
 
                 <button className="btn-Inventory"type="submit">Submit</button>
             </form>
+    </div>
     </div>
   )
 }

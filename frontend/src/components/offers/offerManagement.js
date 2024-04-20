@@ -5,6 +5,7 @@ import { Box, Button, Grid, Input } from "@mui/material";
 import OfferTable from "./offerTable";
 import axios from "axios";
 import { useReactToPrint } from "react-to-print";
+import Navbar from "../navbar/navbar"; // Adjusted import path
 
 const URL = "http://localhost:5000/offer/";
 
@@ -69,6 +70,8 @@ export default function OfferManagement() {
   };
 
   return (
+    <Grid>
+      <Navbar/>
     <Grid>
       <Grid alignItems="center" item xs={12} sx={{ display: "flex", margin: "20px" }}>
         <Button
@@ -150,6 +153,7 @@ export default function OfferManagement() {
           </Grid>
         </Box>
       )}
+      </Grid>
     </Grid>
   );
 }

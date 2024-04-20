@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function UpdateTimetable() {
   const [inputs, setInputs] = useState({
@@ -54,6 +56,8 @@ function UpdateTimetable() {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div>
       <h1>Update Timetable</h1>
       <form onSubmit={handleSubmit}>
@@ -125,6 +129,7 @@ function UpdateTimetable() {
         <br />
         <button>Submit</button>
       </form>
+    </div>
     </div>
   );
 }

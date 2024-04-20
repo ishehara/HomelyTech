@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 //import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function Refund() {
   const [refunds, setRefunds] = useState([]);
@@ -76,6 +78,8 @@ function Refund() {
 
   return (
     <div>
+      <Navbar/>
+    <div>
       <h1 className='Payment h1'>Refund Details</h1>
       {isLoading && <p>Loading refunds...</p>}
       {error && <p>Error fetching refunds: {error.message}</p>}
@@ -104,6 +108,7 @@ function Refund() {
       ) : (
         <p>No Refunds to display.</p>
       )}
+    </div>
     </div>
   );
 }
