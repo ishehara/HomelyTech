@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -31,14 +32,23 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const data = new FormData(event.currentTarget);
+  console.log({
+    email: data.get('email'),
+    password: data.get('password'),
+  });
+  const email = data.get('email');
+  const password = data.get('password');
+  if (email === "admin@gmail.com" && password === "abc1234") {
+    navigate('/manager');
+    
+  }
+}
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -97,11 +107,7 @@ export default function SignIn() {
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
+              
             </Grid>
           </Box>
         </Box>
