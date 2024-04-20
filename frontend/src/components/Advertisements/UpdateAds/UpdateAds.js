@@ -55,8 +55,8 @@ function UpdateAds() {
   return (
     <div>
         {/* <Nav /> */}
-    <div className="container">
-          <div className="form-container">
+    <div>
+          <div className="Adform-container">
           <h1>Update Your Advertisement</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="adTitle">Ad Title:</label><br />
