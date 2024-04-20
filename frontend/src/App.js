@@ -24,11 +24,13 @@ import Ads from "./components/Advertisements/Advertisement Details/Ads";
 import AddAd from "./components/Advertisements/AddAd/AddAd";
 import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
 import Home from "./components/customerScreens/home";
+import AdminLogin from "./components/login/AdminLogin";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/manager" element={<Manager />} />
         <Route path="/offerForm" element={<OfferForm />} />
         <Route path="/offerManagement" element={<OfferManagement />} />
         <Route path="/offerUpdateForm/:id" element={<OfferUpdateForm />} />
@@ -45,7 +47,7 @@ function App() {
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
 
-        <Route path="/manager" element={<Manager />} />
+        
 
         <Route path="/addDetails" element={<InsertDetails />} />
         <Route path="/displayDetails" element={<DisplayDetails />} />
@@ -55,6 +57,8 @@ function App() {
         <Route path="/addad" element={<AddAd />} />
         <Route path="/advertisementdetails/:id" element={<UpdateAds />} />
         <Route path="/" element={<Home/>}/>
+
+        <Route path="/adminlogin" element={<AdminLogin />} />
 
       </Routes>
     </Router>

@@ -67,7 +67,7 @@ function Navbar() {
                   <li>
                     
                       <NavLink
-                        to={"/login"}
+                        to={"/adminlogin"}
                         className="dropdown-item"
                         activeClassName="active"
                       >
