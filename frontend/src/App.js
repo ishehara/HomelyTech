@@ -5,9 +5,9 @@ import OfferForm from "./components/offers/offerForm";
 //import Navbar from "./components/navbar/navbar";
 import OfferManagement from "./components/offers/offerManagement";
 import PaymentDisplay from "./components/Payment/Payments/Payment";
-import UpdatePayment from "./components/Payment/Update Payment/UpdatePayment"
-import UpdateRefund from "./components/Payment/UpdateRefund/UpdateRefund"
-import Refunds from "./components/Payment/Refunds/Refund"
+import UpdatePayment from "./components/Payment/Update Payment/UpdatePayment";
+import UpdateRefund from "./components/Payment/UpdateRefund/UpdateRefund";
+import Refunds from "./components/Payment/Refunds/Refund";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import OfferUpdateForm from "./components/offers/offerUpdateForm";
@@ -17,16 +17,17 @@ import DisplayDetails from "./components/inventory/DisplayDetails/displayDetails
 import UpdateDetails from "./components/inventory/UpdateInventory/UpdateDetails";
 
 import Timetables from "./components/timetables/TimetableDetails/Timetables";
-import AddTimetable from "./components/timetables/AddTimetable/AddTimetable"
-import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimetable"
+import AddTimetable from "./components/timetables/AddTimetable/AddTimetable";
+import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimetable";
 
-
+import Ads from "./components/Advertisements/Advertisement Details/Ads";
+import AddAd from "./components/Advertisements/AddAd/AddAd";
+import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
+import Home from "./components/customerScreens/home";
 
 function App() {
   return (
     <Router>
-     
-
       <Routes>
         <Route path="/offerForm" element={<OfferForm />} />
         <Route path="/offerManagement" element={<OfferManagement />} />
@@ -34,21 +35,27 @@ function App() {
 
         <Route path="/addtimetable" element={<AddTimetable />} />
         <Route path="/timetabledetails" element={<Timetables />} />
-        <Route path="/timetabledetails/:technicianId" element={<UpdateTimetable />} />
-
-
+        <Route
+          path="/timetabledetails/:technicianId"
+          element={<UpdateTimetable />}
+        />
 
         <Route path="/paymentdetails" element={<PaymentDisplay />} />
         <Route path="/refunddetails" element={<Refunds />} />
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
 
+        <Route path="/manager" element={<Manager />} />
 
-        <Route path="/" element={<Manager />} />
+        <Route path="/addDetails" element={<InsertDetails />} />
+        <Route path="/displayDetails" element={<DisplayDetails />} />
+        <Route path="/displayDetails/:id" element={<UpdateDetails />} />
 
-        <Route path ="/addDetails" element = {<InsertDetails/>}/>
-          <Route path ="/displayDetails" element = {<DisplayDetails/>}/>
-          <Route path ="/displayDetails/:id" element = {<UpdateDetails/>}/>
+        <Route path="/advertisementdetails" element={<Ads />} />
+        <Route path="/addad" element={<AddAd />} />
+        <Route path="/advertisementdetails/:id" element={<UpdateAds />} />
+        <Route path="/" element={<Home/>}/>
+
       </Routes>
     </Router>
   );
