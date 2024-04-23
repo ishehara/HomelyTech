@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-//import Nav from '../Nav/Nav';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
+import Navbar from '../../customerScreens/navbar';
 
 function UpdateAds() {
   const [inputs, setInputs] = useState({});
@@ -54,9 +54,13 @@ function UpdateAds() {
 
   return (
     <div>
-        {/* <Nav /> */}
-    <div className="container">
-          <div className="form-container">
+
+
+      <Navbar/>
+        
+    
+          <div className="Adform-container">
+
           <h1>Update Your Advertisement</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="adTitle">Ad Title:</label><br />
@@ -81,7 +85,7 @@ function UpdateAds() {
       </form>
     </div>
   </div>
-  </div>
+ 
   );
 }
 

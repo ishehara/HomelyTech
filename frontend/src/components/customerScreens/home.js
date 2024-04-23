@@ -11,9 +11,12 @@ function home() {
   return (
     
     <div>
+      <Navbar/>
+      <h1>This is homepage</h1>
+      <Footer/>
       
 
-      <Router>
+      {/* <Router>
       <Navbar/>
         <Routes>
         <Route path="/" element={<HomeScreen/>}/>
@@ -23,8 +26,9 @@ function home() {
           <Route path="/advertisementdetails/:id" element={<UpdateAds/>}/>
 
         </Routes>
-        <Footer/>
-      </Router>
+
+      </Router> */}
+
     </div>
     
   );

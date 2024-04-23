@@ -3,6 +3,8 @@ import axios from 'axios';
 //import '.../UpdatePayment.css';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function UpdatePayment() {
     const [inputs, setInputs] = useState({
@@ -57,6 +59,8 @@ function UpdatePayment() {
 
     return (
         <div>
+            <Navbar/>
+        <div>
             <h1 className='AddPayment h1'>Update User</h1>
             <form onSubmit={handleSubmit} className='AddPayment form'>
                 <label className='AddPayment label' htmlFor="fname">Full Name:</label><br />
@@ -86,6 +90,7 @@ function UpdatePayment() {
             </form>
             
             
+        </div>
         </div>
     );
 }
