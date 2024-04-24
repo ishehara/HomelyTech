@@ -105,7 +105,9 @@ function DisplayDetails() {
                             <th className="Inventory-th">Supplier Email</th>
                             <th className="Inventory-th">Date</th>
                             <th className="Inventory-th">Actions</th>
-                            <th className="Inventory-th">Total Amount(Rs.)</th>
+
+                            <th className="Inventory-th">Product Cost(Rs.)</th>
+
                         </tr>
                     </thead>
                     <tbody>

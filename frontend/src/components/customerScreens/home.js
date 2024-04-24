@@ -15,7 +15,7 @@ function home() {
     <div>
 
       <Navbar/>
-      <h1>This is homepage</h1>
+
       <HomeScreen/>
       <Footer/>
       

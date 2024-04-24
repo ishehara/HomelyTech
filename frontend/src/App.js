@@ -4,10 +4,15 @@ import Manager from "./components/dashboards/manager";
 import OfferForm from "./components/offers/offerForm";
 //import Navbar from "./components/navbar/navbar";
 import OfferManagement from "./components/offers/offerManagement";
+
 import PaymentDisplay from "./components/Payment/Payments/Payment";
 import UpdatePayment from "./components/Payment/Update Payment/UpdatePayment";
 import UpdateRefund from "./components/Payment/UpdateRefund/UpdateRefund";
 import Refunds from "./components/Payment/Refunds/Refund";
+import MakePayment from "./components/customerScreens/Payment/AddPayment/AddPayment"
+import RefundPayment from "./components/customerScreens/Payment/AddRefund/AddRefund"
+
+
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import OfferUpdateForm from "./components/offers/offerUpdateForm";
@@ -25,6 +30,7 @@ import AddAd from "./components/Advertisements/AddAd/AddAd";
 import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
 import Home from "./components/customerScreens/home";
 import AdminLogin from "./components/login/AdminLogin";
+import AboutUs from "./components/customerScreens/aboutUs/aboutus";
 
 function App() {
   return (
@@ -46,6 +52,8 @@ function App() {
         <Route path="/refunddetails" element={<Refunds />} />
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
+        <Route path="/makePayment" element={<MakePayment />} />
+        <Route path="/refundPayment" element={<RefundPayment />} />
 
         
 
@@ -59,6 +67,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
 
         <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/aboutus" element={<AboutUs />} />
 
       </Routes>
     </Router>

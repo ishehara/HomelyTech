@@ -1,9 +1,14 @@
 import React from "react";
 import './aboutus.css';
+import Navbar from '../navbar';
+import Footer from '../Footer/footer'
 
 export default function AboutUs() {
   return (
-    <div className="about-us-container">
+    <div>
+     <Navbar/> 
+    <div className="body-about">
+    <div className="about-us-container" >
       <div className="about-content">
         <h1 className="about-us-heading">About Us</h1>
         <p className="about-us-paragraph">
@@ -69,6 +74,9 @@ export default function AboutUs() {
           creating a happier, healthier home.
         </p>
       </div>
+    </div>
+    </div>
+    <Footer/>
     </div>
   );
 }
