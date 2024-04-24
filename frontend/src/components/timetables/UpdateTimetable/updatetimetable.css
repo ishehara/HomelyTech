@@ -1,14 +1,14 @@
 /* addTimetable.css */
-.form-addtimetable{
+.form-updatetimetable{
     max-width: 600px;
     margin: 0 auto;
   }
   
-  .label-addTime {
+  .label-updateTime {
     font-weight: bold;
   }
   
-  .addTime-field {
+  .updateTime-field {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -16,7 +16,7 @@
     border-radius: 4px;
   }
   
-  .btn-addTime{
+  .btn-updateTime{
     background-color: #052659;
     color: white;
     border: 1px solid black;
@@ -26,17 +26,17 @@
 
   }
   
-  .btn-addTime:hover {
+  .btn-updateTime:hover {
     background-color:  #7DA0CA;
     color: black;
     border: 1px solid black;
   }
 
-  .btn-addTime-container{
+  .btn-updateTime-container{
     text-align: center; /* Center align the content */
   }
 
-  .b1{
+  .u1{
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 10px;
