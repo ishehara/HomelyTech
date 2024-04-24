@@ -1,0 +1,58 @@
+.about-us-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: rgba(152, 143, 143, 0.5);
+    margin-bottom: 30px;
+  }
+
+  .about-content {
+    position: relative;
+    z-index: 1; /* Ensure the content is above the overlay */
+  }
+  
+  /* Heading styles */
+  .about-us-heading {
+    font-size: 40px;
+    color: black; 
+    margin-bottom: 10px;
+  }
+  
+  /* Paragraph styles */
+  .about-us-paragraph {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+  /* Mission, Offer, Why Choose headings styles */
+  .about-us-subheading {
+    font-size: 30px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Mission, Offer, Why Choose paragraph styles */
+  .about-us-subparagraph {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('aboutUsimages/p1.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    
+  }
