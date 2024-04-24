@@ -35,7 +35,11 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to={"/createbooking"}
+<<<<<<< Updated upstream
                   className="nav-link"
+=======
+                  className="nav-link text-white"
+>>>>>>> Stashed changes
                   activeClassName="active"
                 >
                   Booking

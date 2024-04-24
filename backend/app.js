@@ -11,7 +11,10 @@ const InventoryRouter = require("./routes/InventoryRoute");
 
 const advertisementRouter = require("./routes/AdRoute");
 const feedbackRouter = require("./routes/FeedbackRoutes");
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 const bookingRouter = require("./routes/BookingRoutes");
 
 
@@ -35,7 +38,7 @@ app.use("/bookings", bookingRouter);
 
 app.use("/ads",advertisementRouter);
 app.use("/feedback",feedbackRouter);
-
+app.use("/bookings", bookingRouter);
 
 
 // db urls

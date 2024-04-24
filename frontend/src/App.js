@@ -78,7 +78,10 @@ function App() {
         <Route path="/bookingdetails/:id" element={<Update />} />
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
       </Routes>
     </Router>
   );
