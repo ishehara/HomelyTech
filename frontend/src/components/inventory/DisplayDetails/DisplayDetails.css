@@ -41,7 +41,7 @@
 }
 
 .display-details-Btn {
-  padding: 8px 16px;
+  padding: 4px 10px;;
   margin: 0 5px;
   cursor: pointer;
   border: none;
@@ -51,12 +51,12 @@
 }
 
 .display-details-Btn:hover {
-  background-color: #052659; /* Updated background color */
+  background-color: #2a7bf5; /* Updated background color */
 }
 
 .display-details-a{
   display: inline-block;
-  padding: 8px 16px;
+  padding: 4px 10px;
   margin: 0 5px;
   text-decoration: none;
   color: white;
@@ -66,6 +66,6 @@
 }
 
 .display-details-a:hover {
-  background-color: #052659;
+  background-color: #2a7bf5;
   color: #fff;
 }
