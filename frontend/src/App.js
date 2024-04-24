@@ -30,6 +30,7 @@ import AddAd from "./components/Advertisements/AddAd/AddAd";
 import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
 import Home from "./components/customerScreens/home";
 import AdminLogin from "./components/login/AdminLogin";
+import AboutUs from "./components/customerScreens/aboutUs/aboutus";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
 
         <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/aboutus" element={<AboutUs />} />
 
       </Routes>
     </Router>

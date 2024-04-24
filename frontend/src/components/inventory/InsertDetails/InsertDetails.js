@@ -54,7 +54,7 @@ function InsertDetails() {
     return (
         <div>
             <Navbar/>
-            <div className="container">
+            <div className="inventory-container">
                 <h1>Insert Details</h1>
                 <form onSubmit={handleSubmit}>
                     <label>Name:</label>
@@ -97,7 +97,7 @@ function InsertDetails() {
                     <input type="date" name="date" onChange={handleChange} value={inputs.date} required />
                     <br/><br/>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="inventory-btn">Submit</button>
                 </form>
             </div>
         </div>
