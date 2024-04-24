@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-//import Nav from "../Nav/Nav";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./addTimetable.css";
 import Navbar from "../../navbar/navbar"; // Adjusted import path
-
 
 function AddTimetable() {
   const history = useNavigate();
@@ -17,17 +15,34 @@ function AddTimetable() {
     address: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Validation for phone number: Allow only 10 digits
+    if (name === "phoneNo" && !/^\d{0,10}$/.test(value)) {
+      // If the entered value is not exactly 10 digits or empty, don't update state
+      return;
+    }
+
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => history("/timetabledetails"));
+
+    try {
+      await sendRequest();
+      navigate("/timetabledetails");
+      alert("Details added successfully");
+    } catch (error) {
+      console.error("Error!:", error);
+    }
   };
 
   const sendRequest = async () => {
@@ -45,11 +60,12 @@ function AddTimetable() {
 
   return (
     <div>
-      <Navbar/>
-    <div className="b1">
-      {/* <Nav /> */}
-      <h1><center>Add Timetable</center></h1>
-      <form className="form-addtimetable" onSubmit={handleSubmit}>
+      <Navbar />
+      <div className="b1">
+        <h1>
+          <center>Add Timetable</center>
+        </h1>
+        <form className="form-addtimetable" onSubmit={handleSubmit}>
         <label className="label-addTime">Name : </label>
         <br />
         <input
@@ -120,14 +136,15 @@ function AddTimetable() {
           className="addTime-field"
           required
         ></input>
-        <br></br>
-        <br></br>
-        <div className="btn-addTime-container">
-        <button className="btn-addTime">Submit</button>
-        </div>
-        <br></br>
-      </form>
-    </div>
+          <br></br>
+          <br></br>
+          {/* Rest of your form elements */}
+          <div className="btn-addTime-container">
+            <button className="btn-addTime">Submit</button>
+          </div>
+          <br></br>
+        </form>
+      </div>
     </div>
   );
 }

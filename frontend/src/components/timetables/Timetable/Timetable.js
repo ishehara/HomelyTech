@@ -57,11 +57,11 @@ function Timetable(props) {
             <td>{time}</td>
             <td>{address}</td>
             <td>
-              <Link className="update" to={`/timetabledetails/${technicianId}`}>
+              <Link className="tupdate" to={`/timetabledetails/${technicianId}`}>
                 Update
               </Link>
-              <span className="action-line"></span>
-              <button className="delete" onClick={deleteHandler}>
+              <br></br><br></br>
+              <button className="tdelete" onClick={deleteHandler}>
                 Delete
               </button>
             </td>
