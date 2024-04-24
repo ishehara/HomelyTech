@@ -49,9 +49,8 @@ export default function SignIn() {
       email,
       password,
     });
-    if (email == "admin@gmail.com" && password =="abc1234") {
+    if (email === "admin@gmail.com" && password === "abc1234") {
       navigate("/manager"); // Navigate to /manager route if credentials are correct
-      
     }
   };
 
