@@ -1,5 +1,6 @@
 import {
   Button,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -16,6 +17,9 @@ export default function OfferTable({ rows, onDelete }) {
 
     const navigate = useNavigate();
   return (
+    
+      
+      
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
@@ -80,6 +84,7 @@ export default function OfferTable({ rows, onDelete }) {
         </TableBody>
       </Table>
     </TableContainer>
+    
   );
 }
 

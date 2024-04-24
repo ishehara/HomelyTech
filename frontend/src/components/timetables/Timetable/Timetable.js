@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './timetable.css';
 
+
+
 function Timetable(props) {
   const { _id, name, technicianId, phoneNo, date, time, address } =
     props.timetable;
@@ -29,6 +31,7 @@ function Timetable(props) {
   }
 
   return (
+    
     <div className="table-container">
       <br></br>
       <table className="table"> {/* Add className attribute */}
@@ -66,6 +69,7 @@ function Timetable(props) {
         </tbody>
       </table>
     </div>
+    
   );
 }
 

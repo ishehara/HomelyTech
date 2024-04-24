@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 //import { useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 
 function Payment() {
@@ -79,6 +81,7 @@ function Payment() {
 
   return (
     <div>
+      <Navbar/>
       <h1 className='Payment h1'>Payment Details</h1>
       {isLoading && <p>Loading payments...</p>}
       {error && <p>Error fetching payments: {error.message}</p>}

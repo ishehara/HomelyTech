@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../Advertisement Details/Ads.css';
 import { useReactToPrint } from "react-to-print";
+import Navbar from '../../customerScreens/navbar';
 
 const Ads = () => {
   const [ads, setAds] = useState([]);
@@ -89,6 +90,9 @@ const Ads = () => {
 
   return (
     <div>
+
+      <Navbar/>
+
       <h1>Advertisements </h1>
       <Link to={"/AddAd"} className="insert-button">Add Advertisement</Link>
       <div className="search-bar">

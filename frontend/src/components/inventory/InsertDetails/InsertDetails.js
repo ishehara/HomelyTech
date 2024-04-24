@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './InsertDetails.css'; 
+import Navbar from "../../navbar/navbar"; // Adjusted import path
+
 
 function InsertDetails() {
     const [inputs, setInputs] = useState({
@@ -51,7 +53,8 @@ function InsertDetails() {
 
     return (
         <div>
-            <div className="container">
+            <Navbar/>
+            <div className="inventory-container">
                 <h1>Insert Details</h1>
                 <form onSubmit={handleSubmit}>
                     <label>Name:</label>
@@ -94,7 +97,7 @@ function InsertDetails() {
                     <input type="date" name="date" onChange={handleChange} value={inputs.date} required />
                     <br/><br/>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="inventory-btn">Submit</button>
                 </form>
             </div>
         </div>

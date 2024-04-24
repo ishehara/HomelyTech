@@ -1,4 +1,4 @@
-.container {
+.inventory-container {
   max-width: 500px;
   margin: 50px auto; /* Center the container vertically and horizontally */
   padding: 20px;
@@ -36,7 +36,7 @@ input {
   border: 1px solid #ccc;
 }
 
-button {
+.inventory-btn {
   padding: 12px 24px;
   background-color: #007bff;
   color: #fff;
@@ -46,6 +46,6 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.inventory-btn:hover {
   background-color: #0056b3;
 }
