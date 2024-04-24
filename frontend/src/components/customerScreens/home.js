@@ -1,18 +1,39 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './navbar';
 import AboutUs from './aboutUs/aboutus'; // Note the correct import path
 
-function Home() {
+
+import HomeScreen from './HomeScreen/HomeScreen';
+import Footer from './Footer/footer'
+
+function home() {
+
   return (
     <div>
-      <Navbar />
-      <br></br>
-      <Router>
+
+      <Navbar/>
+      <h1>This is homepage</h1>
+      <HomeScreen/>
+      <Footer/>
+      
+
+      {/* <Router>
+      <Navbar/>
         <Routes>
-          <Route path="/" element={<AboutUs />} />
+        <Route path="/" element={<HomeScreen/>}/>
+        
+          <Route path='/advertisementdetails' element={<Ads/>}/>
+          <Route path="/addad" element={<AddAd/>}/>
+          <Route path="/advertisementdetails/:id" element={<UpdateAds/>}/>
+
         </Routes>
-      </Router>
+
+      </Router> */}
+
+
     </div>
   );
 }

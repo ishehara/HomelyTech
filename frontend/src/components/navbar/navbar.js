@@ -30,7 +30,7 @@ function navbar() {
         >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
-              Tools for your help
+              Tools for manage the System
             </h5>
             <button
               type="button"
@@ -42,7 +42,7 @@ function navbar() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-start flex-grow-1 ps-3">
               <li className="nav-item">
-              <Link to="/" className="nav-link">Dashboard</Link>
+              <Link to="/manager" className="nav-link">Dashboard</Link>
               
               </li>
               <li className="nav-item">
