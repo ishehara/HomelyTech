@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-// import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
 import '../Advertisement Details/Ads.css';
-// import { useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import Navbar from '../../customerScreens/navbar';
 
@@ -16,7 +14,19 @@ const Ads = () => {
     const fetchAds = async () => {
       try {
         const response = await axios.get('http://localhost:5000/ads');
-        setAds(response.data.ads);
+        let adsData = response.data.ads;
+
+        // Retrieve likes from local storage and update ads array
+        const storedLikes = JSON.parse(localStorage.getItem('likes')) || {};
+        adsData = adsData.map(ad => ({
+          ...ad,
+          likes: storedLikes[ad._id] || 0 // Use stored like count or default to 0
+        }));
+
+        // Sort ads by likes in descending order
+        adsData.sort((a, b) => b.likes - a.likes);
+
+        setAds(adsData);
       } catch (error) {
         console.error('Error fetching ads:', error);
       }
@@ -25,16 +35,39 @@ const Ads = () => {
     fetchAds();
   }, []);
 
-  //const history = useNavigate();
-
   const deleteHandler = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/ads/${id}`);
       // Remove the deleted ad from the local state
       setAds(prevAds => prevAds.filter(ad => ad._id !== id));
+
+      // Remove like count from local storage
+      const storedLikes = JSON.parse(localStorage.getItem('likes')) || {};
+      delete storedLikes[id];
+      localStorage.setItem('likes', JSON.stringify(storedLikes));
+
       alert("Advertisement successfully deleted!");
     } catch (error) {
       console.error('Error deleting ad:', error);
+    }
+  };
+
+  const handleLike = async (id) => {
+    try {
+      // Update the like count for the specific ad in the local state
+      setAds(prevAds =>
+        prevAds.map(ad =>
+          ad._id === id ? { ...ad, likes: (ad.likes || 0) + 1 } : ad
+        )
+      );
+
+      // Update local storage with new like count
+      const storedLikes = JSON.parse(localStorage.getItem('likes')) || {};
+      const newLikes = (storedLikes[id] || 0) + 1;
+      storedLikes[id] = newLikes;
+      localStorage.setItem('likes', JSON.stringify(storedLikes));
+    } catch (error) {
+      console.error('Error liking ad:', error);
     }
   };
 
@@ -57,17 +90,19 @@ const Ads = () => {
 
   return (
     <div>
+
       <Navbar/>
+
       <h1>Advertisements </h1>
       <Link to={"/AddAd"} className="insert-button">Add Advertisement</Link>
       <div className="search-bar">
-      <input
-        onChange={(e) => setSearchQuery(e.target.value)}
-        type="text"
-        name="search"
-        placeholder="Search Ad Details"
-      />
-      <button onClick={handleSearch}>Search</button>
+        <input
+          onChange={(e) => setSearchQuery(e.target.value)}
+          type="text"
+          name="search"
+          placeholder="Search Ad Details"
+        />
+        <button onClick={handleSearch}>Search</button>
       </div>
       {noResults ? (
         <div>
@@ -77,13 +112,12 @@ const Ads = () => {
         <div ref={ComponentsRef}>
           {ads.map((ad, index) => (
             <div key={index} className="ad-container">
-              
               {/* Output ad details */}
               <h2 className="ad-title">{ad.adTitle}</h2>
               <h4 className="Ad-Description"> {ad.adDescription}</h4>
-              <p>
+              {/* <p>
                 <strong>ID:</strong> {ad._id}
-              </p>
+              </p> */}
               <p>
                 <strong>Service Type:</strong> {ad.serviceType}
               </p>
@@ -105,10 +139,15 @@ const Ads = () => {
               <p>
                 <strong>Date:</strong> {ad.date}
               </p>
+              <p>
+                <strong>Likes:</strong> {ad.likes || 0}
+                <button onClick={() => handleLike(ad._id)} className="like-button">Like</button>
+              </p>
               <div className="button-container">
-              <Link to={`/advertisementdetails/${ad._id}`} className="update-button">Update</Link>
-              <button onClick={() => deleteHandler(ad._id)} className="delete-button">Delete</button>
-            </div></div>
+                <Link to={`/advertisementdetails/${ad._id}`} className="update-button">Update</Link>
+                <button onClick={() => deleteHandler(ad._id)} className="delete-button">Delete</button>
+              </div>
+            </div>
           ))}
         </div>
       )}
