@@ -7,11 +7,8 @@ const User = require("../models/UserModel")
 //Insert User Controller
 const UserController = require("../controllers/UserControllers");
 
-router.get("/",UserController.getAllUsers);
-router.post("/",UserController.addUsers);
-router.get("/:id",UserController.getById);
-router.put("/:id",UserController.updateUser);
-router.delete("/:id",UserController.deleteUser);
+router.post("/",UserController.RegisterUser);
+
 
 
 //export
