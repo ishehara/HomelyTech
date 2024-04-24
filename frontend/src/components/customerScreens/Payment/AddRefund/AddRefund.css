@@ -51,7 +51,7 @@
     border-color: #007bff; /* Change border color on focus */
 }
 
-.AddPayment-button {
+.AddPayment button {
     padding: 10px 20px;
     font-size: 18px;
     background-color: #021020;
@@ -61,6 +61,6 @@
     cursor: pointer;
 }
 
-.AddPayment-button:hover {
+.AddPayment button:hover {
     background-color: #04011f;
 }
