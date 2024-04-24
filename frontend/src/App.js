@@ -28,6 +28,8 @@ import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimet
 import Ads from "./components/Advertisements/Advertisement Details/Ads";
 import AddAd from "./components/Advertisements/AddAd/AddAd";
 import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
+import AdReport from "./components/Advertisements/Advertisement Report/AdReport";
+
 import Home from "./components/customerScreens/home";
 import AdminLogin from "./components/login/AdminLogin";
 import AboutUs from "./components/customerScreens/aboutUs/aboutus";
@@ -64,6 +66,8 @@ function App() {
         <Route path="/advertisementdetails" element={<Ads />} />
         <Route path="/addad" element={<AddAd />} />
         <Route path="/advertisementdetails/:id" element={<UpdateAds />} />
+        <Route path="/adreport" element={<AdReport />} />
+
         <Route path="/" element={<Home/>}/>
 
         <Route path="/adminlogin" element={<AdminLogin />} />

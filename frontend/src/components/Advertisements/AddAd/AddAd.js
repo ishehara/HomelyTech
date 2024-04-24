@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import './AddAd.css';
 import Navbar from '../../customerScreens/navbar';
+import Footer from '../../customerScreens/Footer/footer';
 
 function AddAd() {
     const history = useNavigate();
@@ -19,12 +20,20 @@ function AddAd() {
         date:'',
     });
 
-    const handleChange =(e)=>{
-        setInputs((prevState)=> ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }));
-    };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+    
+        // Validation for phone number: Allow only 10 digits
+        if (name === "contactNumber" && !/^\d{0,10}$/.test(value)) {
+          // If the entered value is not exactly 10 digits or empty, don't update state
+          return;
+        }
+    
+        setInputs((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -81,6 +90,7 @@ function AddAd() {
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
