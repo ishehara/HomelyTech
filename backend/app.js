@@ -12,6 +12,7 @@ const InventoryRouter = require("./routes/InventoryRoute");
 const advertisementRouter = require("./routes/AdRoute");
 const feedbackRouter = require("./routes/FeedbackRoutes");
 
+const bookingRouter = require("./routes/BookingRoutes");
 
 
 const cors = require('cors');
@@ -28,6 +29,8 @@ app.use("/payments",Paymentrouter);
 app.use("/refund",Refundrouter);
 
 app.use("/invetory",InventoryRouter);
+
+app.use("/bookings", bookingRouter);
 
 
 app.use("/ads",advertisementRouter);

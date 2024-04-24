@@ -32,6 +32,10 @@ import Home from "./components/customerScreens/home";
 import AdminLogin from "./components/login/AdminLogin";
 import AboutUs from "./components/customerScreens/aboutUs/aboutus";
 
+import Create from "./components/customerScreens/AddBooking/AddBooking"
+import Details from "./components/customerScreens/BookingDetails/bookingDetails"
+import Update from "./components/customerScreens/UpdateBooking/updateBooking"
+
 function App() {
   return (
     <Router>
@@ -68,6 +72,12 @@ function App() {
 
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/aboutus" element={<AboutUs />} />
+
+        <Route path="/createbooking" element={<Create />} />
+        <Route path="/bookingdetails" element={<Details />} />
+        <Route path="/bookingdetails/:id" element={<Update />} />
+
+
 
       </Routes>
     </Router>

@@ -66,6 +66,12 @@ function navbar() {
                   
                 
               </li>
+              <li className="nav-item">
+                
+                  <Link to="/bookingdetails" className="nav-link">Booking Management</Link>
+                  
+                
+              </li>
               
             </ul>
             

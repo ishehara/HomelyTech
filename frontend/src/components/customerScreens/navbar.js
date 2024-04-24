@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <div>
+
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,7 +34,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/bookings"}
+                  to={"/createbooking"}
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -137,6 +138,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+
     </div>
   );
 }
