@@ -33,7 +33,7 @@ const adSchema = new Schema({
         required:true, //validate
         validate: {
             validator: function(v) {
-                return /\d{10}/.test(v); // Validates if it's a 10-digit number
+                return /^\d{10}$/.test(v); // Validates if it's a 10-digit number
             },
             message: props => `${props.value} is not a valid phone number!`
         }

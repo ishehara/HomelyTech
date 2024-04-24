@@ -1,0 +1,35 @@
+.ads-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ads-table th, .ads-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .ads-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .ads-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .ads-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .ads-table button {
+    padding: 5px 10px;
+    background-color: #cd4229;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ads-table button:hover {
+    background-color: #76180c;
+  }
+  

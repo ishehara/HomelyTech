@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router';
 import Navbar from '../../customerScreens/navbar';
+import Footer from '../../customerScreens/Footer/footer';
 
 function UpdateAds() {
   const [inputs, setInputs] = useState({});
@@ -84,6 +85,7 @@ function UpdateAds() {
         <input type="submit" value="Submit" />
       </form>
     </div>
+    <Footer/>
   </div>
  
   );

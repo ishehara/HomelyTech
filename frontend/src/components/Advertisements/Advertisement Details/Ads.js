@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../Advertisement Details/Ads.css';
-import { useReactToPrint } from "react-to-print";
+// import { useReactToPrint } from "react-to-print";
 import Navbar from '../../customerScreens/navbar';
+import Footer from '../../customerScreens/Footer/footer';
 
 const Ads = () => {
   const [ads, setAds] = useState([]);
@@ -71,12 +72,12 @@ const Ads = () => {
     }
   };
 
-  const ComponentsRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => ComponentsRef.current,
-    documentTitle: "Ad Report",
-    onAfterPrint: () => alert("Ad Report Successfully Downloaded!"),
-  });
+  // const ComponentsRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //   content: () => ComponentsRef.current,
+  //   documentTitle: "Ad Report",
+  //   onAfterPrint: () => alert("Ad Report Successfully Downloaded!"),
+  // });
 
   const handleSearch = () => {
     const filteredAds = ads.filter((ad) =>
@@ -109,7 +110,7 @@ const Ads = () => {
           <p>No Ads Found</p>
         </div>
       ) : (
-        <div ref={ComponentsRef}>
+         <div>
           {ads.map((ad, index) => (
             <div key={index} className="ad-container">
               {/* Output ad details */}
@@ -151,9 +152,10 @@ const Ads = () => {
           ))}
         </div>
       )}
-      <div>
+      {/* <div>
         <button onClick={handlePrint} className="download-button">Download Ad Report</button>
-      </div>
+      </div> */}
+      <Footer/>
     </div>
   );
 };
