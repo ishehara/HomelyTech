@@ -105,27 +105,42 @@ function DisplayDetails() {
                             <th className="Inventory-th">Supplier Email</th>
                             <th className="Inventory-th">Date</th>
                             <th className="Inventory-th">Actions</th>
+                            <th className="Inventory-th">Total Amount(Rs.)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {details.map((detail, index) => (
-                            <tr key={index}>
-                                <td className="Inventory-td">{detail._id}</td>
-                                <td className="Inventory-td">{detail.itemName}</td>
-                                <td className="Inventory-td">{detail.itemBrand}</td>
-                                <td className="Inventory-td">{detail.category}</td>
-                                <td className="Inventory-td">{detail.quantity}</td>
-                                <td className="Inventory-td">{detail.productCost}</td>
-                                <td className="Inventory-td">{detail.supplierName}</td>
-                                <td className="Inventory-td">{detail.supplierEmail}</td>
-                                <td className="Inventory-td">{detail.date}</td>
-                                <td>
-                                    <Link to={`/displayDetails/${detail._id}`} className="display-details-a">Update</Link>
-                                    <button onClick={() => deleteHandler(detail._id)} className="display-details-Btn">Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
+    {details.map((detail, index) => {
+        // Calculate total cost for each item
+        const totalCost = detail.quantity * detail.productCost;
+        return (
+            <tr key={index}>
+                <td className="Inventory-td">{detail._id}</td>
+                <td className="Inventory-td">{detail.itemName}</td>
+                <td className="Inventory-td">{detail.itemBrand}</td>
+                <td className="Inventory-td">{detail.category}</td>
+                <td className="Inventory-td">{detail.quantity}</td>
+                <td className="Inventory-td">{detail.productCost}</td>
+                <td className="Inventory-td">{detail.supplierName}</td>
+                <td className="Inventory-td">{detail.supplierEmail}</td>
+                <td className="Inventory-td">{detail.date}</td>
+                <td>
+                    <Link to={`/displayDetails/${detail._id}`} className="display-details-a">Update</Link>
+                    <button onClick={() => deleteHandler(detail._id)} className="display-details-Btn">Delete</button>
+                </td>
+                {/* Display total cost for each item */}
+                <td className="Inventory-td">{totalCost}</td>
+            </tr>
+        );
+    })}
+    {/* Overall total cost row */}
+    <tr>
+        <td colSpan="10" className="Inventory-td">Overall Total Amount</td>
+        <td className="Inventory-td" colSpan="2">
+            {/* Calculate overall total cost */}
+            {details.reduce((total, detail) => total + (detail.quantity * detail.productCost), 0)}
+        </td>
+    </tr>
+</tbody>
                 </table>
                 {noResults && <p>No results found.</p>}
             </div>

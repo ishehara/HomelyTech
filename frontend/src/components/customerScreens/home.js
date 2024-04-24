@@ -38,4 +38,4 @@ function home() {
   );
 }
 
-export default Home;
+export default home;
