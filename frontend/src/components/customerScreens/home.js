@@ -15,7 +15,6 @@ function home() {
     <div>
 
       <Navbar/>
-      <h1>This is homepage</h1>
       <HomeScreen/>
       <Footer/>
       
@@ -38,4 +37,4 @@ function home() {
   );
 }
 
-export default Home;
+export default home;
