@@ -10,8 +10,6 @@ router.post("/",AdController.addAds);
 router.get("/:id",AdController.getById);
 router.put("/:id",AdController.updateAd);
 router.delete("/:id",AdController.deleteAd);
-
-
-
+ 
 //export
 module.exports = router;

@@ -19,6 +19,7 @@ const getAllAds = async (req, res, next) => {
     return res.status(200).json({ ads });
 };
 
+
 //data Insert
 const addAds = async (req, res, next) => {
 
