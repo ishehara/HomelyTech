@@ -48,6 +48,38 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
+                  Payment
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                  <NavLink
+                        to={"/makePayment"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        Make Payment
+                      </NavLink>
+                  </li>
+                  <li>
+                  <NavLink
+                        to={"/refundPayment"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        Refund Payment
+                      </NavLink>
+                  </li>
+                </ul>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   SignIn
                 </a>
                 <ul class="dropdown-menu">
@@ -100,6 +132,7 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+             
             </ul>
           </div>
         </div>
