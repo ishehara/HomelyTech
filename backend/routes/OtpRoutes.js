@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+// mongoose = require("mongoose");
+//const User = mongoose.model("Register");
+
 
 //Insert Model
 const User = require("../models/UserModel")
@@ -7,11 +10,9 @@ const User = require("../models/UserModel")
 //Insert User Controller
 const UserController = require("../controllers/UserControllers");
 
-router.get("/",UserController.getAllUsers);
-router.post("/",UserController.addUsers);
-router.get("/:id",UserController.getById);
-router.put("/:id",UserController.updateUser);
-router.delete("/:id",UserController.deleteUser);
+// Route for validating OTP
+router.post("/", UserController.validateOTP);
+
 
 
 //export
