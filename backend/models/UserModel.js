@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    name:{                     //Input data 
+    username:{                     //Input data 
         type:String,           //dataType
         required:true,         //validate
     },
@@ -12,16 +12,26 @@ const userSchema = new Schema({
         required:true,         //validate
     },
 
-    age:{                     //Input data 
-        type:Number,           //dataType
+    password:{                     //Input data 
+        type:String,           //dataType
+        required:true,         //validate
+    },
+
+    fullname:{                     //Input data 
+        type:String,           //dataType
         required:true,         //validate
     },
 
     address:{                     //Input data 
         type:String,           //dataType
         required:true,         //validate
-    }
+    },
 
+    //Add userLevel field
+    userLevel:{
+        type:String,
+        default:'normal'  //Default value as 'normal'
+    }
 });
 
 module.exports = mongoose.model(
