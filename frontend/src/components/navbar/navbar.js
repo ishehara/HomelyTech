@@ -68,6 +68,13 @@ function navbar() {
 
               <li className="nav-item">
                 
+                  <Link to="/bookingdetails" className="nav-link">Booking Management</Link>
+                  
+                
+              </li>
+
+              <li className="nav-item">
+                
                   <Link to="/adreport" className="nav-link">Advertisement Report</Link>
     
               </li>
