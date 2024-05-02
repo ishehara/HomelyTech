@@ -1,15 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Regular expression for validating email addresses
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const refundSchema = new Schema({
     fname: {
         type: String,
         required: true
     },
-   
     gmail: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: function(value) {
+                return emailRegex.test(value); // Test if value matches the email regex
+            },
+            message: props => `${props.value} is not a valid email address!`
+        }
     },
     address: {
         type: String,
@@ -27,19 +35,21 @@ const refundSchema = new Schema({
         type: Number,
         required: true
     },
-    date:{
+    date: {
         type: Date,
-        required:true
+        required: true
     },
-    reason:{
+    reason: {
         type: String,
-        required:true
+        required: true
     },
     PaymentSlip: {
         type: String,
         required: true
     },
- 
+    Status: {
+        type: String
+    }
 });
 
 module.exports = mongoose.model("Refund", refundSchema);
