@@ -26,12 +26,12 @@ const getAllPayments = async (req,res,next) => {
 
 const addPayments = async (req,res,next) =>{
 
-    const {fname , gmail , address , Phone , ServiceType , amount , PaymentSlip} = req.body;
+    const {fname , gmail , address , Phone , ServiceType , amount , PaymentSlip,Status} = req.body;
 
     let payments;
 
     try{
-        payments = new Payment ({fname,gmail,address,Phone,ServiceType,amount,PaymentSlip});
+        payments = new Payment ({fname,gmail,address,Phone,ServiceType,amount,PaymentSlip,Status});
         await payments.save();
     }catch(err){
         console.log(err);
@@ -76,13 +76,13 @@ const getById = async (req,res,next) => {
 const updatePayment = async (req,res,next) => {
 
     const id = req.params.id;
-    const {fname , gmail , address , Phone , ServiceType , amount , PaymentSlip} = req.body;
+    const {fname , gmail , address , Phone , ServiceType , amount , PaymentSlip,Status} = req.body;
 
     let payments;
 
     try{
         payments = await Payment.findByIdAndUpdate(id,
-            {fname:fname , gmail:gmail , address:address , Phone:Phone , ServiceType:ServiceType , amount:amount , PaymentSlip:PaymentSlip});
+            {fname:fname , gmail:gmail , address:address , Phone:Phone , ServiceType:ServiceType , amount:amount , PaymentSlip:PaymentSlip,Status:Status});
         payments = payments.save();
     }catch(err){
         console.log(err);

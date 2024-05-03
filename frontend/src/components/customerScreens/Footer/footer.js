@@ -8,7 +8,7 @@ function Footer() {
       <footer className="footer" >
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-6 footer-info">
+            <div className="col-lg-4 col-md-6 footer-info" >
                 <br/>
               <h3>Service Facilitating Management System</h3>
               <p>Our platform simplifies service management tasks, allowing you to focus on what matters most - delivering exceptional service to your customers.</p>

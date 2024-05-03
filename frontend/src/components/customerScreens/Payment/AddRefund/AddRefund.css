@@ -1,4 +1,10 @@
 /* AddPayment component styling */
+
+.container-payment {
+    background-image: url('../PaymentImage/payment.jpg');
+    opacity: 0.7;
+    z-index: 999; /* Adjust the value as needed, higher values bring it more forward */
+}
 .AddPayment {
     font-family: Arial, sans-serif;
     max-width: 800px;
@@ -6,9 +12,11 @@
     padding: 20px;
 }
 
-.AddPayment-h1 {
+.AddPayment-h3 {
     font-size: 24px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    color: #08032e;
 }
 
 .AddPayment form {
@@ -17,6 +25,9 @@
 
 .AddPayment-label {
     font-weight: bold;
+    text-align: left;
+    color: #021020;
+
 }
 
 .AddPayment input[type="text"],
@@ -40,10 +51,10 @@
     border-color: #007bff; /* Change border color on focus */
 }
 
-.AddPayment-button {
+.AddPayment button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #007bff;
+    background-color: #021020;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -51,5 +62,5 @@
 }
 
 .AddPayment button:hover {
-    background-color: #0056b3;
+    background-color: #04011f;
 }

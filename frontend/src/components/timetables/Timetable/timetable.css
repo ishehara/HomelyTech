@@ -1,11 +1,9 @@
-/* Timetable.css */
-
 .table {
   width: 90%;
   border-collapse: collapse;
 }
 
-.table-container{
+.table-container {
   display: flex;
   justify-content: center;
 }
@@ -15,46 +13,38 @@
   padding: 8px; /* Adjust padding as needed */
   border: 1px solid black; /* Add borders for better visualization */
   text-align: left; /* Align text to the left */
-  width: 12.5%; /* Equal width for each column (8 columns) */
+  width: calc(90% / 8); /* Fixed width for each column */
 }
 
 .table th {
-  background-color: #7DA0CA; /* Add background color for header */
+  background-color: #f2f2f2; /* Add background color for header */
 }
 
 .table td {
-  background-color: #C1E8FF; /* Add background color for data */
+  background-color: #c1e8ff; /* Add background color for data */
 }
 
-
-.table th:first-child,
-.table td:first-child {
-  width: 2%; /* Adjust width for the first column if needed */
-}
-
-.table th:last-child,
-.table td:last-child {
-  width: auto; /* Allow the last column to adjust its width */
-}
-
-.update,
-.delete {
+.tdelete,
+.tupdate {
+  display: inline-block;
+  text-decoration: none;
   cursor: pointer; /* Add pointer cursor to indicate interactivity */
   margin-right: 5px; /* Add margin between buttons if needed */
+  background-color: #052659;
+  color: white;
+  margin: 0 5px;
+  padding: 4px 10px;
+  border: 1px solid #052659;
+  border-radius: 4px;
 }
 
-.update:hover {
-  background-color: #5483B3; 
-  color: white;
-}
-  
-.delete:hover {
-  background-color:#5483B3;
-  color: white;
+.tupdate:hover {
+  background-color: #5483b3;
+  color: black;
 }
 
-.action-line {
-  border-left: 1px solid #ccc;
-  height: 100%;
-  margin: 0 15px; /* Adjust margin as needed */
+.tdelete:hover {
+  background-color: red;
+  color: black;
 }
+

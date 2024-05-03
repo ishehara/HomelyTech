@@ -7,17 +7,26 @@
   }
 
   .report{
+    display: inline-block;
+    text-decoration: none;
     cursor: pointer; /* Add pointer cursor to indicate interactivity */
+    margin-right: 5px; /* Add margin between buttons if needed */
+    background-color: #052659;
+    color: white;
+    margin: 0 5px;
+    padding: 4px 10px;
+    border: 1px solid #052659;
+    border-radius: 4px;
   }
   
   .report:hover{
-    background-color: #5483B3; 
-    color: white;
+    background-color: #C1E8FF; 
+    color: black;
   }
   
   .search-btn {
-    background-color: #5483B3;
-    color: black; /* White text color */
+    background-color: #052659;
+    color: white; /* White text color */
     border: 1px solid black; /* Remove border */
     border-radius: 5px; /* Add border radius for rounded corners */
     padding: 10px 20px; /* Adjust padding as needed */
@@ -36,3 +45,22 @@
   margin-right: 10px; /* Add margin for spacing */
     
   }
+
+  .addtime{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer; /* Add pointer cursor to indicate interactivity */
+    margin-right: 5px; /* Add margin between buttons if needed */
+    background-color: #052659;
+    color: white;
+    margin: 0 5px;
+    padding: 4px 10px;
+    border: 1px solid #052659;
+    border-radius: 4px;
+  }
+  
+  .addtime:hover {
+    background-color: #5483B3; 
+    color: black;
+  }
+  

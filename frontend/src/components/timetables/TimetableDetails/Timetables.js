@@ -90,6 +90,7 @@ function Timetables() {
                 Add Timetable
               </Link>
     </div>
+    <br></br>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import Navbar from "../../navbar/navbar"; // Adjusted import path
+import "./updatetimetable.css";
 
 
 function UpdateTimetable() {
@@ -37,9 +38,12 @@ function UpdateTimetable() {
         `http://localhost:5000/timetables/${technicianId}`,
         inputs
       );
+      alert("Details updated successfully!")
       history("/timetabledetails");
     } catch (error) {
       console.error("Error updating timetable:", error);
+      alert("Failed to update details, Please try again");
+      return false;
     }
   };
 
@@ -58,68 +62,74 @@ function UpdateTimetable() {
   return (
     <div>
       <Navbar/>
-    <div>
+    <div className="u1">
       <h1>Update Timetable</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="form-updatetimetable" onSubmit={handleSubmit}>
         {inputs && (
           <>
-            <label>Name : </label>
+            <label className="label-updateTime">Name : </label>
             <br />
             <input
               type="text"
               name="name"
               onChange={handleChange}
               value={inputs.name}
+              className="updateTime-field"
               required
             ></input>
             <br />
-            <label>Technician ID : </label>
+            <label className="label-updateTime">Technician ID : </label>
             <br />
             <input
               type="text"
               name="technicianId"
               onChange={handleChange}
               value={inputs.technicianId}
+              className="updateTime-field"
               required
             ></input>
             <br />
-            <label>Phone Number : </label>
+            <label className="label-updateTime">Phone Number : </label>
             <br />
             <input
               type="tel"
               name="phoneNo"
               onChange={handleChange}
               value={inputs.phoneNo}
+              className="updateTime-field"
               required
             ></input>
             <br />
-            <label>Date : </label>
+            <label className="label-updateTime">Date : </label>
             <br />
             <input
               type="date"
               name="date"
               onChange={handleChange}
               value={inputs.date}
+              className="updateTime-field"
               required
             ></input>
             <br />
-            <label>Time : </label>
+            <label className="label-updateTime">Time : </label>
             <br />
             <input
               type="time"
               name="time"
               onChange={handleChange}
               value={inputs.time}
+              className="updateTime-field"
               required
             ></input>
             <br />
-            <label>Address : </label>
+            <label className="label-updateTime">Address : </label>
             <br />
             <input
               type="text"
               name="address"
               onChange={handleChange}
               value={inputs.address}
+              className="updateTime-field"
               required
             ></input>
             <br />
@@ -127,7 +137,9 @@ function UpdateTimetable() {
           </>
         )}
         <br />
-        <button>Submit</button>
+        <div className="btn-updateTime-container">
+        <button className="btn-updateTime">Submit</button>
+        </div>
       </form>
     </div>
     </div>

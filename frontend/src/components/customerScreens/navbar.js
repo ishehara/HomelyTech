@@ -5,19 +5,19 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#021024" }}>
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to={"/"} className="nav-link" activeClassName="active">
+                <NavLink to={"/"} className="nav-link text-white" activeClassName="active">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
                   to={"/serviceproviders"}
-                  className="nav-link"
+                  className="nav-link text-white"
                   activeClassName="active"
                 >
                   Service Providers
@@ -35,7 +35,7 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   to={"/advertisementdetails"}
-                  className="nav-link"
+                  className="nav-link text-white"
                   activeClassName="active"
                 >
                   Advertisements
@@ -43,8 +43,8 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/bookings"}
-                  className="nav-link"
+                  to={"/createbooking"}
+                  className="nav-link text-white"
                   activeClassName="active"
                 >
                   Booking
@@ -52,7 +52,7 @@ function Navbar() {
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle text-white"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -62,29 +62,29 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                  <NavLink
-                        to={"/makePayment"}
-                        className="dropdown-item"
-                        activeClassName="active"
-                      >
-                        Make Payment
-                      </NavLink>
+                    <NavLink
+                      to={"/makePayment"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Make Payment
+                    </NavLink>
                   </li>
                   <li>
-                  <NavLink
-                        to={"/refundPayment"}
-                        className="dropdown-item"
-                        activeClassName="active"
-                      >
-                        Refund Payment
-                      </NavLink>
+                    <NavLink
+                      to={"/refundPayment"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Refund Payment
+                    </NavLink>
                   </li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle text-white"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -137,32 +137,21 @@ function Navbar() {
                   </li>
                   <li>
                     <NavLink
-                        to={"/log"}
-                        className="dropdown-item"
-                        activeClassName="active"
-                      >
-                        Service Provider SignIn
-                      </NavLink>
-                    
-                  </li>
-                  
-                  
-                  <li>
-                    <NavLink
-                        to={"/adminlogin"}
-                        className="dropdown-item"
-                        activeClassName="active"
-                      >
-                        Admin SignIn
-                      </NavLink>
-                    
+
+                      to={"/adminlogin"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Admin SignIn
+                    </NavLink>
+
                   </li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle text-white"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -194,17 +183,7 @@ function Navbar() {
                 
                 </ul>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  to={"/conus"}
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Contact Us
-                </NavLink>
-              </li>
-              
-             
+
             </ul>
           </div>
         </div>

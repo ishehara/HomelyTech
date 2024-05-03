@@ -35,9 +35,15 @@ import UpdateTimetable from "./components/timetables/UpdateTimetable/UpdateTimet
 import Ads from "./components/Advertisements/Advertisement Details/Ads";
 import AddAd from "./components/Advertisements/AddAd/AddAd";
 import UpdateAds from "./components/Advertisements/UpdateAds/UpdateAds";
+import AdReport from "./components/Advertisements/Advertisement Report/AdReport";
+
 import Home from "./components/customerScreens/home";
 import AdminLogin from "./components/login/AdminLogin";
 import AboutUs from "./components/customerScreens/aboutUs/aboutus";
+
+import Create from "./components/customerScreens/AddBooking/AddBooking"
+import Details from "./components/customerScreens/BookingDetails/bookingDetails"
+import Update from "./components/customerScreens/UpdateBooking/updateBooking"
 
 function App() {
   return (
@@ -78,10 +84,19 @@ function App() {
         <Route path="/advertisementdetails" element={<Ads />} />
         <Route path="/addad" element={<AddAd />} />
         <Route path="/advertisementdetails/:id" element={<UpdateAds />} />
-        <Route path="/" element={<Home />} />
+
+        <Route path="/adreport" element={<AdReport />} />
+
+        <Route path="/" element={<Home/>}/>
 
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/aboutus" element={<AboutUs />} />
+
+        <Route path="/createbooking" element={<Create />} />
+        <Route path="/bookingdetails" element={<Details />} />
+        <Route path="/bookingdetails/:id" element={<Update />} />
+
+
       </Routes>
     </Router>
   );

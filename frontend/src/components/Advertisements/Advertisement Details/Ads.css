@@ -112,3 +112,37 @@
   background-color: #021024; /* Change background color on hover */
 }
 
+
+.like-button {
+  background-color: #3894a2; /* Blue color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px; /* Adjust margin as needed */
+}
+
+.like-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.like-button:active {
+  transform: translateY(1px); /* Add a slight downward movement when clicked */
+}
+
+.insert-button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #052659;
+    border-radius: 4px;
+    background-color: #052659;
+  }
+  
+  .insert-button:hover {
+    background-color: #2d65b9;
+  }
