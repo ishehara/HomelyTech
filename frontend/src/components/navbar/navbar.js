@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+
+
 
 function navbar() {
   return (
@@ -73,14 +75,16 @@ function navbar() {
                 
               </li>
 
+
               <li className="nav-item">
                 
                   <Link to="/adreport" className="nav-link">Advertisement Report</Link>
     
               </li>
+
               
             </ul>
-            
+           
           </div>
         </div>
       </div>
