@@ -7,7 +7,6 @@ const userrouter = require("./routes/UserRoutes");  //Insert user route
 const registerRouter = require("./routes/RegisterRoutes"); // Import Register routes
 const loginRouter = require("./routes/LoginRoutes"); //Import Login routes
 const OtpRoutes = require("./routes/OtpRoutes"); //Import Login routes
-const sproviderRouter = require("./routes/SproviderRoutes");  //Insert service provider route
 const router = require("./routes/TimetableRoutes");
 const Paymentrouter = require("./routes/PaymentRoutes");
 const Refundrouter = require("./routes/refundRoutes");
@@ -28,7 +27,6 @@ app.use("/offer", offerRouter);
 app.use("/timetables",router);
 app.use("/register", registerRouter); // Register routes
 app.use("/login",loginRouter); //Login routes
-app.use("/sproviders", sproviderRouter);// service provider routes
 app.use("/users",userrouter);
 app.use("/validate-otp",OtpRoutes);
 app.use("/payments",Paymentrouter);
