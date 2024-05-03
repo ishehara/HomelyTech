@@ -1,0 +1,52 @@
+.contactus-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .contactus-title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .contactus-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contactus-form label {
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  
+  .contactus-form input[type="text"],
+  .contactus-form input[type="email"],
+  .contactus-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .contactus-form textarea {
+    resize: vertical;
+  }
+  
+  .contactus-form input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .contactus-form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+ 
 
 function Navbar() {
   return (
@@ -20,6 +21,15 @@ function Navbar() {
                   activeClassName="active"
                 >
                   Service Providers
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/serviceproviders"}
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  User Details
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -71,6 +81,38 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Register
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                  <NavLink
+                        to={"/regi"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        User Register
+                      </NavLink>
+                  </li>
+                  <li>
+                  <NavLink
+                        to={"/refundPayment"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        Service Provider Register
+                      </NavLink>
+                  </li>
+                </ul>
+              </li>
               
               <li class="nav-item dropdown">
                 <a
@@ -83,22 +125,30 @@ function Navbar() {
                   SignIn
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      User SignIn
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider SignIn
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
+                <li>
+                    <NavLink
+                        to={"/log"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        User SignIn
+                      </NavLink>
                     
-                      <NavLink
+                  </li>
+                  <li>
+                    <NavLink
+                        to={"/log"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        Service Provider SignIn
+                      </NavLink>
+                    
+                  </li>
+                  
+                  
+                  <li>
+                    <NavLink
                         to={"/adminlogin"}
                         className="dropdown-item"
                         activeClassName="active"
@@ -109,6 +159,7 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -120,18 +171,39 @@ function Navbar() {
                   Sign Up
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      User Sign Up
-                    </a>
+                <li>
+                    <NavLink
+                        to={"/logout"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        User SignUp
+                      </NavLink>
+                    
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider Sign up
-                    </a>
+                    <NavLink
+                        to={"/logout"}
+                        className="dropdown-item"
+                        activeClassName="active"
+                      >
+                        Service Provider SignUp
+                      </NavLink>
+                    
                   </li>
+                
                 </ul>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/conus"}
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+              
              
             </ul>
           </div>

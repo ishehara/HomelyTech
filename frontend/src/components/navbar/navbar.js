@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+
+
 
 function navbar() {
   return (
@@ -66,9 +68,10 @@ function navbar() {
                   
                 
               </li>
+            
               
             </ul>
-            
+           
           </div>
         </div>
       </div>
