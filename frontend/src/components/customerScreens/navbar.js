@@ -83,14 +83,22 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
                       User SignIn
-                    </a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider SignIn
-                    </a>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider SignIn
+                    </NavLink>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
@@ -118,14 +126,22 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      User Sign Up
-                    </a>
+                  <NavLink
+                      to={"/regi"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User SignUp
+                    </NavLink>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider Sign up
-                    </a>
+                  <NavLink
+                      to={"/regi"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider SignUp
+                    </NavLink>
                   </li>
                 </ul>
               </li>
