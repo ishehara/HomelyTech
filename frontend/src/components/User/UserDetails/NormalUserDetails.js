@@ -4,6 +4,7 @@ import User from '../User/User';
 import { useReactToPrint } from "react-to-print";
 import './users.css';
 import Navbar from '../../customerScreens/navbar';
+import Footer from '../../customerScreens/Footer/footer';
 
 const URL = "http://localhost:5000/users";
 
@@ -62,7 +63,7 @@ function NormalUserDetails() {
       ) : (
         <p>Loading user details...</p>
       )}
-      
+      <Footer/>
     </div>
   )
 }
