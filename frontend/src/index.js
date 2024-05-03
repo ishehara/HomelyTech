@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 
-import Navbar from './components/customerScreens/navbar';
-import Home from './components/customerScreens/home';
+
 
 
 

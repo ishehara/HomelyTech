@@ -15,6 +15,8 @@ const advertisementRouter = require("./routes/AdRoute");
 const feedbackRouter = require("./routes/FeedbackRoutes");
 const bookingRouter = require("./routes/BookingRoutes");
 
+const sproviderRouter = require("./routes/SproviderRoutes");
+
 
 const cors = require('cors');
 const app  = express();
@@ -37,6 +39,8 @@ app.use("/feedback",feedbackRouter);
 
 
 app.use("/bookings", bookingRouter);
+
+app.use("/sproviders", sproviderRouter);// service provider routes
 
 
 
