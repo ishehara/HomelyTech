@@ -1,0 +1,70 @@
+.qa-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.qa-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: calc(100% - 130px); /* Adjust width to create space for the button */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-btn {
+  padding: 10px 20px; /* Adjust padding for the search button */
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.answer {
+  padding: 15px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.contact-options {
+  text-align: center; /* Center align the contact options */
+  margin-top: 20px;
+}
+
+.contact-options button {
+  margin: 0 5px; /* Add margin between contact buttons */
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-options button:hover {
+  background-color: #0056b3;
+}
+

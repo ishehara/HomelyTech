@@ -1,15 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#021024" }}>
+      <nav
+        className="navbar navbar-expand-lg"
+        style={{ backgroundColor: "#021024" }}
+      >
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to={"/"} className="nav-link text-white" activeClassName="active">
+                <NavLink
+                  to={"/"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
                   Home
                 </NavLink>
               </li>
@@ -83,7 +92,7 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                  <NavLink
+                    <NavLink
                       to={"/log"}
                       className="dropdown-item"
                       activeClassName="active"
@@ -92,7 +101,7 @@ function Navbar() {
                     </NavLink>
                   </li>
                   <li>
-                  <NavLink
+                    <NavLink
                       to={"/log"}
                       className="dropdown-item"
                       activeClassName="active"
@@ -126,7 +135,7 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                  <NavLink
+                    <NavLink
                       to={"/regi"}
                       className="dropdown-item"
                       activeClassName="active"
@@ -135,7 +144,7 @@ function Navbar() {
                     </NavLink>
                   </li>
                   <li>
-                  <NavLink
+                    <NavLink
                       to={"/regi"}
                       className="dropdown-item"
                       activeClassName="active"
@@ -144,6 +153,28 @@ function Navbar() {
                     </NavLink>
                   </li>
                 </ul>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/addfeedback"}
+                  className="nav-link"
+                  style={{ color: "white" }}
+                >
+                  <FontAwesomeIcon icon={faUser} style={{ color: "white" }} />
+                  <span style={{ color: "white" }}>
+                    {" "}
+                    Service Provider Feedbacks
+                  </span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/q&a"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Q&A
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -38,6 +38,13 @@ import Create from "./components/customerScreens/AddBooking/AddBooking"
 import Details from "./components/customerScreens/BookingDetails/bookingDetails"
 import Update from "./components/customerScreens/UpdateBooking/updateBooking"
 
+//adding user feedback part
+import AddFeedback from "./components/Ufeedbak/AddFeedback/AddFeedback";
+import Feedbacks from "./components/Ufeedbak/Feedback/Feedback";
+import UpdateFeedback from "./components/Ufeedbak/UpdateFeedback/UpdateFeedback";
+import QASection from "./components/Ufeedbak/QASection/QASection";
+
+
 
 //adding user parts
 import AddUser from "./components/User/AddUser/AddUser";
@@ -48,6 +55,7 @@ import Login from "./components/User/Login/Login";
 import Logout from "./components/User/Login/Logout";
 import ContactUs from "./components/User/ContactUs/Contactus";
 import NormalUserDetails from "./components/User/UserDetails/NormalUserDetails";
+
 
 function App() {
   return (
@@ -91,6 +99,11 @@ function App() {
         <Route path="/createbooking" element={<Create />} />
         <Route path="/bookingdetails" element={<Details />} />
         <Route path="/bookingdetails/:id" element={<Update />} />
+
+        <Route path="/addfeedback" element={<AddFeedback />} />
+        <Route path="/feedbackdetails" element={<Feedbacks />} />
+        <Route path="/feedbackdetails/:id" element={<UpdateFeedback />} />
+        <Route path="/q&a" element={<QASection />} /> 
 
 
         <Route path="/adduser" element={<AddUser />} />

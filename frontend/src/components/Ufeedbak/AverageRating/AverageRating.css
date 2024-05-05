@@ -1,0 +1,58 @@
+/* AverageRating.css */
+
+.average-rating-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .average-rating-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333; /* Dark gray */
+  }
+  
+  .average-rating-value {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff; /* Blue */
+    margin-top: 10px;
+  }
+  
+  .average-rating-value.loading {
+    color: #aaa; /* Light gray */
+  }
+  
+  .average-rating-value.loading::after {
+    content: 'Loading...';
+    font-size: 18px;
+    font-weight: normal;
+    color: #aaa; /* Light gray */
+  }
+  
+  /* Animation for loading state */
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+  
+  .average-rating-value.loading::after {
+    content: 'Loading...';
+    animation: pulse 1.5s infinite;
+  }
+  
+  @media (max-width: 768px) {
+    .average-rating-value {
+      font-size: 24px;
+    }
+  }
+  
