@@ -1,0 +1,91 @@
+/* addVideoBg.css - Enhanced Styling for the AddBooking component with video background and form overlay */
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 129vh;
+    overflow: hidden;
+}
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for improved readability */
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.form-container {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    background-color: #d6d5f0; /* Pure white for contrast */
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.label-style {
+    margin-bottom: 5px;
+    color: #12498c;
+    text-align: left;
+}
+
+
+.input-style, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding in width */
+}
+
+.header-style {
+    color: #052659;  /* Color corrected without quotes and semi-colon added */
+    text-shadow: 1px 1px #021024; /* Corrected text shadow */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Corrected font family */
+    font-size: 24px; /* Corrected font size */
+}
+
+
+    .button-style {
+        width: 100%;
+        padding: 10px;
+        background-color: #052659;
+        color: #C1E8FF;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+
+
+.button-style:hover {
+    background-color: #416b91;
+}
+
