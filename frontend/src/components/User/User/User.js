@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './User.css';
 //import Navbar from '../../customerScreens/navbar';
-import Footer from '../../customerScreens/Footer/footer';
+//import Footer from '../../customerScreens/Footer/footer';
 
 function User(props) {
   const {_id,username,gmail,password,fullname,address,userLevel} = props.user;

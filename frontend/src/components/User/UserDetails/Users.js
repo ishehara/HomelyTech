@@ -75,6 +75,8 @@ if (isAdmin === 'true') {
       />
       <button onClick={handleSearch} className="search-button">Search</button><br></br>
       <button onClick={handlePrint} className="download-button">Download Report</button><br></br>
+      <button onClick={handlePrint} className="download-button">Add </button><br></br>
+      
       
 
       {noResults ? (
