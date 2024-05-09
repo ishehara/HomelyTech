@@ -1,0 +1,43 @@
+.update-feedback-container {
+    width: 80%; /* Set the width to 80% of the viewport width */
+    max-width: 600px; /* Set a maximum width if needed */
+    margin: 0 auto; /* Center the container horizontally */
+    background-color: #f3f3f3;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-feedback-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
