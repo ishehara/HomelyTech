@@ -1,15 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#021024" }}>
+      <nav
+        className="navbar navbar-expand-lg"
+        style={{ backgroundColor: "#021024" }}
+      >
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to={"/"} className="nav-link text-white" activeClassName="active">
+                <NavLink
+                  to={"/"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
                   Home
                 </NavLink>
               </li>
@@ -79,23 +88,67 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  SignIn
+                  Sign Up
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      User SignIn
-                    </a>
+
+                  <NavLink
+                      to={"/regi"}
+
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User Sign Up
+                    </NavLink>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider SignIn
-                    </a>
+
+                  <NavLink
+                      to={"/"}
+
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider Sign Up
+                    </NavLink>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sign In
+                </a>
+                <ul class="dropdown-menu">
                   <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User Sign In
+                    </NavLink>
+                  </li>
+                  <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider Sig In
+                    </NavLink>
+                    </li>
+
+                    <li>
                     <NavLink
                       to={"/adminlogin"}
                       className="dropdown-item"
@@ -106,6 +159,7 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
@@ -114,22 +168,70 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Sign Up
+                  Sign Out
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      User Sign Up
-                    </a>
+                    <NavLink
+
+                      to={"/logout"}
+
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User Sign Out
+                    </NavLink>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Service Provider Sign up
-                    </a>
+                    <NavLink
+
+                      to={"/logout"}
+
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service Providers Sign Out
+                    </NavLink>
                   </li>
                 </ul>
               </li>
-            </ul>
+
+              <li className="nav-item">
+                <NavLink
+                  to={"/addfeedback"}
+                  className="nav-link"
+                  style={{ color: "white" }}
+                >
+                  <FontAwesomeIcon icon={faUser} style={{ color: "white" }} />
+                  <span style={{ color: "white" }}>
+                    {" "}
+                    Service Provider Feedbacks
+                  </span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/q&a"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Q&A
+                </NavLink>
+              </li>
+ 
+
+
+              <li className="nav-item">
+                <NavLink
+                  to={"/conus"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Contac Us
+                </NavLink>
+              </li>
+              </ul>
+
           </div>
         </div>
       </nav>

@@ -12,8 +12,9 @@ const Paymentrouter = require("./routes/PaymentRoutes");
 const Refundrouter = require("./routes/refundRoutes");
 const InventoryRouter = require("./routes/InventoryRoute");
 const advertisementRouter = require("./routes/AdRoute");
-const feedbackRouter = require("./routes/FeedbackRoutes");
+const feedbackrouter = require("./routes/FeedbackRoutes");
 const bookingRouter = require("./routes/BookingRoutes");
+const sproviderRouter = require("./routes/SproviderRoutes");
 
 
 const cors = require('cors');
@@ -33,10 +34,11 @@ app.use("/payments",Paymentrouter);
 app.use("/refund",Refundrouter);
 app.use("/invetory",InventoryRouter);
 app.use("/ads",advertisementRouter);
-app.use("/feedback",feedbackRouter);
-
+app.use("/feedbacks", feedbackrouter);
 
 app.use("/bookings", bookingRouter);
+
+app.use("/sproviders", sproviderRouter);// service provider routes
 
 
 

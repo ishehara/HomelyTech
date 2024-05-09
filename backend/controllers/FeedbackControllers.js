@@ -1,77 +1,103 @@
 const Feedback = require("../models/FeedbackModel");
+//data display
+const getAllFeedbacks = async(req,res,next) =>{
+    let feedbacks;
 
-const getAllFeedbacks = async (req, res, next) => {
-    try {
-        const feedbacks = await Feedback.find();
-        if (!feedbacks.length) {
-            return res.status(404).json({ message: "Feedback not found" });
-        }
-        return res.status(200).json({ feedbacks });
-    } catch (err) {
+    try{
+        feedbacks = await Feedback.find();
+
+    }catch(err){
         console.log(err);
-        return res.status(500).json({ message: "Internal server error" });
     }
+    //not found
+    if(!feedbacks){
+        return res.status(404).json({message:"Feedback not found"});
+    }
+    //Display all feedbacks
+
+    return res.status(200).json({feedbacks})
 };
 
-const addFeedbacks = async (req, res, next) => {
-    const { feedback, rating } = req.body;
-    try {
-        const newFeedback = new Feedback({ feedback, rating });
-        await newFeedback.save();
-        return res.status(200).json({ newFeedback });
-    } catch (err) {
-        console.log(err);
-        return res.status(500).json({ message: "Internal server error" });
-    }
-};
+//data Insert
+const addFeedbacks = async(req,res,next)=>{
+    const{feedback,rating,image} = req.body;
+     let feedbacks;
 
-const getById = async (req, res, next) => {
-    const id = req.params.id;
-    try {
-        const feedback = await Feedback.findById(id);
-        if (!feedback) {
-            return res.status(404).send({ message: "Feedback not found" });
-        }
-        return res.status(200).json({ feedback });
-    } catch (err) {
-        console.log(err);
-        return res.status(500).json({ message: "Internal server error" });
+    try{
+        feedbacks = new Feedback({feedback,rating,image});
+        await feedbacks.save();
+    } catch(err){
+        console.log(err)
     }
-};
+    // not insert feedbacks
+    if(!feedbacks){
+        return res.status(404).send({message:"unable to add feedback"});
+    }
+    return res.status(200).json({feedbacks});
 
+}
+//  Get by Id
+const getById = async(req,res,next)=>{
+      const id = req.params.id;
+      let feedback;
+      try{
+        feedback = await Feedback.findById(id);
+      }catch(err){
+         console.log(err);
+      }
+//not available feedback
+if(!feedback){
+    return res.status(404).send({message:" feedback not found"});
+}
+return res.status(200).json({feedback});
+
+}
+
+//update/edit feedback
 const updateFeedback = async (req, res, next) => {
     const id = req.params.id;
-    const { feedback, rating } = req.body;
+    const { feedback, rating, image } = req.body;
+  
     try {
-        let updatedFeedback = await Feedback.findByIdAndUpdate(id, { feedback, rating }, { new: true });
-        if (!updatedFeedback) {
-            return res.status(404).send({ message: "Unable to update/edit feedback" });
-        }
-        return res.status(200).json({ updatedFeedback });
+      const feedbacks = await Feedback.findByIdAndUpdate(id, {
+        feedback,
+        rating,
+        image
+      }, { new: true }); // Add { new: true } to return the updated document
+  
+      if (!feedbacks) {
+        return res.status(404).send({ message: "Unable to update/edit feedback" });
+      }
+      return res.status(200).json({ feedbacks });
     } catch (err) {
-        console.log(err);
-        return res.status(500).json({ message: "Internal server error" });
+      console.log(err);
+      return res.status(500).json({ message: "Server error", error: err });
     }
-};
+  };
 
-const deleteFeedback = async (req, res, next) => {
+//Delete User Details
+
+const deleteFeedback = async(req,res,next)=>{
     const id = req.params.id;
-    try {
-        const deletedFeedback = await Feedback.findByIdAndDelete(id);
-        if (!deletedFeedback) {
-            return res.status(404).send({ message: "Unable to Delete feedback" });
-        }
-        return res.status(200).json({ deletedFeedback });
-    } catch (err) {
+    let feedback;
+
+    try{
+        feedback=await Feedback.findByIdAndDelete(id)  
+    }catch(err){
         console.log(err);
-        return res.status(500).json({ message: "Internal server error" });
     }
+    if(!feedback){
+        return res.status(404).send({message:" Unable to Dlete feedback"});
+    }
+    return res.status(200).json({feedback});
+    
+
 };
 
-module.exports = {
-    getAllFeedbacks,
-    addFeedbacks,
-    getById,
-    updateFeedback,
-    deleteFeedback
-};
+
+
+exports.getAllFeedbacks = getAllFeedbacks;
+exports.addFeedbacks = addFeedbacks;
+exports.getById = getById;
+exports.updateFeedback = updateFeedback;
+exports.deleteFeedback = deleteFeedback;
