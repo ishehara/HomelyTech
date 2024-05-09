@@ -87,6 +87,7 @@ function Login() {
 
     return (
         <div>
+            <Navbar/>
             
             <div className="login-container">
                 <h1>User Login</h1>
@@ -109,7 +110,7 @@ function Login() {
                     <button>{showOTPInput ? "Submit OTP" : "Login"}</button>
                 </form>
             </div>
-            
+            <Footer/>
         </div>
     );
 }

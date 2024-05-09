@@ -88,31 +88,67 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  SignIn
+                  Sign Up
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <NavLink
-                      to={"/log"}
+
+                  <NavLink
+                      to={"/regi"}
+
                       className="dropdown-item"
                       activeClassName="active"
                     >
-                      User SignIn
+                      User Sign Up
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      to={"/log"}
+
+                  <NavLink
+                      to={"/"}
+
                       className="dropdown-item"
                       activeClassName="active"
                     >
-                      Service provider SignIn
+                      Service provider Sign Up
                     </NavLink>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sign In
+                </a>
+                <ul class="dropdown-menu">
                   <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User Sign In
+                    </NavLink>
+                  </li>
+                  <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider Sig In
+                    </NavLink>
+                    </li>
+
+                    <li>
                     <NavLink
                       to={"/adminlogin"}
                       className="dropdown-item"
@@ -123,6 +159,7 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
@@ -131,29 +168,34 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Sign Up
+                  Sign Out
                 </a>
                 <ul class="dropdown-menu">
                   <li>
                     <NavLink
-                      to={"/regi"}
+
+                      to={"/logout"}
+
                       className="dropdown-item"
                       activeClassName="active"
                     >
-                      User SignUp
+                      User Sign Out
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      to={"/regi"}
+
+                      to={"/logout"}
+
                       className="dropdown-item"
                       activeClassName="active"
                     >
-                      Service provider SignUp
+                      Service Providers Sign Out
                     </NavLink>
                   </li>
                 </ul>
               </li>
+
               <li className="nav-item">
                 <NavLink
                   to={"/addfeedback"}
@@ -176,7 +218,20 @@ function Navbar() {
                   Q&A
                 </NavLink>
               </li>
-            </ul>
+ 
+
+
+              <li className="nav-item">
+                <NavLink
+                  to={"/conus"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Contac Us
+                </NavLink>
+              </li>
+              </ul>
+
           </div>
         </div>
       </nav>
