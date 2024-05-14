@@ -88,7 +88,7 @@ function AddBooking() {
                 <video src={Bgvideo} autoPlay muted loop className="video-bg"></video>
                 <div className="bg-overlay"></div>
             </div>
-            <div className="form-container">
+            <div className="formbooking-container">
                 <h1 className="header-style">Book Your Appointment</h1>
                 <form onSubmit={handleSubmit}>
                     {/* Customer Name Field */}
