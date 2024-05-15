@@ -43,6 +43,18 @@ export default function OfferManagement() {
       });
   };
 
+  const sendOffer = (id) => {
+    axios
+      .post(`${URL}sendMail/${id}`)
+      .then(() => {
+        console.log("Offer sent successfully");
+        alert("Offer sent successfully");
+      })
+      .catch((error) => {
+        console.error("Error sending offer:", error);
+      });
+  };
+
   const ComponentsRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => ComponentsRef.current,
@@ -149,7 +161,7 @@ export default function OfferManagement() {
           }}
         >
           <Grid ref={ComponentsRef}>
-            <OfferTable rows={offers} onDelete={deleteOffer} />
+            <OfferTable rows={offers} onDelete={deleteOffer} sendMail={sendOffer} />
           </Grid>
         </Box>
       )}

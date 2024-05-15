@@ -23,7 +23,6 @@ export default function OfferUpdateForm() {
     const fetchOffer = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/offer/${id}`);
-
         setInputs({
           title: response.data?.offers.title,
           description: response.data?.offers.description,
