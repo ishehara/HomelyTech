@@ -18,6 +18,7 @@ function AddPayment() {
         Phone: '',
         ServiceType: '',
         amount: '',
+        promo:'',
         PaymentSlip: '',
         Status: Status
     });
@@ -68,6 +69,7 @@ function AddPayment() {
             Phone: Number(inputs.Phone),
             ServiceType: String(inputs.ServiceType),
             amount: Number(inputs.amount),
+            promo: String(inputs.promo),
             PaymentSlip: String(inputs.PaymentSlip),
             Status: inputs.Status
         }).then(res => res.data);
@@ -163,6 +165,9 @@ function AddPayment() {
 
                     <label className='AddPayment-label' htmlFor="amount">Amount:</label>
                     <input className='AddPayment input[type="number"]' type="number" id="amount" required name="amount" onChange={handleChange} value={inputs.amount} />
+
+                    <label className='AddPayment-label' htmlFor="fname">Promo Code:</label>
+                    <input type="text" id="promo" name="promo" onChange={handleChange} value={inputs.promo} required />
 
                     <label className='AddPayment-label' htmlFor="paymentSlip">PaymentSlip Reference Number:</label>
                     <input className='AddPayment input[type="text"]' type="text" id="paymentSlip" required name="PaymentSlip" onChange={handleChange} value={inputs.PaymentSlip} />
