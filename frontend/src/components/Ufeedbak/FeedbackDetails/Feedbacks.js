@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../../customerScreens/navbar";
 import Footer from "../../customerScreens/Footer/footer";
 
-const URL = "http://localhost:5000/feedbacks";
+const URL = "http://localhost:5000/feedbacks"
+
 
 const fetchHandler = async () => {
   try {
@@ -40,7 +41,8 @@ function Feedbacks() {
   const ComponentsRef = useRef();
 
   useEffect(() => {
-    fetchHandler().then((data) => {
+    fetchHandler()
+    .then((data) => {
       setFeedbacks(data || []);
       calculateAverageRating(data || []);
     });
@@ -125,42 +127,87 @@ function Feedbacks() {
   };
 
   return (
-    <>
-      <div className="container">
-        <Navbar />
-
-        <h1>User Details Display Page</h1>
+    <div style={{height:'100vh'}}>
+    <Navbar />
+      <div style={{ height: '50vh', padding: '20px', boxSizing: 'border-box' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>User Details Display Page</h1>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
         <input
           type="text"
           name="search"
           placeholder="Search Feedback Details"
           onChange={(e) => setSearchQuery(e.target.value)}
+          style={{
+            width: '300px',
+            padding: '10px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            marginRight: '10px',
+          }}
         />
-        <button onClick={handleSearch}>Search</button>
-        {noResults ? (
-          <p>No Feedback Details Found</p>
-        ) : (
-          <div style={{ maxHeight: "300px", overflowY: "scroll" }}>
-            <PrintableFeedbacks
-              feedbacks={feedbacks}
-              onDelete={handleDelete}
-              ref={ComponentsRef}
-            />
-          </div>
-        )}
-        {showSuccessMessage && (
-          <p style={{ color: "green" }}>Feedback deleted successfully!</p>
-        )}
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-          <Link to="/add-feedback">
-            <button>Add Feedback & Rating</button>
-          </Link>
-          {averageRating !== null && <p>Average Rating: ⭐ {averageRating}</p>}
-          <button onClick={handlePrint}>Download Report</button>
-        </div>
-        <Footer />
+        <button
+          onClick={handleSearch}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
+          Search
+        </button>
       </div>
-    </>
+      <div style={{ textAlign: 'center', margin: '10px' }}>
+        <Link to="/addfeedback">
+          <button
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#28a745',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              marginRight: '10px',
+            }}
+          >
+            Add Feedback & Rating
+          </button>
+        </Link>
+        {averageRating !== null && (
+          <p style={{ display: 'inline-block', margin: '0 20px' }}>Average Rating: ⭐ {averageRating}</p>
+        )}
+        <button
+          onClick={handlePrint}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#17a2b8',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
+          Download Report
+        </button>
+      </div>
+      {noResults ? (
+        <p style={{ textAlign: 'center', color: 'red' }}>No Feedback Details Found</p>
+      ) : (
+        <div style={{ maxHeight: '500px', overflowY: 'scroll', marginBottom: '20px' }}>
+          <PrintableFeedbacks
+            feedbacks={feedbacks}
+            onDelete={handleDelete}
+            ref={ComponentsRef}
+          />
+        </div>
+      )}
+      {showSuccessMessage && (
+        <p style={{ color: 'green', textAlign: 'center' }}>Feedback deleted successfully!</p>
+      )}
+    </div>
+    </div>
   );
 }
 
