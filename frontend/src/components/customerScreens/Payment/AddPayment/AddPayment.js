@@ -4,10 +4,11 @@ import Swal from 'sweetalert2';
 import './AddPayment.css';
 import Navbar from '../../navbar';
 import Footer from '../../Footer/footer';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom'; // Import useParams
 import axios from 'axios';
 
 function AddPayment() {
+    const { hourlyRate } = useParams(); // Get hourlyRate from URL parameters
     const Status = 'Pending';
     const navigator = useNavigate();
     const [inputs, setInputs] = useState({
@@ -17,7 +18,7 @@ function AddPayment() {
         address: '',
         Phone: '',
         ServiceType: '',
-        amount: '',
+        amount: hourlyRate || '', // Set amount to hourlyRate
         promo:'',
         PaymentSlip: '',
         Status: Status
@@ -30,6 +31,7 @@ function AddPayment() {
             [e.target.name]: e.target.value,
         }));
     };
+
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
