@@ -80,6 +80,87 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
+              
+
+              <li className="nav-item">
+                <NavLink
+                  to={"/addfeedback"}
+                  className="nav-link"
+                  style={{ color: "white" }}
+                >
+                  <FontAwesomeIcon icon={faUser} style={{ color: "white" }} />
+                  <span style={{ color: "white" }}>
+                    {" "}
+                    Service Provider Feedbacks
+                  </span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to={"/q&a"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Q&A
+                </NavLink>
+              </li>
+ 
+
+
+              <li className="nav-item">
+                <NavLink
+                  to={"/conus"}
+                  className="nav-link text-white"
+                  activeClassName="active"
+                >
+                  Contac Us
+                </NavLink>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sign In
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      User Sign In
+                    </NavLink>
+                  </li>
+                  <li>
+                  <NavLink
+                      to={"/log"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Service provider Sig In
+                    </NavLink>
+                    </li>
+                    <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+
+                    <li>
+                    <NavLink
+                      to={"/adminlogin"}
+                      className="dropdown-item"
+                      activeClassName="active"
+                    >
+                      Admin SignIn
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
@@ -113,52 +194,10 @@ function Navbar() {
                       Service provider Sign Up
                     </NavLink>
                   </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
+                  
                   </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-white"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Sign In
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                  <NavLink
-                      to={"/log"}
-                      className="dropdown-item"
-                      activeClassName="active"
-                    >
-                      User Sign In
-                    </NavLink>
-                  </li>
-                  <li>
-                  <NavLink
-                      to={"/log"}
-                      className="dropdown-item"
-                      activeClassName="active"
-                    >
-                      Service provider Sig In
-                    </NavLink>
-                    </li>
-
-                    <li>
-                    <NavLink
-                      to={"/adminlogin"}
-                      className="dropdown-item"
-                      activeClassName="active"
-                    >
-                      Admin SignIn
-                    </NavLink>
-                  </li>
-                </ul>
-              </li>
+              
 
               <li class="nav-item dropdown">
                 <a
@@ -194,41 +233,6 @@ function Navbar() {
                     </NavLink>
                   </li>
                 </ul>
-              </li>
-
-              <li className="nav-item">
-                <NavLink
-                  to={"/addfeedback"}
-                  className="nav-link"
-                  style={{ color: "white" }}
-                >
-                  <FontAwesomeIcon icon={faUser} style={{ color: "white" }} />
-                  <span style={{ color: "white" }}>
-                    {" "}
-                    Service Provider Feedbacks
-                  </span>
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to={"/q&a"}
-                  className="nav-link text-white"
-                  activeClassName="active"
-                >
-                  Q&A
-                </NavLink>
-              </li>
- 
-
-
-              <li className="nav-item">
-                <NavLink
-                  to={"/conus"}
-                  className="nav-link text-white"
-                  activeClassName="active"
-                >
-                  Contac Us
-                </NavLink>
               </li>
               </ul>
 

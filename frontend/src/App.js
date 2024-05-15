@@ -79,8 +79,11 @@ function App() {
         <Route path="/refunddetails" element={<Refunds />} />
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
-        <Route path="/makePayment" element={<MakePayment />} />
+        <Route path="/makePayment/:hourlyRate" element={<MakePayment />} />
         <Route path="/refundPayment" element={<RefundPayment />} />
+        
+        {/* <Route path="/addpayment/:amount" element={<AddPayment />} /> */}
+
         {/* <Route path="/generate" element={<GenerateReport />} />
         <Route path="/adreport" element={<Addreport />} /> */}
         
