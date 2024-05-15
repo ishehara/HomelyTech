@@ -31,11 +31,6 @@ const PaymentSchema = new Schema({
         type: String,
         required: true
     },
-    promo: {
-        type: String,
-        required: true
-    },
-
     amount: {
         type: Number,
         required: true

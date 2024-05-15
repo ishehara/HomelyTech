@@ -12,7 +12,6 @@ router.post('/', offerController.createOffer);
 router.get('/:id', offerController.getOfferById);
 router.put('/:id', offerController.updateOffer);
 router.delete('/:id', offerController.deleteOffer);
-router.post('/sendMail/:id', offerController.sendMailForOffer); // New route for sending emails
 
 //export
 module.exports = router;

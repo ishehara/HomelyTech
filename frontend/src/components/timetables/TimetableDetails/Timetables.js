@@ -63,7 +63,7 @@ function Timetables() {
         onChange={(e) => setSearchQuery(e.target.value)}
         type="text"
         name="search"
-        placeholder="Enter details here"
+        placeholder="Enter Technician ID or Technician Name"
       ></input>
 
       <button className='search-btn'onClick={handleSearch}>Search</button></div>

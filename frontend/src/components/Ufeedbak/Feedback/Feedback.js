@@ -5,7 +5,7 @@ import './Feedback.css';
 import Navbar from '../../customerScreens/navbar';
 import Footer from '../../customerScreens/Footer/footer';
 
-function Feedback({ _id, feedback, rating, onDelete,image }) {
+function Feedback({ _id, feedback, rating, onDelete, image }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false); // State to manage success message
 
   const deleteHandler = async () => {
@@ -24,22 +24,20 @@ function Feedback({ _id, feedback, rating, onDelete,image }) {
   };
 
   return (
-    <div className="feedback-container">
-      <Navbar/>
-      <h3>Feedback and Q&A Display</h3>
-      <div>ID: {_id}</div>
-      <br></br>
-      <div>Feedback: {feedback}</div>
-      <br></br>
-      <div>Rating: {rating}</div>
-      <br></br>
-      <div><img src={image} style={{width:'8vw'}}/></div>
-      <br></br>
-      <Link to={`/feedbackdetails/${_id}`} className="link-button">Update</Link>
-      <button onClick={deleteHandler} className="delete-button">Delete</button>
-      {showSuccessMessage && <p style={{ color: 'green' }}>Feedback deleted successfully!</p>} {/* Render success message if showSuccessMessage is true */}
-      <Footer/>
-    </div>
+      <div className="feedback-container">
+        <h3>Feedback and Q&A Display</h3>
+        <div>ID: {_id}</div>
+        <br></br>
+        <div>Feedback: {feedback}</div>
+        <br></br>
+        <div>Rating: {rating}</div>
+        <br></br>
+        <img src={image} style={{ width: '100px', }}  />
+        <br></br>
+        <Link to={`/feedbackdetails/${_id}`} className="link-button">Update</Link>
+        <button onClick={deleteHandler} className="delete-button">Delete</button>
+        {showSuccessMessage && <p style={{ color: 'green' }}>Feedback deleted successfully!</p>} {/* Render success message if showSuccessMessage is true */}
+      </div>
   );
 }
 

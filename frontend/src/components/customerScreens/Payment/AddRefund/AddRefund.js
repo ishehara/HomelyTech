@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
@@ -5,10 +6,8 @@ import './AddRefund.css';
 import Footer from '../../Footer/footer';
 import Navbar from '../../navbar';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
 
 function AddRefund() {
-    const [dates, setDate] = useState('');
     const navigator = useNavigate();
     const Status = 'Pending';
     const [inputs, setInputs] = useState({
@@ -71,7 +70,7 @@ function AddRefund() {
             Phone: Number(inputs.Phone),
             ServiceType: String(inputs.ServiceType),
             amount: Number(inputs.amount),
-            date: dates, // Use the selected date from state
+            date: Date(inputs.date),
             reason: String(inputs.reason),
             PaymentSlip: String(inputs.PaymentSlip),
             Status: inputs.Status
@@ -139,18 +138,6 @@ function AddRefund() {
         }, 5000);
     };
 
-    useEffect(() => {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set time components to zero
-
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Use padStart to ensure two digits
-        const dd = String(today.getDate()).padStart(2, '0'); // Use padStart to ensure two digits
-
-        const formattedDate = `${yyyy}-${mm}-${dd}`;
-        setDate(formattedDate);
-    }, []);
-
     return (
         <div>
             <Toaster />
@@ -182,7 +169,7 @@ function AddRefund() {
                     <input className='AddPayment input[type="number"]' type="number" id="amount" required name="amount" onChange={handleChange} value={inputs.amount} />
 
                     <label className='AddPayment-label' htmlFor="amount">Date:</label>
-                    <input className='AddPayment input[type="date"]' type="date" id="date" required name="date" onChange={(e) => setDate(e.target.value)} value={dates} /><br />
+                    <input className='AddPayment input[type="number"]' type="Date" id="date" required name="date" onChange={handleChange} value={inputs.date} /><br />
 
                     <label className='AddPayment-label' htmlFor="amount">Reason:</label>
                     <input className='AddPayment input[type="number"]' type="text" id="reason" required name="reason" onChange={handleChange} value={inputs.reason} /><br />

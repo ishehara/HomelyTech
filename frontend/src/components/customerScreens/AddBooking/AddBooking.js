@@ -11,7 +11,7 @@ function AddBooking() {
     const [inputs, setInputs] = useState({
         customerName: '',
         serviceProviderName: '',
-        serviceProviderId: '',  // ensure this is included in form fields and correctly populated
+        serviceProviderId: '',
         serviceType: '',
         hourlyRate: '',
         appointmentDate: '',
@@ -22,7 +22,6 @@ function AddBooking() {
     const [errors, setErrors] = useState({
         customerName: false,
         serviceProviderName: false,
-        serviceProviderId: false,  // Added error tracking for serviceProviderId
         appointmentDate: false,
         appointmentTime: false
     });
@@ -67,19 +66,14 @@ function AddBooking() {
         }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (Object.values(errors).every(v => !v)) {
-            // Send booking request
-            await sendRequest();
-            
-            // Navigate to AddPayment component with hourlyRate as amount
-            history(`/makePayment/${inputs.hourlyRate}`);
+            sendRequest().then(() => history('/bookingdetails'));
         } else {
             alert("Please correct the errors in the form.");
         }
     };
-    
 
     const sendRequest = async () => {
         return axios.post("http://localhost:5000/bookings", {
@@ -97,19 +91,17 @@ function AddBooking() {
             <div className="formbooking-container">
                 <h1 className="header-style">Book Your Appointment</h1>
                 <form onSubmit={handleSubmit}>
+                    {/* Customer Name Field */}
                     <label className="label-style">Customer Name:</label>
                     <input className="input-style" type="text" name="customerName" onChange={handleChange} value={inputs.customerName} required />
                     {errors.customerName && <p className="error">Letters only</p>}
-
+    
+                    {/* Service Provider Name Field */}
                     <label className="label-style">Service Provider Name:</label>
                     <input className="input-style" type="text" name="serviceProviderName" onChange={handleChange} value={inputs.serviceProviderName} required />
                     {errors.serviceProviderName && <p className="error">Letters only</p>}
-
-                    {/* Add a field for selecting or inputting serviceProviderId */}
-                    <label className="label-style">Service Provider ID:</label>
-                    <input className="input-style" type="text" name="serviceProviderId" onChange={handleChange} value={inputs.serviceProviderId} required />
-                    {errors.serviceProviderId && <p className="error">Service Provider ID is required</p>}
-
+    
+                    {/* Service Type Selection */}
                     <label className="label-style">Service Type:</label>
                     <select className="input-style" name="serviceType" onChange={handleChange} value={inputs.serviceType} required>
                         <option value="">Select a Service</option>
@@ -117,25 +109,30 @@ function AddBooking() {
                             <option key={service} value={service}>{service}</option>
                         ))}
                     </select>
-
+    
+                    {/* Hourly Rate Display */}
                     <label className="label-style">Hourly Rate:</label>
                     <input className="input-style" type="text" name="hourlyRate" value={inputs.hourlyRate} readOnly />
-
+    
+                    {/* Appointment Date Field */}
                     <label className="label-style">Appointment Date:</label>
                     <input className="input-style" type="date" name="appointmentDate" onChange={handleChange} value={inputs.appointmentDate} required />
                     {errors.appointmentDate && <p className="error">Invalid date</p>}
-
+    
+                    {/* Appointment Time Field */}
                     <label className="label-style">Appointment Time:</label>
                     <input className="input-style" type="time" name="appointmentTime" onChange={handleChange} value={inputs.appointmentTime} required />
                     {errors.appointmentTime && <p className="error">Invalid time</p>}
-
+    
+                    {/* Address Field */}
                     <label className="label-style">Address:</label>
                     <textarea className="input-style" name="address" onChange={handleChange} value={inputs.address} required />
-
+    
+                    {/* Special Requests Field */}
                     <label className="label-style">Special Requests:</label>
                     <textarea className="input-style" name="request" onChange={handleChange} value={inputs.request} />
-
-                    <button type="submit" className="submit-btn">Book Now</button>
+    
+                    <button className="button-style" type="submit">Checkout</button>
                 </form>
             </div>
             <Footer />

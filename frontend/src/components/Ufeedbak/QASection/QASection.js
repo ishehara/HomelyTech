@@ -126,31 +126,33 @@ function QASection() {
   };
 
   return (
-    <div className="qa-container">
-      <Navbar />
-      <h1>Q&A</h1>
-      <input
-        type="text"
-        placeholder="Search questions..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="search-input"
-      />
-      <button onClick={handleSearch}>Search</button>
-      <select onChange={handleQuestionChange} value={selectedQuestion}>
-        <option value="">Select a question</option>
-        {questionsAndAnswers.map((qa, index) => (
-          <option key={index} value={qa.question}>{qa.question}</option>
-        ))}
-      </select>
-      <div className="answer">
-        {getAnswer()}
-      </div>
-      <div className="contact-options">
-        <p>For more clarification, you can contact us through:</p>
-        <button onClick={() => window.location = 'mailto:homlytec@gmail.com'}>Email Us (homlytec@gmail.com)</button>
-        <button onClick={() => window.open('https://wa.me/26761442223', '_blank')}>WhatsApp Us (076 1442223)</button>
-        <button onClick={() => window.open('tel:+0112345325')}>Call Hotline (011 2345325)</button>
+    <div>
+      <Navbar /> {/* Navbar outside the container */}
+      <div className="qa-container">
+        <h1>Q&A</h1>
+        <input
+          type="text"
+          placeholder="Search questions..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
+        <button onClick={handleSearch}>Search</button>
+        <select onChange={handleQuestionChange} value={selectedQuestion}>
+          <option value="">Select a question</option>
+          {questionsAndAnswers.map((qa, index) => (
+            <option key={index} value={qa.question}>{qa.question}</option>
+          ))}
+        </select>
+        <div className="answer">
+          {getAnswer()}
+        </div>
+        <div className="contact-options">
+          <p>For more clarification, you can contact us through:</p>
+          <button onClick={() => window.location = 'mailto:homlytec@gmail.com'}>Email Us (homlytec@gmail.com)</button>
+          <button onClick={() => window.open('https://wa.me/26761442223', '_blank')}>WhatsApp Us (076 1442223)</button>
+          <button onClick={() => window.open('tel:+0112345325')}>Call Hotline (011 2345325)</button>
+        </div>
       </div>
       <br/>
       <Footer/>

@@ -11,8 +11,6 @@ import UpdateRefund from "./components/Payment/UpdateRefund/UpdateRefund";
 import Refunds from "./components/Payment/Refunds/Refund";
 import MakePayment from "./components/customerScreens/Payment/AddPayment/AddPayment"
 import RefundPayment from "./components/customerScreens/Payment/AddRefund/AddRefund"
-// import GenerateReport from "./components/Payment/GenerateReport"
-// import Addreport from "./components/Payment/AddReport"
 
 
 
@@ -42,7 +40,7 @@ import Update from "./components/customerScreens/UpdateBooking/updateBooking"
 
 //adding user feedback part
 import AddFeedback from "./components/Ufeedbak/AddFeedback/AddFeedback";
-import Feedbacks from "./components/Ufeedbak/Feedback/Feedback";
+import Feedbacks from "./components/Ufeedbak/FeedbackDetails/Feedbacks";
 import UpdateFeedback from "./components/Ufeedbak/UpdateFeedback/UpdateFeedback";
 import QASection from "./components/Ufeedbak/QASection/QASection";
 
@@ -79,14 +77,8 @@ function App() {
         <Route path="/refunddetails" element={<Refunds />} />
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
-        <Route path="/makePayment/:hourlyRate" element={<MakePayment />} />
+        <Route path="/makePayment" element={<MakePayment />} />
         <Route path="/refundPayment" element={<RefundPayment />} />
-        
-        {/* <Route path="/addpayment/:amount" element={<AddPayment />} /> */}
-
-        {/* <Route path="/generate" element={<GenerateReport />} />
-        <Route path="/adreport" element={<Addreport />} /> */}
-        
 
         
 

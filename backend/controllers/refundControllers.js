@@ -1,7 +1,6 @@
 // refundControllers.js
 const Refund = require("../models/refundModel");
 
-
 const getAllRefund = async (req, res, next) => {
     try {
         const refunds = await Refund.find();
@@ -67,6 +66,5 @@ module.exports = {
     addRefund,
     getById,
     updateRefund,
-    deleteRefund,
-  
+    deleteRefund
 };
