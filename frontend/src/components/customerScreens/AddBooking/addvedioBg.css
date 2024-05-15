@@ -3,7 +3,11 @@
 .video-container {
     position: relative;
     width: 100%;
-    height: 129vh;
+
+
+    height: 143vh;
+
+
     overflow: hidden;
 }
 

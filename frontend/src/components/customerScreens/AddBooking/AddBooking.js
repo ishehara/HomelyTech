@@ -94,14 +94,19 @@ function AddBooking() {
                     {/* Customer Name Field */}
                     <label className="label-style">Customer Name:</label>
                     <input className="input-style" type="text" name="customerName" onChange={handleChange} value={inputs.customerName} required />
-                    {errors.customerName && <p className="error">Letters only</p>}
-    
-                    {/* Service Provider Name Field */}
+
+                    {errors.customerName && <p className="error">Only letters and spaces are allowed.</p>}
+
                     <label className="label-style">Service Provider Name:</label>
                     <input className="input-style" type="text" name="serviceProviderName" onChange={handleChange} value={inputs.serviceProviderName} required />
-                    {errors.serviceProviderName && <p className="error">Letters only</p>}
-    
-                    {/* Service Type Selection */}
+                    {errors.serviceProviderName && <p className="error">Only letters and spaces are allowed.</p>}
+
+                    {/* Add a field for selecting or inputting serviceProviderId */}
+                    <label className="label-style">Service Provider ID:</label>
+                    <input className="input-style" type="text" name="serviceProviderId" onChange={handleChange} value={inputs.serviceProviderId} required />
+                    {errors.serviceProviderId && <p className="error">Service Provider ID is required</p>}
+
+
                     <label className="label-style">Service Type:</label>
                     <select className="input-style" name="serviceType" onChange={handleChange} value={inputs.serviceType} required>
                         <option value="">Select a Service</option>
@@ -117,14 +122,14 @@ function AddBooking() {
                     {/* Appointment Date Field */}
                     <label className="label-style">Appointment Date:</label>
                     <input className="input-style" type="date" name="appointmentDate" onChange={handleChange} value={inputs.appointmentDate} required />
-                    {errors.appointmentDate && <p className="error">Invalid date</p>}
-    
-                    {/* Appointment Time Field */}
+
+                    {errors.appointmentDate && <p className="error">Appointment date cannot be in the past.</p>}
+
                     <label className="label-style">Appointment Time:</label>
                     <input className="input-style" type="time" name="appointmentTime" onChange={handleChange} value={inputs.appointmentTime} required />
-                    {errors.appointmentTime && <p className="error">Invalid time</p>}
-    
-                    {/* Address Field */}
+                    {errors.appointmentTime && <p className="error">Appointment time cannot be in the past.</p>}
+
+
                     <label className="label-style">Address:</label>
                     <textarea className="input-style" name="address" onChange={handleChange} value={inputs.address} required />
     
