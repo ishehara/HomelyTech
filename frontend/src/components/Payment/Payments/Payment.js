@@ -104,6 +104,7 @@ function Payment() {
                 <th>Mobile Phone Number</th>
                 <th>Service Type</th>
                 <th>Amount Paid</th>
+                <th>Promo Code</th>
                 <th>Payment Slip Reference Number</th>
                 <th>Status</th>
 
@@ -133,7 +134,7 @@ function Payment() {
 }
 
 function PaymentRow({ payment, handleDelete }) {
-  const { _id, fname, gmail, address, Phone, ServiceType, amount, PaymentSlip,Status } = payment;
+  const { _id, fname, gmail, address, Phone, ServiceType, amount,promo, PaymentSlip,Status } = payment;
 
   const deleteHandler = async () => {
     await handleDelete(_id); // Call handleDelete with paymentId
@@ -148,6 +149,7 @@ function PaymentRow({ payment, handleDelete }) {
       <td>{Phone}</td>
       <td>{ServiceType}</td>
       <td>{amount}</td>
+      <td>{promo}</td>
       <td>{PaymentSlip}</td>
       <td>{Status}</td>
       <td>
