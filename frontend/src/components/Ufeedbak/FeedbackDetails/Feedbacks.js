@@ -160,7 +160,7 @@ function Feedbacks() {
         </button>
       </div>
       <div style={{ textAlign: 'center', margin: '10px' }}>
-        <Link to="/add-feedback">
+        <Link to="/addfeedback">
           <button
             style={{
               padding: '10px 20px',
