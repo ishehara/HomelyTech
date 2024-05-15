@@ -11,6 +11,8 @@ import UpdateRefund from "./components/Payment/UpdateRefund/UpdateRefund";
 import Refunds from "./components/Payment/Refunds/Refund";
 import MakePayment from "./components/customerScreens/Payment/AddPayment/AddPayment"
 import RefundPayment from "./components/customerScreens/Payment/AddRefund/AddRefund"
+// import GenerateReport from "./components/Payment/GenerateReport"
+// import Addreport from "./components/Payment/AddReport"
 
 
 
@@ -77,8 +79,14 @@ function App() {
         <Route path="/refunddetails" element={<Refunds />} />
         <Route path="/paymentdetails/:id" element={<UpdatePayment />} />
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
-        <Route path="/makePayment" element={<MakePayment />} />
+        <Route path="/makePayment/:hourlyRate" element={<MakePayment />} />
         <Route path="/refundPayment" element={<RefundPayment />} />
+        
+        {/* <Route path="/addpayment/:amount" element={<AddPayment />} /> */}
+
+        {/* <Route path="/generate" element={<GenerateReport />} />
+        <Route path="/adreport" element={<Addreport />} /> */}
+        
 
         
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-import Navbar from "../../navbar/navbar"; // Adjusted import path
+import Navbar from "../../navbar/navbar";
 import './Refund.css'
 
 function Refund() {
@@ -13,22 +13,6 @@ function Refund() {
   const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
-    const fetchRefunds = async () => {
-      setIsLoading(true);
-      try {
-        const response = await axios.get('http://localhost:5000/refund');
-        if (response && response.data && response.data.refunds) {
-          setRefunds(response.data.refunds);
-        } else {
-          throw new Error('Invalid data format received from server');
-        }
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-  
     fetchRefunds();
   }, []);
 
@@ -71,8 +55,13 @@ function Refund() {
   };
 
   const handleDelete = async (refundId) => {
-    await axios.delete(`http://localhost:5000/refund/${refundId}`);
-    fetchRefunds(); // Fetch updated data after deletion
+    try {
+      await axios.delete(`http://localhost:5000/refund/${refundId}`);
+      fetchRefunds(); // Fetch updated data after deletion
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    }
   };
 
   return (
@@ -96,7 +85,6 @@ function Refund() {
             <table className='payment-table'>
               <thead>
                 <tr>
-                 
                   <th>User Name</th>
                   <th>Email Address</th>
                   <th>Postal Address(City)</th>
@@ -116,16 +104,14 @@ function Refund() {
                   <RefundDetails
                     key={refund._id}
                     refund={refund}
-                    setSearchQuery={setSearchQuery}
-                    handleDelete={handleDelete} // Pass handleDelete function
-                    noResults={noResults}
+                    handleDelete={handleDelete}
                   />
                 ))}
               </tbody>
             </table>
           </div>
         ) : (
-          <p>No Refunds to display.</p>
+          <p>{noResults ? 'No results found.' : 'No Refunds to display.'}</p>
         )}
       </div>
       <button className='Payment-button' onClick={handlePrint}>Download Full Report</button>
@@ -133,16 +119,15 @@ function Refund() {
   );
 }
 
-function RefundDetails({ refund, setSearchQuery, handleDelete, noResults }) {
+function RefundDetails({ refund, handleDelete }) {
   const { _id, fname, gmail, address, Phone, ServiceType, amount, date, reason, PaymentSlip, Status } = refund;
 
   const deleteHandler = async () => {
-    await handleDelete(_id); // Call handleDelete with refundId
+    await handleDelete(_id);
   };
 
   return (
     <tr>
-     
       <td>{fname}</td>
       <td>{gmail}</td>
       <td>{address}</td>
