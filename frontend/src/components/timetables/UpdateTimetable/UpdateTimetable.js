@@ -47,7 +47,7 @@ function UpdateTimetable() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e) => {    
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -108,6 +108,7 @@ function UpdateTimetable() {
               onChange={handleChange}
               value={inputs.date}
               className="updateTime-field"
+              min={new Date().toISOString().split('T')[0]} // Set min attribute to today's date
               required
             ></input>
             <br />
