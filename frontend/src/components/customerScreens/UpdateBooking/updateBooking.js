@@ -118,7 +118,7 @@ function UpdateBooking() {
 
     const upBookformContainerStyle = {
         position: 'absolute',
-        top: '72%',
+        top: '75%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '90%',
