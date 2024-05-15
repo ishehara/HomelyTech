@@ -92,7 +92,7 @@ function UpdateBooking() {
     const videoContainerStyle = {
         position: 'relative',
         width: '100%',
-        height: '120vh', // Set to full viewport height
+        height: '125vh', // Set to full viewport height
         overflow: 'hidden'
     };
 
@@ -118,7 +118,7 @@ function UpdateBooking() {
 
     const upBookformContainerStyle = {
         position: 'absolute',
-        top: '79%',
+        top: '72%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '90%',
