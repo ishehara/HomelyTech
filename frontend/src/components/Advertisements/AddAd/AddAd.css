@@ -32,7 +32,7 @@
 .Adform-container input[type="email"],
 .Adform-container input[type="date"],
 .Adform-container textarea {
-    width: calc(100% - 22px);
+    width: 100%; /* Set width to 100% */
     padding: 8px;
     margin: 5px 0;
     border: 1px solid #ccc;
