@@ -55,70 +55,94 @@ const SregisterSprovider = async (req, res, next) => {
   }
 };
 
-// Data Insert
+//Data Insert 
 const addSproviders = async (req, res, next) => {
   const { username, gmail, fullname, password, phonenumber, servicetype, serviceareas } = req.body;
+  let sproviders;
+
   try {
+    // Check if the user already exists
     const existingUser = await Sprovider.findOne({ username });
+    console.log(`Request received: ${req.method} ${req.path}`, JSON.stringify(existingUser));
+    // If user already exists, return an error
     if (existingUser) {
       return res.status(200).json({ status: "error", message: "User already exists" });
     }
-    const sproviders = new Sprovider({ username, gmail, fullname, password, phonenumber, servicetype, serviceareas });
+    sproviders = new Sprovider({ username, gmail, fullname, password, phonenumber, servicetype, serviceareas });
     await sproviders.save();
+    
+    // Successfully inserted data to the database
     return res.status(201).json({ status: "ok", message: "Service provider registered successfully" });
   } catch (err) {
     console.log(err);
+    // Error occurred while inserting data
     return res.status(500).json({ status: "error", message: "Failed to register service provider" });
   }
 };
 
-// Get by Id
-const getById = async (req, res, next) => {
+ //Get by Id
+ const getById = async ( req, res, next ) => {
+
   const id = req.params.id;
-  try {
-    const sprovider = await Sprovider.findById(id);
-    if (!sprovider) {
-      return res.status(404).json({ message: "User Not Found" });
-    }
-    return res.status(200).json({ sprovider });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ message: "Internal server error" });
+  let sprovider;
+
+  try{
+    sprovider = await Sprovider.findById(id);
+  }catch (err){
+    cpnsole.log(err);
   }
+
+  //not available users
+  if( !sprovider){
+    return res.status(404).json({message: "User Not Found"});  
+   }
+     return res.status(200).json({ sprovider});
+
 };
 
-// Update User Details
+
+//Update User Details
 const updateSprovider = async (req, res, next) => {
   const id = req.params.id;
-  const { username, gmail, fullname, password, phonenumber, servicetype, serviceareas } = req.body;
-  try {
-    let sproviders = await Sprovider.findByIdAndUpdate(id, {
-      username, gmail, fullname, password, phonenumber, servicetype, serviceareas
-    });
-    sproviders = await sproviders.save();
-    if (!sproviders) {
-      return res.status(404).json({ message: "Unable to update user details" });
-    }
-    return res.status(200).json({ sproviders });
-  } catch (err) {
+  const { username, gmail, fullname, password,phonenumber,servicetype,serviceareas } = req.body;
+  
+  let sproviders;
+
+  try{
+    sproviders = await Sprovider.findByIdAndUpdate(id,
+      {username: username, gmail:gmail, fullname:fullname, password:password, phonenumber: phonenumber, servicetype:servicetype, serviceareas: serviceareas});
+      sproviders = await sproviders.save();
+  }catch(err){
     console.log(err);
-    return res.status(500).json({ message: "Internal server error" });
   }
+
+  //not available users
+  if( !sproviders){
+    return res.status(404).json({message: "Unable to updtae user details"});  
+   }
+     return res.status(200).json({ sproviders});
 };
 
-// Delete User Details
-const deleteSprovider = async (req, res, next) => {
+//Delete User Details
+const deleteSprovider = async (req, res, next ) => {
   const id = req.params.id;
-  try {
-    const sproviders = await Sprovider.findByIdAndDelete(id);
-    if (!sproviders) {
-      return res.status(404).json({ message: "Unable to delete user details" });
+
+    let sproviders;
+    try{
+      sproviders = await Sprovider.findByIdAndDelete(id)
+    }catch (err){
+      console.log(err);
     }
-    return res.status(200).json({ sproviders });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ message: "Internal server error" });
-  }
+    if( !sproviders){
+        return res.status(404).json({message: "Unable to Delete User Details"});  
+    }
+    return res.status(200).json({ sproviders});
+    
+
+
+
+
+
 };
 
 module.exports = {
