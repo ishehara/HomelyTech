@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Payment.css';
 import { Link } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-import Navbar from "../../navbar/navbar"; // Adjusted import path
+import Navbar from "../../navbar/navbar"; 
 
 function Payment() {
   const [payments, setPayments] = useState([]);
@@ -11,6 +11,9 @@ function Payment() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [noResults, setNoResults] = useState(false);
+  const [totalPayments, setTotalPayments] = useState(0); // set variable to total payments
+  const [approvedCount, setApprovedCount] = useState(0); // set to "Approved" status
+  const [pendingCount, setPendingCount] = useState(0); // Set to "Pending" status
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -19,6 +22,14 @@ function Payment() {
         const response = await axios.get('http://localhost:5000/payments');
         if (response && response.data && response.data.Payments) {
           setPayments(response.data.Payments);
+          // Calculate total payments
+          const total = response.data.Payments.reduce((acc, curr) => acc + curr.amount, 0);
+          setTotalPayments(total);
+          // Calculate counts for approved and pending status
+          const approved = response.data.Payments.filter(payment => payment.Status === 'Approved').length;
+          const pending = response.data.Payments.filter(payment => payment.Status === 'Pending').length;
+          setApprovedCount(approved);
+          setPendingCount(pending);
         } else {
           throw new Error('Invalid data format received from server');
         }
@@ -92,6 +103,24 @@ function Payment() {
       />
       <button className='Payment-button' onClick={handleSearch}>Search</button>
       <br />
+      <div className="payment-stats">
+        <table>
+          <tbody>
+            <tr>
+              <td>Total Payments:</td>
+              <td>RS.{totalPayments}</td>
+            </tr>
+            <tr>
+              <td>Approved Payments:</td>
+              <td>{approvedCount}</td>
+            </tr>
+            <tr>
+              <td>Pending Payments:</td>
+              <td>{pendingCount}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       {payments.length > 0 ? (
         <div ref={ComponentsRef}>
           <table className='payment-table'>
