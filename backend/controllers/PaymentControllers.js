@@ -1,4 +1,5 @@
 const Payment = require("../models/PaymentModel");
+const Offer = require("../models/offerModel")
 
 //data display
 
@@ -26,7 +27,17 @@ const getAllPayments = async (req,res,next) => {
 
 const addPayments = async (req,res,next) =>{
 
-    const {fname , gmail , address , Phone , ServiceType , amount ,promo, PaymentSlip,Status} = req.body;
+    let {fname , gmail , address , Phone , ServiceType , amount ,promo, PaymentSlip,Status} = req.body;
+
+    let offer = await Offer.findOne({
+        promoCode: promo
+    })
+
+    if(promo){
+        let percentage = offer.persentage;
+
+        amount = amount - amount * (percentage / 100);
+    }
 
     let payments;
 
@@ -44,7 +55,7 @@ const addPayments = async (req,res,next) =>{
 
     //display
 
-    return res.status(200).json({payments});
+    return res.status(200).json({payments: payments, amount: amount});
 }
 
 //get by id 

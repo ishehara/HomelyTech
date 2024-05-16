@@ -6,6 +6,7 @@ import axios from "axios";
 import "./AddFeedback.css";
 import Footer from "../../customerScreens/Footer/footer";
 import Navbar from "../../customerScreens/navbar";
+import Bgvideo from '../../../media/videoBg.mp4'; // Import the background video file
 
 function AddFeedback() {
   const navigate = useNavigate();
@@ -37,7 +38,6 @@ function AddFeedback() {
     'spam',
     'sex',
     'xxx',
-    
     
     // Add more prohibited words as needed
   ];
@@ -131,7 +131,10 @@ function AddFeedback() {
   };
 
   return (
-    <div>
+    <div className="video-container">
+      {/* Video background and overlay */}
+      <video src={Bgvideo} autoPlay muted loop className="video-bg"></video>
+      <div className="bg-overlay"></div>
       <Navbar />
       <div className="form-container">
         <h1>Add Feedback</h1>
@@ -163,7 +166,8 @@ function AddFeedback() {
           </button>
         </form>
       </div>
-      <Footer/>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
