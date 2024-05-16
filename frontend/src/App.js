@@ -67,7 +67,6 @@ import Sregister from "./components/Serviceprovider/SproviderRegister/Sregister"
 import Sproviders from "./components/Serviceprovider/Sprovider/Sprovider";
 import ServiceProviderDetails from "./components/Serviceprovider/ServiceProviderDetails/ServiceProviderDetails";
 import ServiceLogin from "./components/Serviceprovider/SPLogin/SpLogin";
-import UpdateServiceProvider from "./components/Serviceprovider/UpdateServiceprovider/UpdateServiceProvider";
 
 
 
@@ -144,7 +143,6 @@ function App() {
         <Route path="/sregi" element={<Sregister/>}/>
         <Route path="/splog" element={<ServiceLogin/>}/>
         <Route path="/serviceProviderDetails" element={<ServiceProviderDetails />} />
-        <Route path="/update-service-provider/:id" element={<UpdateServiceProvider />} />
 
       </Routes>
     </Router>
