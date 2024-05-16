@@ -1,0 +1,24 @@
+.sproviders-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .sproviders-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .sprovider-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sprovider-card p {
+    margin: 5px 0;
+  }
+  
+  /* Add more styles as needed */
+  
