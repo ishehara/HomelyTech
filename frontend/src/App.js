@@ -56,6 +56,13 @@ import Logout from "./components/User/Login/Logout";
 import ContactUs from "./components/User/ContactUs/Contactus";
 import NormalUserDetails from "./components/User/UserDetails/NormalUserDetails";
 
+//adding Service Provider parts
+import Sregister from "./components/Serviceprovider/SproviderRegister/Sregister";
+import Sproviders from "./components/Serviceprovider/Sprovider/Sprovider";
+import ServiceProviderDetails from "./components/Serviceprovider/ServiceProviderDetails/ServiceProviderDetails";
+import ServiceLogin from "./components/Serviceprovider/SPLogin/SpLogin";
+
+
 
 function App() {
   return (
@@ -114,6 +121,11 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/conus" element={<ContactUs />} />
         <Route path="/userdetails/:id" element={<UpdateUser />} />
+
+        <Route path="/sdetails" element={<Sproviders/>}/>
+        <Route path="/sregi" element={<Sregister/>}/>
+        <Route path="/splog" element={<ServiceLogin/>}/>
+        <Route path="/serviceProviderDetails" element={<ServiceProviderDetails />} />
 
       </Routes>
     </Router>
