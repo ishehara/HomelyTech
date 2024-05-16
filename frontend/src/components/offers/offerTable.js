@@ -13,7 +13,7 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
-export default function OfferTable({ rows, onDelete }) {
+export default function OfferTable({ rows, onDelete, sendMail }) {
 
     const navigate = useNavigate();
   return (
@@ -69,6 +69,7 @@ export default function OfferTable({ rows, onDelete }) {
                     Edit
                   </Button>
                   <Button variant="outlined" onClick={() => onDelete(row._id)}>Delete</Button>
+                  <Button variant="outlined" onClick={() => sendMail(row._id)}>send mails</Button>
                 </TableCell>
               </TableRow>
             ))
