@@ -12,6 +12,12 @@ import Refunds from "./components/Payment/Refunds/Refund";
 import MakePayment from "./components/customerScreens/Payment/AddPayment/AddPayment"
 import RefundPayment from "./components/customerScreens/Payment/AddRefund/AddRefund"
 
+import UserPayment from "./components/customerScreens/Payment/userPayment";
+import GenerateReport from "./components/Payment/Refunds/AddGenerate"
+import Addreport from "./components/Payment/Refunds/report"
+import Display from "./components/Payment/Refunds/displayefund"
+import UserRefund from "./components/customerScreens/Payment/userRefund"
+
 
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -86,6 +92,17 @@ function App() {
         <Route path="/refunddetails/:id" element={<UpdateRefund />} />
         <Route path="/makePayment" element={<MakePayment />} />
         <Route path="/refundPayment" element={<RefundPayment />} />
+
+        <Route path="/userPayment" element={<UserPayment />} />
+        <Route path="/userRefund" element={<UserRefund />} />
+        
+        {/* <Route path="/addpayment/:amount" element={<AddPayment />} /> */}
+
+         <Route path="/generate" element={<GenerateReport />} />
+        <Route path="/adreport" element={<Addreport />} /> 
+        <Route path="/display" element={<Display />} /> 
+        
+
 
         
 

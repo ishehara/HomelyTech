@@ -49,7 +49,7 @@ function Navbar() {
                   Booking
                 </NavLink>
               </li>
-              <li class="nav-item dropdown">
+              {/* <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
                   href="#"
@@ -79,6 +79,9 @@ function Navbar() {
                     </NavLink>
                   </li>
                 </ul>
+
+              </li> */}
+
               </li>
               
 

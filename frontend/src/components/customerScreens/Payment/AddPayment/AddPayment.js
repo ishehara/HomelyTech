@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+
+import React, { useState,useEffect } from 'react';
+
 import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import './AddPayment.css';
@@ -8,6 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom'; // Import useParams
 import axios from 'axios';
 
 function AddPayment() {
+    const [dates, setDate] = useState('');
     const { hourlyRate } = useParams(); // Get hourlyRate from URL parameters
     const Status = 'Pending';
     const navigator = useNavigate();
@@ -19,6 +22,7 @@ function AddPayment() {
         Phone: '',
         ServiceType: '',
         amount: hourlyRate || '', // Set amount to hourlyRate
+        date:'',
         promo:'',
         PaymentSlip: '',
         Status: Status
@@ -155,11 +159,23 @@ function AddPayment() {
                     },
                 });
                 setTimeout(() => {
-                    navigator('/makePayment');
+                    navigator('/');
                 }, 2500);
             }, 2500);
         }, 5000);
     };
+
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set time components to zero
+
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Use padStart to ensure two digits
+        const dd = String(today.getDate()).padStart(2, '0'); // Use padStart to ensure two digits
+
+        const formattedDate = `${yyyy}-${mm}-${dd}`;
+        setDate(formattedDate);
+    }, []);
 
     return (
         <div>
@@ -191,6 +207,7 @@ function AddPayment() {
                     <label className='AddPayment-label' htmlFor="amount">Amount:</label>
                     <input className='AddPayment input[type="number"]' type="number" id="amount" required name="amount" onChange={handleChange} value={inputs.amount} />
 
+            
                     <label className='AddPayment-label' htmlFor="fname">Promo Code:</label>
                     <input type="text" id="promo" name="promo" onChange={handleChange} value={inputs.promo} required />
                     {myoffer.length != 0 ? <label style={{ color: 'green' }} className='AddPayment-label' >Discounted Amount : {inputs.amount - inputs.amount * myoffer[0].persentage / 100}</label> : null }
