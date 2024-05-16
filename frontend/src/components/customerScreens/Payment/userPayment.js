@@ -44,18 +44,6 @@ function Payment() {
     onAfterPrint: () => alert("Payment Report Successfully Downloaded!"),
   });
 
-  //search
-
-  const handleSearch = () => {
-    const filteredPayments = payments.filter((payment) =>
-      Object.values(payment).some((field) =>
-        field.toString().toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    );
-    setPayments(filteredPayments);
-    setNoResults(filteredPayments.length === 0);
-  };
-
   const handleFetchPayments = async () => {
     setIsLoading(true);
     try {
@@ -83,15 +71,6 @@ function Payment() {
       <h1 className='Payment h1'>Payment Details</h1>
       {isLoading && <p>Loading payments...</p>}
       {error && <p>Error fetching payments: {error.message}</p>}
-      <input
-        className='Payment-input'
-        onChange={(e) => setSearchQuery(e.target.value)}
-        type="text"
-        name="search"
-        placeholder='Search Payment Details'
-      />
-      <button className='Payment-button' onClick={handleSearch}>Search</button>
-      <br />
       {payments.length > 0 ? (
         <div ref={ComponentsRef}>
           <table className='payment-table'>
@@ -107,8 +86,7 @@ function Payment() {
                 <th>Promo Code</th>
                 <th>Payment Slip Reference Number</th>
                 <th>Status</th>
-
-                <th>Update</th>
+                <th>Refund Request</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -134,11 +112,13 @@ function Payment() {
 }
 
 function PaymentRow({ payment, handleDelete }) {
-  const { _id, fname, gmail, address, Phone, ServiceType, amount,promo, PaymentSlip,Status } = payment;
+  const { _id, fname, gmail, address, Phone, ServiceType, amount, promo, PaymentSlip, Status } = payment;
 
   const deleteHandler = async () => {
     await handleDelete(_id); // Call handleDelete with paymentId
   };
+
+  const isPending = Status === "Pending";
 
   return (
     <tr>
@@ -153,9 +133,28 @@ function PaymentRow({ payment, handleDelete }) {
       <td>{PaymentSlip}</td>
       <td>{Status}</td>
       <td>
-        <button className='Payment-button'><Link to={`/paymentdetails/${_id}`} className='Payment-link'>Update</Link></button></td>
-        <td>
-        <button className='Payment-button' onClick={deleteHandler}>Delete</button>
+        {/* Conditionally render the "Request Refund" button */}
+        {isPending ? (
+          <button className='Payment-button'>
+            <Link to="/refundPayment" className='Payment-link'>Refund Request</Link>
+          </button>
+        ) : (
+          <button className='Payment-button' disabled>
+            Refund Request
+          </button>
+        )}
+      </td>
+      <td>
+        {/* Conditionally render the "Delete" button */}
+        {isPending ? (
+          <button className='Payment-button' onClick={deleteHandler}>
+            Delete
+          </button>
+        ) : (
+          <button className='Payment-button' disabled>
+            Delete
+          </button>
+        )}
       </td>
     </tr>
   );

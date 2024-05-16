@@ -25,7 +25,7 @@ function UpdateAds() {
         adTitle: String(inputs.adTitle),
         serviceType: String(inputs.serviceType),
         reqDate: String(inputs.reqDate),
-        noOfDays: Number(inputs.noOfDays),
+        noOfDays: parseInt(inputs.noOfDays),
         area: String(inputs.area),
         adDescription: String(inputs.adDescription),
         contactNumber: String(inputs.contactNumber),
@@ -71,7 +71,7 @@ function UpdateAds() {
         <label htmlFor="reqDate">Required Date:</label><br />
         <input type="date" id="reqDate" name="reqDate" onChange={handleChange} value={inputs.reqDate} required /><br />
         <label htmlFor="noOfDays">No of Days:</label><br />
-        <input type="number" id="noOfDays" name="noOfDays" onChange={handleChange} value={inputs.noOfDays} required /><br />
+        <input type="number" id="noOfDays" name="noOfDays" onChange={handleChange} value={inputs.noOfDays} min="1" required /><br />
         <label htmlFor="area">Area:</label><br />
         <input type="text" id="area" name="area" onChange={handleChange} value={inputs.area} required /><br />
         <label htmlFor="adDescription">Ad Description:</label><br />

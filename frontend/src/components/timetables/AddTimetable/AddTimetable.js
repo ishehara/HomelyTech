@@ -108,6 +108,7 @@ function AddTimetable() {
           type="date"
           name="date"
           onChange={handleChange}
+          min={new Date().toISOString().split('T')[0]} // Set min attribute to today's date
           value={inputs.date}
           className="addTime-field"
           required

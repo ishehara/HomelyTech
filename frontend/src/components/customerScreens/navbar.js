@@ -24,7 +24,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/serviceproviders"}
+                  to={"/serviceProviderDetails"}
                   className="nav-link text-white"
                   activeClassName="active"
                 >
@@ -49,7 +49,7 @@ function Navbar() {
                   Booking
                 </NavLink>
               </li>
-              <li class="nav-item dropdown">
+              {/* <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
                   href="#"
@@ -79,6 +79,9 @@ function Navbar() {
                     </NavLink>
                   </li>
                 </ul>
+
+              </li> */}
+
               </li>
               
 
@@ -139,7 +142,7 @@ function Navbar() {
                   </li>
                   <li>
                   <NavLink
-                      to={"/log"}
+                      to={"/splog"}
                       className="dropdown-item"
                       activeClassName="active"
                     >
@@ -186,7 +189,7 @@ function Navbar() {
                   <li>
 
                   <NavLink
-                      to={"/"}
+                      to={"/sregi"}
 
                       className="dropdown-item"
                       activeClassName="active"
