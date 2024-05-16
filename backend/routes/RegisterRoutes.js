@@ -6,6 +6,7 @@ const User = require("../models/UserModel")
 
 //Insert User Controller
 const UserController = require("../controllers/UserControllers");
+const SproviderController = require("../controllers/SproviderControllers")
 
 router.post("/",UserController.RegisterUser);
 

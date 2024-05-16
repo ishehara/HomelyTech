@@ -29,6 +29,7 @@ export default function OfferForm() {
   const validateForm = () => {
     let isValid = true;
     const newErrors = { ...errors };
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
     if (!title) {
       newErrors.title = "Please fill out this field";
@@ -50,7 +51,7 @@ export default function OfferForm() {
     } else if (persentage < 0 || persentage > 100) {
       newErrors.percentage = "Please fill valid percentage";
       isValid = false;
-    }else {
+    } else {
       newErrors.percentage = "";
     }
 
@@ -64,12 +65,21 @@ export default function OfferForm() {
     if (!startDate) {
       newErrors.startDate = "Please fill out this field";
       isValid = false;
+    } else if (startDate < today) {
+      newErrors.startDate = "Start date cannot be in the past";
+      isValid = false;
     } else {
       newErrors.startDate = "";
     }
 
     if (!dueDate) {
       newErrors.dueDate = "Please fill out this field";
+      isValid = false;
+    } else if (dueDate < today) {
+      newErrors.dueDate = "Due date cannot be in the past";
+      isValid = false;
+    } else if (dueDate < startDate) {
+      newErrors.dueDate = "Due date cannot be before start date";
       isValid = false;
     } else {
       newErrors.dueDate = "";

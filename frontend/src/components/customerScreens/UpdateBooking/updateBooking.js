@@ -9,15 +9,7 @@ function UpdateBooking() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({
-        customerName: '',
-        serviceProviderName: '',
-        serviceProviderId: '',
-        serviceType: '',
-        hourlyRate: '',
-        appointmentDate: '',
-        appointmentTime: '',
-        address: '',
-        request: ''
+        
     });
 
     const [validationMessages, setValidationMessages] = useState({
@@ -40,11 +32,25 @@ function UpdateBooking() {
         Decorator: 2100
     };
 
+
     useEffect(() => {
+        const fetchHandler = async () => {
+            await axios.get(`http://localhost:5000/bookings/${id}`)
+            .then((res)=>res.data)
+            .then((data)=>setInputs(data));
+           
+        };
+        fetchHandler();
+      }, [id]);
+
+    /*useEffect(() => {
         axios.get(`http://localhost:5000/bookings/${id}`)
             .then(response => setInputs(response.data))
             .catch(error => console.error('Error fetching booking details:', error));
-    }, [id]);
+    }, []);*/
+
+console.log(inputs)
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -92,7 +98,7 @@ function UpdateBooking() {
     const videoContainerStyle = {
         position: 'relative',
         width: '100%',
-        height: '120vh', // Set to full viewport height
+        height: '125vh', // Set to full viewport height
         overflow: 'hidden'
     };
 
@@ -118,7 +124,7 @@ function UpdateBooking() {
 
     const upBookformContainerStyle = {
         position: 'absolute',
-        top: '79%',
+        top: '75%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '90%',
@@ -176,40 +182,40 @@ function UpdateBooking() {
             <h1 style={headingStyle}>Update Your Booking</h1>
                 <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
                     <label style={labelStyle}>Customer Name:</label>
-                    <input style={inputStyle} type="text" name="customerName" onChange={handleChange} value={inputs.customerName} required />
+                    <input style={inputStyle} type="text" name="customerName" onChange={handleChange} placeholder={inputs.booking?.customerName} required />
                     {validationMessages.customerName && <div style={{ color: 'red', marginBottom: '10px' }}>{validationMessages.customerName}</div>}
                     
                     <label style={labelStyle}>Service Provider Name:</label>
-                    <input style={inputStyle} type="text" name="serviceProviderName" onChange={handleChange} value={inputs.serviceProviderName} required />
+                    <input style={inputStyle} type="text" name="serviceProviderName" onChange={handleChange} placeholder={inputs.booking?.serviceProviderName} required />
                     {validationMessages.serviceProviderName && <div style={{ color: 'red', marginBottom: '10px' }}>{validationMessages.serviceProviderName}</div>}
                     
                     <label style={labelStyle}>Service Provider ID:</label>
-                    <input style={inputStyle} type="text" name="serviceProviderId" onChange={handleChange} value={inputs.serviceProviderId} required />
+                    <input style={inputStyle} type="text" name="serviceProviderId" onChange={handleChange} placeholder={inputs.booking?.serviceProviderId} required />
                     
                     <label style={labelStyle}>Service Type:</label>
-                    <select style={inputStyle} name="serviceType" onChange={handleChange} value={inputs.serviceType} required>
+                    <select style={inputStyle} name="serviceType" onChange={handleChange} placeholder={inputs.booking?.serviceType} required>
                         <option value="">Select a service</option>
                         {Object.keys(serviceOptions).map(service => (
-                            <option key={service} value={service}>{service}</option>
+                            <option key={service} placeholder={service}>{service}</option>
                         ))}
                     </select>
                     
                     <label style={labelStyle}>Hourly Rate:</label>
-                    <input style={inputStyle} type="number" name="hourlyRate" value={inputs.hourlyRate} readOnly />
+                    <input style={inputStyle} type="number" name="hourlyRate" placeholder={inputs.booking?.hourlyRate} readOnly />
                     
                     <label style={labelStyle}>Appointment Date:</label>
-                    <input style={inputStyle} type="date" name="appointmentDate" onChange={handleChange} value={inputs.appointmentDate} required />
+                    <input style={inputStyle} type="date" name="appointmentDate" onChange={handleChange} placeholder={inputs.booking?.appointmentDate} required />
                     {validationMessages.appointmentDate && <div style={{ color: 'red', marginBottom: '10px' }}>{validationMessages.appointmentDate}</div>}
                     
                     <label style={labelStyle}>Appointment Time:</label>
-                    <input style={inputStyle} type="time" name="appointmentTime" onChange={handleChange} value={inputs.appointmentTime} required />
+                    <input style={inputStyle} type="time" name="appointmentTime" onChange={handleChange} placeholder={inputs.booking?.appointmentTime} required />
                     {validationMessages.appointmentTime && <div style={{ color: 'red', marginBottom: '10px' }}>{validationMessages.appointmentTime}</div>}
                     
                     <label style={labelStyle}>Address:</label>
-                    <textarea style={inputStyle} name="address" onChange={handleChange} value={inputs.address} required />
+                    <textarea style={inputStyle} name="address" onChange={handleChange} placeholder={inputs.booking?.address} required />
                     
                     <label style={labelStyle}>Request:</label>
-                    <textarea style={inputStyle} name="request" onChange={handleChange} value={inputs.request} />
+                    <textarea style={inputStyle} name="request" onChange={handleChange} placeholder={inputs.booking?.request} />
                     
                     <button type="submit" style={submitButtonStyle}>Update Booking</button>
                 </form>
