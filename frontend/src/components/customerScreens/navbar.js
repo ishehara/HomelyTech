@@ -82,7 +82,7 @@ function Navbar() {
 
               </li> */}
 
-              </li>
+              
               
 
               <li className="nav-item">
