@@ -49,12 +49,6 @@ function navbar() {
               <Link to="/userdetails" className="nav-link">User Management</Link>
               
               </li>
-
-              <li className="nav-item">
-              <Link to="/sdetails" className="nav-link">Service Provider Management</Link>
-              
-              </li>
-
               <li className="nav-item">
               <Link to="/offerManagement" className="nav-link">Offers Management</Link>
               

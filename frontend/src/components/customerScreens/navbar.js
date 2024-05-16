@@ -24,7 +24,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/sdetails"}
+                  to={"/serviceProviderDetails"}
                   className="nav-link text-white"
                   activeClassName="active"
                 >
