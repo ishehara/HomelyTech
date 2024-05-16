@@ -3,9 +3,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../customerScreens/navbar';
 import Footer from '../../customerScreens/Footer/footer';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link component
 
 const ServiceProviderDetails = () => {
   const [provider, setProvider] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProviderDetails = async () => {
@@ -21,9 +24,21 @@ const ServiceProviderDetails = () => {
     fetchProviderDetails();
   }, []);
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:5000/sproviders/${provider._id}`);
+      // Show alert to inform the user about account deletion
+      alert('Your account has been deleted.');
+      sessionStorage.clear();
+        // Redirect to login page
+      navigate('/log');
+    } catch (error) {
+      console.error('Error deleting service provider:', error);
+    }
+  };
+
   return (
     <div>
-      <Navbar/>
       <h1>Service Provider Details</h1>
       {provider ? (
         <div>
@@ -34,13 +49,17 @@ const ServiceProviderDetails = () => {
           <p>Service Type: {provider.servicetype}</p>
           <p>Service Areas: {provider.serviceareas}</p>
           {/* Add more <p> elements for other details */}
+
+          {/* Use Link for navigation */}
+          <Link to={{ pathname: `/update-service-provider/${provider._id}`, state: { provider } }}>Update</Link>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       ) : (
         <p>Loading service provider details...</p>
       )}
-      <Footer/>
     </div>
   );
 };
+
 
 export default ServiceProviderDetails;

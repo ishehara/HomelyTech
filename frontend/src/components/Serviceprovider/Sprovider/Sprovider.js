@@ -3,6 +3,7 @@ import axios from 'axios';
 //import { Link } from 'react-router-dom';
 import './Sproviders.css'; // Import CSS file for styling
 import Footer from '../../customerScreens/Footer/footer';
+import { Link } from 'react-router-dom'; // Import Link component for navigation
 
 function Sproviders() {
   const [sproviders, setSproviders] = useState([]);
@@ -19,6 +20,18 @@ function Sproviders() {
 
     fetchSproviders();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      //console.log("id", id);
+      await axios.delete(`http://localhost:5000/sproviders/${id}`);
+      // Update the service providers list after deletion
+      setSproviders(sproviders.filter(sprovider => sprovider._id !== id));
+      alert(`Service Provider account has been deleted. Provider ID: ${id}`);
+    } catch (error) {
+      console.error('Error deleting service provider:', error);
+    }
+  };
 
   return (
     <div className="sproviders-container">
@@ -38,14 +51,9 @@ function Sproviders() {
               <p><strong>Service Type:</strong> {sprovider.servicetype}</p>
               <p><strong>Service Areas:</strong> {sprovider.serviceareas}</p>
               <p><strong>User Level:</strong> {sprovider.userLevel}</p>
-              <button>Update</button>
-              <button>Delete</button>
-
-              {/* <div className="operations">
-            <Link to={`/userdetails/${_id}`} className="user-button update-button">Update</Link>
-            <button onClick={deleteHandler} className="user-button delete-button">Delete</button>
-          </div> */}
               {/* Add more fields as needed */}
+              <Link to={`/update-service-provider/${sprovider._id}`} className="update-button">Update</Link>
+              <button onClick={() => handleDelete(sprovider._id)} className="delete-button">Delete</button>
             </div>
           ))}
         </div>

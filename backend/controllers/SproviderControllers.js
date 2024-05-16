@@ -87,38 +87,44 @@ const getById = async (req, res, next) => {
   }
 };
 
-// Update User Details
+//Update User Details
 const updateSprovider = async (req, res, next) => {
   const id = req.params.id;
-  const { username, gmail, fullname, password, phonenumber, servicetype, serviceareas } = req.body;
-  try {
-    let sproviders = await Sprovider.findByIdAndUpdate(id, {
-      username, gmail, fullname, password, phonenumber, servicetype, serviceareas
-    });
-    sproviders = await sproviders.save();
-    if (!sproviders) {
-      return res.status(404).json({ message: "Unable to update user details" });
-    }
-    return res.status(200).json({ sproviders });
-  } catch (err) {
+  const { username, gmail, fullname, password,phonenumber,servicetype,serviceareas } = req.body;
+  
+  let sproviders;
+
+  try{
+    sproviders = await Sprovider.findByIdAndUpdate(id,
+      {username: username, gmail:gmail, fullname:fullname, password:password, phonenumber: phonenumber, servicetype:servicetype, serviceareas: serviceareas});
+      sproviders = await sproviders.save();
+  }catch(err){
     console.log(err);
-    return res.status(500).json({ message: "Internal server error" });
   }
+
+  //not available users
+  if( !sproviders){
+    return res.status(404).json({message: "Unable to updtae user details"});  
+   }
+     return res.status(200).json({ sproviders});
 };
 
-// Delete User Details
-const deleteSprovider = async (req, res, next) => {
+
+//Delete User Details
+const deleteSprovider = async (req, res, next ) => {
   const id = req.params.id;
-  try {
-    const sproviders = await Sprovider.findByIdAndDelete(id);
-    if (!sproviders) {
-      return res.status(404).json({ message: "Unable to delete user details" });
+
+    let sproviders;
+    try{
+      sproviders = await Sprovider.findByIdAndDelete(id)
+    }catch (err){
+      console.log(err);
     }
-    return res.status(200).json({ sproviders });
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ message: "Internal server error" });
-  }
+    if( !sproviders){
+        return res.status(404).json({message: "Unable to Delete User Details"});  
+    }
+    return res.status(200).json({ sproviders});
+    
 };
 
 module.exports = {
