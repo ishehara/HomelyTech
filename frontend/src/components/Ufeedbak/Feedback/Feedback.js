@@ -24,6 +24,7 @@ function Feedback({ _id, feedback, rating, onDelete, image }) {
   };
 
   return (
+    
       <div className="feedback-container">
         <h3>Feedback and Q&A Display</h3>
         <div>ID: {_id}</div>
