@@ -1,84 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
-import axios from "axios";
-import User from '../User/User';
-import { useReactToPrint } from "react-to-print";
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import './Payment.css';
 import { Link } from 'react-router-dom';
-import './users.css';
-import Navbar from '../../customerScreens/navbar';
-import Footer from '../../customerScreens/Footer/footer';
+import { useReactToPrint } from 'react-to-print';
+import Navbar from "../../navbar/navbar"; // Adjusted import path
 
-const URL = "http://localhost:5000/users";
-
-
-
-const fetchUserDetails = async (userId) => {
-  try {
-    const response = await axios.get(`${URL}/${userId}`);
-    console.log('Response data:', response.data); // Log the response data
-    return response.data.users; // Access users key instead of user
-  } catch (error) {
-    console.error('Error fetching user details:', error);
-    return null;
-  }
-}
-
-
-
-function NormalUserDetails() {
-  const [user, setUser] = useState(null); // State variable to store user details
-  const userId = sessionStorage.getItem('userId'); // Get userId from sessionStorage
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-        try {
-          const userData = await fetchUserDetails(userId);
-          setUser(userData);
-        } catch (error) {
-          console.error('Error fetching user details:', error);
-          setUser(null); // Reset user state to null in case of error
-        }
-      };
-      fetchUserData();
-  }, [userId]);
-
-  const ComponentsRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => ComponentsRef.current,
-    DocumentTitle: "Users Report",
-    onafterprint: () => alert("Users Report Successfully Download !"),
-  });
-
-  // Function to check if user's Gmail matches payment Gmail
-  const isCurrentUserPayment = (paymentGmail) => {
-    return user && user.gmail === paymentGmail;
-  };
-  
-
-  return (
-    
-    <div>
-      <Navbar/>
-      <h1 className="users-title">User Details Display Page</h1>
-      {user ? (
-        <div ref={ComponentsRef}>
-          <User user={user} />
-          <Payment currentUserGmail={user.gmail} />
-        </div>
-      ) : (
-        <p>Loading user details...</p>
-      )}
-      <Footer/>
-    </div>
-  )
-}
-
-
-// get the Payment Details for the user
-
-function Payment({ currentUserGmail }) {
+function Payment() {
   const [payments, setPayments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
     const fetchPayments = async () => {
@@ -86,9 +18,7 @@ function Payment({ currentUserGmail }) {
       try {
         const response = await axios.get('http://localhost:5000/payments');
         if (response && response.data && response.data.Payments) {
-          // Filter payments where payment gmail matches current user's gmail
-          const filteredPayments = response.data.Payments.filter(payment => payment.gmail === currentUserGmail);
-          setPayments(filteredPayments);
+          setPayments(response.data.Payments);
         } else {
           throw new Error('Invalid data format received from server');
         }
@@ -100,14 +30,44 @@ function Payment({ currentUserGmail }) {
     };
 
     fetchPayments();
-  }, [currentUserGmail]);
+  }, []);
+
+  useEffect(() => {
+    console.log('Payments:', payments);
+  }, [payments]);
 
   const ComponentsRef = useRef();
 
-  
-  
+  const handlePrint = useReactToPrint({
+    content: () => ComponentsRef.current,
+    documentTitle: "Payment Report",
+    onAfterPrint: () => alert("Payment Report Successfully Downloaded!"),
+  });
+
+  const handleFetchPayments = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('http://localhost:5000/payments');
+      if (response && response.data && response.data.Payments) {
+        setPayments(response.data.Payments);
+      } else {
+        throw new Error('Invalid data format received from server');
+      }
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDelete = async (paymentId) => {
+    await axios.delete(`http://localhost:5000/payments/${paymentId}`);
+    handleFetchPayments(); // Fetch updated data after deletion
+  };
+
   return (
     <div>
+      <Navbar/>
       <h1 className='Payment h1'>Payment Details</h1>
       {isLoading && <p>Loading payments...</p>}
       {error && <p>Error fetching payments: {error.message}</p>}
@@ -127,7 +87,7 @@ function Payment({ currentUserGmail }) {
                 <th>Payment Slip Reference Number</th>
                 <th>Status</th>
                 <th>Refund Request</th>
-               
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -135,6 +95,7 @@ function Payment({ currentUserGmail }) {
                 <PaymentRow
                   key={payment._id}
                   payment={payment}
+                  handleDelete={handleDelete}
                 />
               ))}
             </tbody>
@@ -144,16 +105,20 @@ function Payment({ currentUserGmail }) {
         <p>No payments to display.</p>
       )}
       <br></br>
-      {/* <button className='Payment-button' onClick={handlePrint}>Download Report</button> */}
+      <button className='Payment-button' onClick={handlePrint}>Download Report</button>
       <br></br>
     </div>
   );
 }
 
-// Payment 
-
-function PaymentRow({ payment }) {
+function PaymentRow({ payment, handleDelete }) {
   const { _id, fname, gmail, address, Phone, ServiceType, amount, promo, PaymentSlip, Status } = payment;
+
+  const deleteHandler = async () => {
+    await handleDelete(_id); // Call handleDelete with paymentId
+  };
+
+  const isPending = Status === "Pending";
 
   return (
     <tr>
@@ -169,7 +134,7 @@ function PaymentRow({ payment }) {
       <td>{Status}</td>
       <td>
         {/* Conditionally render the "Request Refund" button */}
-        {Status === "Pending" ? (
+        {isPending ? (
           <button className='Payment-button'>
             <Link to="/refundPayment" className='Payment-link'>Refund Request</Link>
           </button>
@@ -180,20 +145,19 @@ function PaymentRow({ payment }) {
         )}
       </td>
       <td>
-        
         {/* Conditionally render the "Delete" button */}
-        {/* {Status === "Pending" ? (
-          <button className='Payment-button'  onClick={handleDelete}>
+        {isPending ? (
+          <button className='Payment-button' onClick={deleteHandler}>
             Delete
           </button>
         ) : (
           <button className='Payment-button' disabled>
             Delete
           </button>
-        )} */}
+        )}
       </td>
     </tr>
   );
 }
 
-export default NormalUserDetails;
+export default Payment;

@@ -67,14 +67,19 @@ function AddBooking() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (Object.values(errors).every(v => !v)) {
-            sendRequest().then(() => history('/bookingdetails'));
+            // Send booking request
+            await sendRequest();
+            
+            // Navigate to AddPayment component with hourlyRate as amount
+            history(`/makePayment/${inputs.hourlyRate}`);
         } else {
             alert("Please correct the errors in the form.");
         }
     };
+    
 
     const sendRequest = async () => {
         return axios.post("http://localhost:5000/bookings", {

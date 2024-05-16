@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+
+import React, { useState,useEffect } from 'react';
+
 import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import './AddPayment.css';
 import Navbar from '../../navbar';
 import Footer from '../../Footer/footer';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom'; // Import useParams
 import axios from 'axios';
 
 function AddPayment() {
+    const [dates, setDate] = useState('');
+    const { hourlyRate } = useParams(); // Get hourlyRate from URL parameters
     const Status = 'Pending';
     const navigator = useNavigate();
     const [inputs, setInputs] = useState({
@@ -17,7 +21,8 @@ function AddPayment() {
         address: '',
         Phone: '',
         ServiceType: '',
-        amount: '',
+        amount: hourlyRate || '', // Set amount to hourlyRate
+        date:'',
         promo:'',
         PaymentSlip: '',
         Status: Status
@@ -29,7 +34,31 @@ function AddPayment() {
             ...prevState,
             [e.target.name]: e.target.value,
         }));
+
     };
+
+    const [offers, setOffers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchOffers = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/offer");
+        setOffers(response.data.offers);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+
+    fetchOffers();
+  }, []);
+
+  let myoffer = offers.filter(o => o.promoCode == inputs.promo)
+
+  console.log(myoffer);
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -130,11 +159,23 @@ function AddPayment() {
                     },
                 });
                 setTimeout(() => {
-                    navigator('/makePayment');
+                    navigator('/');
                 }, 2500);
             }, 2500);
         }, 5000);
     };
+
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set time components to zero
+
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Use padStart to ensure two digits
+        const dd = String(today.getDate()).padStart(2, '0'); // Use padStart to ensure two digits
+
+        const formattedDate = `${yyyy}-${mm}-${dd}`;
+        setDate(formattedDate);
+    }, []);
 
     return (
         <div>
@@ -166,8 +207,11 @@ function AddPayment() {
                     <label className='AddPayment-label' htmlFor="amount">Amount:</label>
                     <input className='AddPayment input[type="number"]' type="number" id="amount" required name="amount" onChange={handleChange} value={inputs.amount} />
 
+            
                     <label className='AddPayment-label' htmlFor="fname">Promo Code:</label>
                     <input type="text" id="promo" name="promo" onChange={handleChange} value={inputs.promo} required />
+                    {myoffer.length != 0 ? <label style={{ color: 'green' }} className='AddPayment-label' >Discounted Amount : {inputs.amount - inputs.amount * myoffer[0].persentage / 100}</label> : null }
+                    { inputs.promo != "" && myoffer.length == 0 ? <label className='AddPayment-label' style={{ color: "red" }}>Invalide Promocode</label> : null }
 
                     <label className='AddPayment-label' htmlFor="paymentSlip">PaymentSlip Reference Number:</label>
                     <input className='AddPayment input[type="text"]' type="text" id="paymentSlip" required name="PaymentSlip" onChange={handleChange} value={inputs.PaymentSlip} />

@@ -47,7 +47,15 @@ function UpdateTimetable() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e) => {    
+    const { name, value } = e.target;
+
+    // Validation for phone number: Allow only 10 digits
+    if (name === "phoneNo" && !/^\d{0,10}$/.test(value)) {
+      // If the entered value is not exactly 10 digits or empty, don't update state
+      return;
+    }
+    
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -108,6 +116,7 @@ function UpdateTimetable() {
               onChange={handleChange}
               value={inputs.date}
               className="updateTime-field"
+              min={new Date().toISOString().split('T')[0]} // Set min attribute to today's date
               required
             ></input>
             <br />
