@@ -151,6 +151,7 @@ function AddRefund() {
         setDate(formattedDate);
     }, []);
 
+    const today = new Date().toISOString().split('T')[0];
     return (
         <div>
             <Toaster />
@@ -182,7 +183,7 @@ function AddRefund() {
                     <input className='AddPayment input[type="number"]' type="number" id="amount" required name="amount" onChange={handleChange} value={inputs.amount} />
 
                     <label className='AddPayment-label' htmlFor="amount">Date:</label>
-                    <input className='AddPayment input[type="date"]' type="date" id="date" required name="date" onChange={(e) => setDate(e.target.value)} value={dates} /><br />
+                    <input className='AddPayment input[type="date"]' type="date" id="date" required name="date" min={today} onChange={(e) => setDate(e.target.value)} value={dates} /><br />
 
                     <label className='AddPayment-label' htmlFor="amount">Reason:</label>
                     <input className='AddPayment input[type="number"]' type="text" id="reason" required name="reason" onChange={handleChange} value={inputs.reason} /><br />
