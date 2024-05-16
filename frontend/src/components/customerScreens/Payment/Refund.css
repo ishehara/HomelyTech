@@ -1,0 +1,74 @@
+.Payment-search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.Payment-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #677c92;
+  border-radius: 4px;
+  margin: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  width: 1120px;
+}
+
+.Payment-input::placeholder {
+  color: #aaa;
+}
+
+.Payment-link{
+
+  color: #fff;
+}
+
+.Payment-input:focus {
+  outline: none;
+  border-color: #6c7c8d;
+}
+
+.Payment-button {
+  padding: 10px 20px;
+  background-color: #021a33;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.Payment-button:hover {
+  background-color: #0056b3;
+}
+
+
+.payment-table {
+  width: 100px;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+.payment-table th, .payment-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+
+}
+
+.payment-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.payment-table tr:hover {
+  background-color: #f2f2f2;
+}
+
+.Payment.button {
+  margin: 5px;
+}
