@@ -44,10 +44,22 @@ function UpdateDetails() {
     };
 
     const handleChange = (e) => {
-        setInputs((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }));
+        const { name, value } = e.target;
+
+        // Check if the value is negative for quantity and product cost
+        if ((name === 'quantity' || name === 'productCost') && parseFloat(value) < 0) {
+            // If the value is negative, set it to 0
+            setInputs((prevState) => ({
+                ...prevState,
+                [name]: '0', // Set to 0
+            }));
+        } else {
+            // Otherwise, update the state normally
+            setInputs((prevState) => ({
+                ...prevState,
+                [name]: value,
+            }));
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -57,6 +69,10 @@ function UpdateDetails() {
             history("/displayDetails");
         }
     };
+
+    
+    // Get today's date in the format "YYYY-MM-DD"
+    const today = new Date().toISOString().split('T')[0];
 
     return (
         <div>
@@ -101,7 +117,7 @@ function UpdateDetails() {
 
                     <label className="label-i">Date:</label>
                     <br />
-                    <input type="date" name="date" onChange={handleChange} value={inputs.date ? inputs.date.slice(0, 10) : ''} required />
+                    <input type="date" name="date" onChange={handleChange} value={inputs.date ? inputs.date.slice(0, 10) : ''} disabled />
                     <br /><br />
 
                     <button className="btn-Inventory" type="submit">Submit</button>

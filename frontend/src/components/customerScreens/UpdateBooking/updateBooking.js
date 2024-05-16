@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router';
 import Footer from '../Footer/footer';
 import Navbar from '../navbar';
-import './vedioBg.css'
 import Bgvideo from '../../../media/videoBg.mp4';
 
 function UpdateBooking() {
@@ -93,7 +92,7 @@ function UpdateBooking() {
     const videoContainerStyle = {
         position: 'relative',
         width: '100%',
-        height: '129vh', // Set to full viewport height
+        height: '125vh', // Set to full viewport height
         overflow: 'hidden'
     };
 
@@ -117,9 +116,9 @@ function UpdateBooking() {
         zIndex: 0
     };
 
-    const formContainerStyle = {
+    const upBookformContainerStyle = {
         position: 'absolute',
-        top: '72%',
+        top: '75%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '90%',
@@ -173,7 +172,7 @@ function UpdateBooking() {
                 <video src={Bgvideo} autoPlay muted loop className="video-bg"></video>
                 <div className="bg-overlay"></div>
             </div>
-            <div style={formContainerStyle}>
+            <div style={upBookformContainerStyle}>
             <h1 style={headingStyle}>Update Your Booking</h1>
                 <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
                     <label style={labelStyle}>Customer Name:</label>

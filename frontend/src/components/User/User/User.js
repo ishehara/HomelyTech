@@ -45,7 +45,9 @@ function User(props) {
           <div>{userLevel}</div>
           <div className="operations">
             <Link to={`/userdetails/${_id}`} className="user-button update-button">Update</Link>
+
             <button onClick={deleteHandler} className="user-button delete-button">Delete</button>
+            
           </div>
         </div>
       </div>

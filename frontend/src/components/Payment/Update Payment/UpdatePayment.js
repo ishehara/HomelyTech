@@ -83,7 +83,14 @@ function UpdatePayment() {
                     <input className='AddPayment input[type="text"]' type="text" id="paymentSlip" name="PaymentSlip" required  onChange={handleChange} value={inputs.PaymentSlip} /><br /><br />
 
                     <label className='AddPayment-label'  htmlFor="status">Status:</label><br />
-                    <input className='AddPayment input[type="text"]' type="text" id="status" name="Status" required  onChange={handleChange} value={inputs.Status} /><br /><br />
+                   
+<select className='AddPayment input' id="status" name="Status" required onChange={handleChange} value={inputs.Status}>
+  <option value="">Select Status</option>
+  <option value="Approved">Approved</option>
+  <option value="Rejected">Rejected</option>
+  <option value="Approved">Pending</option>
+</select><br></br>
+<br></br>
                     <button type="submit" className='AddPayment-button'>Submit</button>
                 </form>
             </div>

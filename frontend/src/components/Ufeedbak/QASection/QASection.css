@@ -68,3 +68,14 @@
   background-color: #0056b3;
 }
 
+@keyframes animateBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.qa-container {
+  animation: animateBackground 20s linear infinite;
+  background: linear-gradient(to right, #6C5B7B, #001f3f); /* Adjust gradient colors as needed */
+}
+

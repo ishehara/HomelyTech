@@ -11,6 +11,9 @@ router.get("/:id",SproviderController.getById);
 router.put("/:id",SproviderController.updateSprovider);
 router.delete("/:id",SproviderController.deleteSprovider);
 
+// Route for service provider login
+router.post("/login", SproviderController.serviceProviderLogin);
+
 
 
 //export
