@@ -82,6 +82,12 @@ function navbar() {
                   <Link to="/adreport" className="nav-link">Advertisement Report</Link>
     
               </li>
+
+              <li className="nav-item">
+                
+                  <Link to="/feedbackdetails" className="nav-link">Feedback Detailse Report</Link>
+    
+              </li>
               
             </ul>
             

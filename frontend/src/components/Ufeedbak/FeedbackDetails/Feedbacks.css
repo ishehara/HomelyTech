@@ -49,3 +49,23 @@
 .delete-button:hover {
     background-color: #c82333;
 }
+
+/* Adjust image styling */
+.feedback-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box-shadow for depth */
+}
+
+/* Additional styling for feedback details */
+.feedback-details {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
