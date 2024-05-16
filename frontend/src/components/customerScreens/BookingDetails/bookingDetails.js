@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import axios from 'axios';
 import Booking from '../Booking/Booking';
 import { useReactToPrint } from 'react-to-print';
 import Nav from "../../navbar/navbar";
 
-const URL = "http://localhost:5000/bookings";
+const URL = "http://Localhost:5000/bookings";
 
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);
@@ -41,63 +42,63 @@ function BookingDetails() {
   return (
     <div>
       <Nav/>
-      <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px' }}>
 
-        <h1>Booking Details</h1>
-        <input
-          style={{
-            padding: '10px',
-            marginBottom: '10px',
-            fontSize: '16px',
-            borderRadius: '5px',
-            border: '2px solid #ccc',
-            width: '300px'
-          }}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          type="text"
-          name="search"
-          placeholder="Search Booking Details"
-        />
+      <h1>Booking Details</h1>
+      <input
+        style={{
+          padding: '10px',
+          marginBottom: '10px',
+          fontSize: '16px',
+          borderRadius: '5px',
+          border: '2px solid #ccc',
+          width: '300px'
+        }}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        type="text"
+        name="search"
+        placeholder="Search Booking Details"
+      />
 
-        <button
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-          onClick={handleSearch}>Search</button>
+      <button
+        style={{
+          padding: '10px 20px',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+        onClick={handleSearch}>Search</button>
 
-        {noResults ? (
-          <div style={{ marginTop: '20px' }}>
-            <p>No Bookings Found</p>
-          </div>
-        ) : (
-          <div ref={componentRef} style={{ marginTop: '20px' }}>
-            {bookings.map((booking, i) => (
-              <div key={i} style={{ marginBottom: '10px' }}>
-                <Booking booking={booking} />
-              </div>
-            ))}
-          </div>
-        )}
-        <button
-          style={{
-            padding: '10px 20px',
-            backgroundColor: 'green',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-          onClick={handlePrint}>Download Report</button>
+      {noResults ? (
+        <div style={{ marginTop: '20px' }}>
+          <p>No Bookings Found</p>
+        </div>
+      ) : (
+        <div ref={componentRef} style={{ marginTop: '20px' }}>
+          {bookings.map((booking, i) => (
+            <div key={i} style={{ marginBottom: '10px' }}>
+              <Booking booking={booking} />
+            </div>
+          ))}
+        </div>
+      )}
+      <button
+        style={{
+          padding: '10px 20px',
+          backgroundColor: 'green',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+        onClick={handlePrint}>Download Report</button>
 
 
-      </div>
     </div>
-  );
+    </div>
+  )
 }
 
 export default BookingDetails;
