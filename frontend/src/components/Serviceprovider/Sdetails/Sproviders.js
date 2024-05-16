@@ -18,20 +18,32 @@ const fetchHandler = async () =>{
       fetchHandler().then((data) => setSproviders(data.sproviders));
     },[])
 
-    return(
-        <div>
-            <Navbar/>
-            <h1>service Provider Details Display page</h1>
-            <div>
-                {sproviders && sproviders.map((sprovider,i) =>(
-                    <div key={i}>
-                        <Sprovider sprovider={sprovider}/>
-                </div>
-                ))}
-             </div>
-             <Footer/>
-             </div>
-    )}
+    if (isAdmin === 'true') {
+      return(
+          <div>
+              <Nav/>
+              <h1>service Provider Details Display page</h1>
+              <div>
+                  {sproviders && sproviders.map((sprovider,i) =>(
+                      <div key={i}>
+                          <Sprovider sprovider={sprovider}/>
+                  </div>
+                  ))}
+               </div>
+               </div>
+      );
+    }else {
+    // Render different content for non-admin users
+    return (
+      <div>
+      <Nav />
+      <h1 className="users-title">Access Denied</h1>
+      <p>Sorry, you don't have permission to view this page.</p>
+    </div>
+  );
+  }
+  }
+     
            
     
   
